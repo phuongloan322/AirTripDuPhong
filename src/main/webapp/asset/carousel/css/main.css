@@ -1,0 +1,153 @@
+.category {
+	font-size: 20px;
+}
+.group-form {
+	float: left;
+    width: 50%;
+}
+.address {
+	position: absolute;
+    top: 40%;
+    left: 15%;
+    font-weight: 700;
+    font-size: 40px;
+    color: #fff;
+    
+}
+.chaadd, .setaddcha {
+	position: relative;
+}
+.setaddress {
+	position: absolute;
+    top: 30%;
+    right: 20%;
+    width: 50%;
+    font-size: 20px;
+    height: 60px;
+    border-radius: 30px;
+    padding: 0 20px;
+}
+.bnkhach td input {
+	width: 120px;
+    height: 50px;
+    font-size: 25px;
+    border: none;
+    padding-left: 50px;
+}
+.bnkhach td {
+	font-size: 25px;
+	padding: 20px 50px;
+}
+.f20 {
+	font-size: 20px;
+}
+.f17 {
+	font-size: 17px;
+}
+.asa {
+	padding-top: 150px;
+}
+.ftd {
+	border: 1px solid #666;
+    border-radius: 10px;
+    font-size: 23px;
+    padding: 10px;
+    width: 200%;
+}
+.gia{
+	font-size: 25px;
+	font-weight: 600;
+	border: none;
+	padding: 20px;
+	width: 200px;
+	border-radius: 15px;
+	margin: 5px;
+}
+<b:tag name='style'>/* <![CDATA[ */
+.buttons_added {
+    opacity:1;
+    display:inline-block;
+    display:-ms-inline-flexbox;
+    display:inline-flex;
+    white-space:nowrap;
+    vertical-align:top;
+    text-align: center;
+}
+.is-form {
+    overflow:hidden;
+    position:relative;
+    background-color:#f9f9f9;
+    height:2.2rem;
+    width:1.9rem;
+    padding:0;
+    text-shadow:1px 1px 1px #fff;
+    border:1px solid #ddd;
+}
+.is-form:focus,.input-text:focus {
+    outline:none;
+}
+.is-form.minus {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    line-height: 0px;
+    font-size: 30px;
+    margin: 15px;
+}
+.is-form.plus {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    line-height: 0px;
+    font-size: 30px;
+    margin: 15px;
+}
+.input-qty {
+	background-color: #fff;
+    height: 4rem;
+    width: 12rem;
+    text-align: center;
+    font-size: 1rem;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-left: 0;
+    border-right: 0;
+    padding: 0;
+    font-size: 25px;
+    margin: 10px;
+    border-radius: 10px;
+}
+.input-qty::-webkit-outer-spin-button,.input-qty::-webkit-inner-spin-button {
+    -webkit-appearance:none;
+    margin:0;
+}
+/* ]]> */</b:tag>
+
+.center {
+	margin: 0 auto;
+}
+.finish {
+	border: 1px solid #777;
+    padding: 10px;
+    width: 200px;
+    border-radius: 15px;
+    background: #475;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 600;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+.ngay{
+	padding: 20px;
+    font-size: 20px;
+}
+.startdate input {
+	border: 1px solid #f0f0f0;
+    padding: 10px;
+    width: 190px;
+}
