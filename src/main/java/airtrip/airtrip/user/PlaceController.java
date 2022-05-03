@@ -58,7 +58,7 @@ public class PlaceController {
 		if(filter == null) filter = "";
 		if(category == null) category = "";
 		Account accLogin = (Account) session.getAttribute("accLogin");
-		int pageSize = 2;
+		int pageSize = 9;
 		Page<Place> page = placeBo.findPlaceByPaginated(pageNo, search, category, filter, pageSize);
 		List<Place> listPost = page.getContent();
 
@@ -254,6 +254,16 @@ public class PlaceController {
 			e.printStackTrace();
 		}
 		return new ModelAndView("detailplace");
+	}
+
+	@GetMapping("/show-image/{placeId}")
+	public String showImage(Model model, @PathVariable long placeId) {
+
+		Place place = this.placeBo.getPlaceById(placeId);
+		List<Image> images = place.getImages();
+		model.addAttribute("images", images);
+
+		return "showImage";
 	}
 
 }

@@ -1,6 +1,8 @@
 package airtrip.airtrip.user;
 
 import airtrip.airtrip.entity.Account;
+import airtrip.airtrip.entity.Category;
+import airtrip.airtrip.entity.LitleCategory;
 import airtrip.airtrip.entity.Place;
 import airtrip.airtrip.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,11 +48,11 @@ public class MapController {
         return this.findPaginated(1, null, null,null, model, request);
     }
 
-    @GetMapping("/map")
+    @RequestMapping("/map/{pageNo}")
     public String findPaginated(@PathVariable(value = "pageNo") int pageNo,
-                                @RequestParam(value = "search") String search,
-                                @RequestParam(value = "category") String category,
-                                @RequestParam(value = "filter") String filter,
+                                @RequestParam(value = "search", required = false) String search,
+                                @RequestParam(value = "category", required = false) String category,
+                                @RequestParam(value = "filter", required = false) String filter,
                                 Model model,
                                 HttpServletRequest request) throws Exception {
         HttpSession session = request.getSession();
@@ -61,6 +63,10 @@ public class MapController {
         int pageSize = placeBo.getAllPlace().size();
         Page<Place> page = placeBo.findPlaceByPaginated(pageNo, search, category, filter, pageSize);
         List<Place> listPost = page.getContent();
+
+        List<Category> categories = this.categoryService.getAll();
+        List<LitleCategory> litlecategoryList = this.litleCategoryService.getAll();
+
         model.addAttribute("currentPage", pageNo);
         model.addAttribute("totalPages", page.getTotalPages());
         model.addAttribute("totalItems", page.getTotalElements());
@@ -69,6 +75,39 @@ public class MapController {
         model.addAttribute("search", search);
         model.addAttribute("category", category);
         model.addAttribute("filter", filter);
+        model.addAttribute("categoryList", categories);
+        model.addAttribute("litlecategoryList", litlecategoryList);
         return "map";
     }
+
+    @RequestMapping("/map/search-advanced")
+    public String searchAdvanced(
+            @RequestParam(value = "category", required = false) String category,
+            @RequestParam(value = "litlecategory", required = false) String litlecategory,
+            @RequestParam(value = "address", required = false) String address,
+            @RequestParam(value = "people", required = false) int people,
+            @RequestParam(value = "phongngu", required = false) int phongngu,
+            @RequestParam(value = "giuong", required = false) int giuong,
+            @RequestParam(value = "phongtam", required = false) int phongtam,
+            @RequestParam(value = "startdate", required = false) String startdate,
+            @RequestParam(value = "enddate", required = false) String enddate,
+            @RequestParam(value = "price1", required = false) long price1,
+            @RequestParam(value = "price2", required = false) long price2,
+            Model model,
+            HttpServletRequest request) throws Exception {
+        HttpSession session = request.getSession();
+        List<Place> listPost = placeBo.searchAdvanced(category, litlecategory,address, people,phongngu, giuong, phongtam, startdate, enddate, price1, price2);
+
+
+        List<Category> categories = this.categoryService.getAll();
+        List<LitleCategory> litlecategoryList = this.litleCategoryService.getAll();
+
+        model.addAttribute("currentPage", 1);
+        model.addAttribute("totalPages", 1);
+        model.addAttribute("listPost", listPost);
+        model.addAttribute("categoryList", categories);
+        model.addAttribute("litlecategoryList", litlecategoryList);
+        return "map";
+    }
+
 }

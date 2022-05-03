@@ -35,7 +35,7 @@ public interface PlaceRepository extends JpaRepository<Place, Long> {
     @Query(value = "select t from Place t where (t.address like %?1% or t.name like %?1% or t.litleCategory.category.name like %?1% or t.litleCategory.litleName like %?1% or t.phone like %?1% or t.account.name like %?1%) and t.litleCategory.category.categoryId like %?2% order by t.price desc ")
     Page<Place> getPlaceByDESC(String search, String category, Pageable pageable);
 
-    @Query(value = "select t from Place t where (t.address like %?1% or t.name like %?1% or t.litleCategory.category.name like %?1% or t.litleCategory.litleName like %?1% or t.phone like %?1% or t.account.name like %?1%) and (t.price between ?1 and ?2) and t.litleCategory.category.categoryId like %?3% order by t.price desc")
+    @Query(value = "select t from Place t where (t.address like %?1% or t.name like %?1% or t.litleCategory.category.name like %?1% or t.litleCategory.litleName like %?1% or t.phone like %?1% or t.account.name like %?1%) and (t.price between ?2 and ?3) and t.litleCategory.category.categoryId like %?4% order by t.price desc")
     Page<Place> getPlaceByPriceBetween(String search, long price1, long price2, String category, Pageable pageable);
 
     @Query(value = "select max(t.placeId) from Place t")

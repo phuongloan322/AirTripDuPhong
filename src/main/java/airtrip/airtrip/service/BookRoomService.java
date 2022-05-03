@@ -32,16 +32,20 @@ public class BookRoomService {
         return this.bookRoomRepository.findById(bookId).orElse(null);
     }
 
-    public List<BookRoom> getBookRoomAcceptById(long accThueId, int isAccept) {
-        return this.bookRoomRepository.getBookRoomAcceptById(accThueId, isAccept);
+    public List<BookRoom> getBookRoomAcceptById(long accThueId, int isAccept, boolean isPayment) {
+        return this.bookRoomRepository.getBookRoomAcceptById(accThueId, isAccept, isPayment);
     }
 
     public List<BookRoom> getBookRoomFinish(long accThueId, boolean isPayment) {
         return this.bookRoomRepository.getBookRoomFinish(accThueId, isPayment);
     }
 
-    public List<BookRoom> getBookRoomAccept(long accId, int isAccept) {
-        return this.bookRoomRepository.getBookRoomAccept(accId, isAccept);
+    public List<BookRoom> getBookRoomAccept(long accId, boolean pay) {
+        return this.bookRoomRepository.getBookRoomAccept(accId, pay);
+    }
+
+    public List<BookRoom> getBookRoomCancel(long accId, int isAccept) {
+        return this.bookRoomRepository.getBookRoomCancel(accId, isAccept);
     }
 
     public List<BookRoom> getBookRoomAllAccept(long accId) {
@@ -95,6 +99,26 @@ public class BookRoomService {
             e.printStackTrace();
         }
         return getDaysDiff;
+    }
+
+    public List<BookRoom> getBookingByPlace(long placeId) {
+        return this.bookRoomRepository.getBookingByPlace(placeId);
+    }
+
+    public List<BookRoom> getBookRoomCoomingSoon(long accountId, int i, boolean b) {
+        return this.bookRoomRepository.getBookRoomCoomingSoon(accountId, i, b);
+    }
+
+    public List<BookRoom> getBookRoomCheckoutSoon(long accountId, int i, boolean b) {
+        return this.bookRoomRepository.getBookRoomCheckoutSoon(accountId, i, b);
+    }
+
+    public List<BookRoom> getBookRoomByFinish(long accountId, int i, boolean b) {
+        return this.bookRoomRepository.getBookRoomByFinish(accountId, i, b);
+    }
+
+    public List<BookRoom> getBookRoomCancelHost(long accountId, int i) {
+        return this.bookRoomRepository.getBookRoomCancelHost(accountId,i);
     }
 }
 

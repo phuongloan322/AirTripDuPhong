@@ -25,6 +25,11 @@ function initMap() {
         imageList.push(image);
     });
 
+    if(addList.length == 0) {
+        alert("Không tìm thấy nhà phòng cho thuê nào!");
+        window.location="/show-map";
+    }
+
     for (let i = 0; i < addList.length; i++) {
         console.log(addList[i]);
     }
@@ -79,12 +84,12 @@ function initMap() {
             +'<a style="margin-left: 30px" href="/AddLovePlace/'+placeId+'" ><u style="font-size: 14px">Yêu thích</u></a>'
             +'<script>console.log("Loan")</script>');
             map.setCenter(new google.maps.LatLng(lat, lng));
-            map.setZoom(15);
+            map.setZoom(25);
             infowindow.open(map,marker);
 
             google.maps.event.addListener(infowindow, 'closeclick', function() {
                 map.panTo(this.getPosition());
-                map.setZoom(7);
+                map.setZoom(10);
             });
         });
 

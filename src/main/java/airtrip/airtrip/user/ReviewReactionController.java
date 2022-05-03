@@ -67,6 +67,34 @@ public class ReviewReactionController {
 
 		return reactionbean;
 	}
+
+	@RequestMapping(value="/review-reaction/edit", method = RequestMethod.GET )
+	public @ResponseBody ReviewReaction EditReaction(HttpSession session, HttpServletResponse response
+			,@RequestParam(name = "reactionId") long reactionId, @RequestParam(name = "detail") String detail) {
+
+		Account account = (Account) session.getAttribute("accLogin");
+
+		ReviewReaction reviewReactionEdit = this.reviewReactionService.findById(reactionId);
+		reviewReactionEdit.setDetails(detail);
+		this.reviewReactionService.save(reviewReactionEdit); //edit xong
+
+		ReviewReaction reactionbean = new ReviewReaction();
+		reactionbean.setDetails(detail);
+
+		Account account1 = new Account();
+		account1.setAccountId(account.getAccountId());
+		account1.setName(account1.getName());
+		account1.setImage(account1.getImage());
+		reactionbean.setAccount(account1);
+
+		try {
+			reviewReactionService.PostReaction(reactionbean);
+			reactionbean = reviewReactionService.GetLastReaction();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return reactionbean;
+	}
 	
 	@RequestMapping(value="/DeleteReaction", method = RequestMethod.GET)
 	public @ResponseBody ResponseEntity<Object> DeleteReaction(

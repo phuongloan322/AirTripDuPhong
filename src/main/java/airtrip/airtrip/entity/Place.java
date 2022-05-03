@@ -23,7 +23,7 @@ public class Place {
     private long placeId;
     private String name;
 
-    @OneToMany(mappedBy = "place")
+    @OneToMany(mappedBy = "place", cascade = CascadeType.ALL)
     private List<Image> images;
 
     private String address;

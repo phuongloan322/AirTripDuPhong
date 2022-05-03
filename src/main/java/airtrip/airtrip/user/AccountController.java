@@ -3,10 +3,9 @@ package airtrip.airtrip.user;
 import airtrip.airtrip.Capcha.VerifyUtils;
 import airtrip.airtrip.entity.Account;
 import airtrip.airtrip.entity.AccountRole;
-import airtrip.airtrip.service.AccountRoleService;
-import airtrip.airtrip.service.AccountService;
-import airtrip.airtrip.service.AppRoleService;
-import airtrip.airtrip.service.ImageService;
+import airtrip.airtrip.entity.Place;
+import airtrip.airtrip.entity.Review;
+import airtrip.airtrip.service.*;
 import airtrip.airtrip.utils.WebUtils;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +13,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,6 +23,10 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.security.Principal;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Controller
 public class AccountController {
@@ -38,6 +42,12 @@ public class AccountController {
 
 	@Autowired
 	private AppRoleService appRoleService;
+
+	@Autowired
+	private PlaceService placeService;
+
+	@Autowired
+	private ReviewService reviewService;
 
 	@RequestMapping(value = "/admin/login", method = RequestMethod.GET)
 	public String adminPage(Model model, Principal principal) {
@@ -124,6 +134,11 @@ public class AccountController {
 			acc.setPassword(password);
 			acc.setIsIdentity(false);
 			acc.setIntroduce("");
+
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd");
+			Date date = new Date();
+			String dateSubmit = formatter.format(date);
+			acc.setCreateDate(dateSubmit);
 
 			boolean valid = true;
 			String errorString = "";
@@ -235,5 +250,39 @@ public class AccountController {
 		this.imageService.updateImageAccount(account, file, request, account.getImage());
 
 		return new ModelAndView("redirect:/manager-account");
+	}
+
+	@RequestMapping("/detail-account/{accountId}")
+	public String detailHost(Model model, @PathVariable long accountId) {
+		Account account = accountService.getAccountById(accountId);
+		model.addAttribute("account", account);
+
+		List<Place> placeList = this.placeService.getPlaceByAccId(accountId);
+		model.addAttribute("placeById", placeList);
+
+		List<Review> reviewList = this.reviewService.getReviewByAccount(accountId);
+		model.addAttribute("reviewById", reviewList);
+
+		List<String> ratings = new ArrayList<String>();
+		float rating = 0;
+		float sumReview = 0;
+		for (Place place : placeList) {
+			List<Review> reviews = this.reviewService.getReviewByPlace(place.getPlaceId());
+			for (Review review : reviews) {
+				sumReview += review.getRate();
+			}
+			int n = reviews.size();
+			if(n != 0) {
+				rating = sumReview / (float)reviews.size();
+			}
+			if(n == 0) {
+				ratings.add(0 + " ("+reviews.size()+")");
+			}
+			else
+				ratings.add(rating + " ("+reviews.size()+")");
+		}
+		model.addAttribute("ratings", ratings);
+
+		return "detailHost";
 	}
 }

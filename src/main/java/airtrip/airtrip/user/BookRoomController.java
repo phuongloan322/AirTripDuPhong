@@ -100,6 +100,14 @@ public class BookRoomController {
 
             bookRoomService.addBookRoom(bookRoom);
 
+            List<BookRoom> bookRooms = this.bookRoomService.getBookingByPlace(placeId);
+            System.out.print(bookRooms.size());
+            if(bookRooms.size() >= this.placeService.findById(placeId).getNumberPlace()) {
+                System.out.print(this.placeService.findById(placeId).getNumberPlace());
+                System.out.print(bookRooms.size() >= this.placeService.findById(placeId).getNumberPlace());
+                this.placeService.editIsEmpty(false, placeId);
+            }
+
             HashMap<Long, Place> cart = (HashMap<Long, Place>) session.getAttribute("Cart");
             if (cart == null) {
                 cart = new HashMap<Long, Place>();
@@ -123,6 +131,7 @@ public class BookRoomController {
             }
             List<BookRoom> roomList = bookRoomService.getBookRoom(accountbean.getAccountId());
             model.addAttribute("bookroomList", roomList);
+            session.setAttribute("chooseBooking", "all");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -136,8 +145,9 @@ public class BookRoomController {
             if (accountbean == null) {
                 return new ModelAndView("login");
             }
-            List<BookRoom> roomList = bookRoomService.getBookRoomAcceptById(accountbean.getAccountId(), 1);
+            List<BookRoom> roomList = bookRoomService.getBookRoomAcceptById(accountbean.getAccountId(), 1, false);
             model.addAttribute("bookroomList", roomList);
+            session.setAttribute("chooseBooking", "accept");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -151,8 +161,9 @@ public class BookRoomController {
             if (accountbean == null) {
                 return new ModelAndView("login");
             }
-            List<BookRoom> roomList = bookRoomService.getBookRoomAcceptById(accountbean.getAccountId(), 0);
+            List<BookRoom> roomList = bookRoomService.getBookRoomAcceptById(accountbean.getAccountId(), 0, false);
             model.addAttribute("bookroomList", roomList);
+            session.setAttribute("chooseBooking", "noaccept");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -168,7 +179,23 @@ public class BookRoomController {
             }
             List<BookRoom> roomList = bookRoomService.getBookRoomFinish(accountbean.getAccountId(), true);
             model.addAttribute("bookroomList", roomList);
-            model.addAttribute("review", "Đánh giá");
+            session.setAttribute("chooseBooking", "review");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new ModelAndView("bookroom");
+    }
+
+    @RequestMapping("/bookroom/cancel")
+    public ModelAndView CancelBookRoom(Model model, HttpServletRequest request, HttpSession session) {
+        try {
+            Account accountbean = (Account) session.getAttribute("accLogin");
+            if (accountbean == null) {
+                return new ModelAndView("login");
+            }
+            List<BookRoom> roomList = bookRoomService.getBookRoomCancel(accountbean.getAccountId(), -1);
+            model.addAttribute("bookroomList", roomList);
+            session.setAttribute("chooseBooking", "cancel");
         } catch (Exception e) {
             e.printStackTrace();
         }

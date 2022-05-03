@@ -73,7 +73,7 @@ public class PlaceService {
         detailPlaceRepository.save(detailPlace);
     }
 
-    public void EditPlace(String name, String detail, String address, long price, String startDay, String endDay, boolean isEmpty, long placeId) {
+    public void EditPlace(String name, String detail, String address, long price, String startDay, String endDay, boolean isEmpty, long placeId, int numberPlace) {
 
         Place place = this.placeRepository.findById(placeId).orElse(null);
         place.setName(name);
@@ -83,6 +83,7 @@ public class PlaceService {
         place.setStartDay(startDay);
         place.setEndDay(endDay);
         place.setIsEmpty(isEmpty);
+        place.setNumberPlace(numberPlace);
         placeRepository.save(place);
     }
 
@@ -146,5 +147,21 @@ public class PlaceService {
 
     public List<Place> searchAdvanced(String category, String litlecategory, String address,int people, int phongngu, int giuong, int phongtam, String startdate, String enddate, long price1, long price2) {
         return this.placeRepository.searchAdvanced(category, litlecategory,people,phongngu, giuong, phongtam, startdate, enddate, price1, price2, address);
+    }
+
+    public void editIsEmpty(boolean b, long placeId) {
+        Place place = placeRepository.findById(placeId).orElse(null);
+        place.setIsEmpty(false);
+        this.placeRepository.save(place);
+    }
+
+    public void EditEmptyPlace(boolean b, long placeId) {
+        Place place = placeRepository.findById(placeId).orElse(null);
+        place.setIsEmpty(b);
+        placeRepository.save(place);
+    }
+
+    public void deleteById(long placeId) {
+        this.placeRepository.deleteById(placeId);
     }
 }

@@ -32,4 +32,12 @@ public class ReviewReactionService {
     public ReviewReaction GetLastReaction() {
         return this.reviewReactionRepository.GetLastReaction();
     }
+
+    public ReviewReaction findById(long reactionId) {
+        return this.reviewReactionRepository.findById(reactionId).orElse(null);
+    }
+
+    public void save(ReviewReaction reviewReaction) {
+        this.reviewReactionRepository.save(reviewReaction);
+    }
 }

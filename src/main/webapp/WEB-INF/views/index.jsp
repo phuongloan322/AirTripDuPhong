@@ -179,6 +179,7 @@
 				<div class="grid_6">
 					
 				</div>
+
 				<div class="grid_5 prefix_1">
 					<h3>Welcome</h3>
 					<img src="asset/images/page1_img1.jpg" alt="" class="img_inner fleft">

@@ -38,4 +38,7 @@ public class BookRoom {
 
     @OneToMany(mappedBy = "bookRoom", cascade = CascadeType.ALL)
     private List<CancelBook> cancelBookList;
+
+    @OneToMany(mappedBy = "bookRoom", cascade = CascadeType.ALL)
+    private List<Payment> payments;
 }

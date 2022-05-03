@@ -24,4 +24,8 @@ public class ReviewService {
     public Review findById(long reviewId) {
         return this.reviewRepository.findById(reviewId).orElse(null);
     }
+
+    public List<Review> getReviewByAccount(long accountId) {
+        return this.reviewRepository.getReviewByAccount(accountId);
+    }
 }

@@ -80,10 +80,37 @@
         <hr>
         <br>
         <ul class="ds">
-            <li><a href="<c:url value="/bookroom" />" class="itemmenu">Tất cả</a></li>
-            <li><a href="<c:url value="/bookroom/noAccept" />" class="itemmenu">Chưa xác nhận</a></li>
-            <li><a href="<c:url value="/bookroom/isAccept" />" class="itemmenu">Đã xác nhận</a></li>
-            <li><a href="<c:url value="/bookroom/finish" />" class="itemmenu">Hoàn thành</a></li>
+            <c:if test="${chooseBooking.equals(\"all\")}">
+                <li><a href="/bookroom" class="itemmenu active">Tất cả</a></li>
+            </c:if>
+            <c:if test="${!chooseBooking.equals(\"all\")}">
+                <li><a href="/bookroom" class="itemmenu">Tất cả</a></li>
+            </c:if>
+            <c:if test="${chooseBooking.equals(\"noaccept\")}">
+                <li><a href="/bookroom/noAccept" class="itemmenu active">Chưa xác nhận</a></li>
+            </c:if>
+            <c:if test="${!chooseBooking.equals(\"noaccept\")}">
+                <li><a href="/bookroom/noAccept" class="itemmenu">Chưa xác nhận</a></li>
+            </c:if>
+            <c:if test="${chooseBooking.equals(\"accept\")}">
+                <li><a href="/bookroom/isAccept" class="itemmenu active">Đã xác nhận</a></li>
+            </c:if>
+            <c:if test="${!chooseBooking.equals(\"accept\")}">
+                <li><a href="/bookroom/isAccept" class="itemmenu">Đã xác nhận</a></li>
+            </c:if>
+            <c:if test="${chooseBooking.equals(\"review\")}">
+                <li><a href="/bookroom/finish" class="itemmenu active">Hoàn thành</a></li>
+            </c:if>
+            <c:if test="${!chooseBooking.equals(\"review\")}">
+                <li><a href="/bookroom/finish" class="itemmenu">Hoàn thành</a></li>
+            </c:if>
+            <c:if test="${chooseBooking.equals(\"cancel\")}">
+                <li><a href="/bookroom/cancel" class="itemmenu active">Đã huỷ</a></li>
+            </c:if>
+            <c:if test="${!chooseBooking.equals(\"cancel\")}">
+                <li><a href="/bookroom/cancel" class="itemmenu">Đã huỷ</a></li>
+            </c:if>
+
         </ul>
         <table class="table itable">
             <c:choose>
@@ -126,28 +153,59 @@
                                 <br><br>
 
                                 <c:choose>
-                                    <c:when test="${item.isAccept == 0 && item.isReview == false }">
-                                        <a data-id="${item.bookId }" class="a-accept huyphong">Hủy đặt phòng</a>
+                                    <c:when test="${item.isPayment == true && item.isReview == false}">
+                                <a href="<c:url value="/post-review/${item.bookId }/${item.place.placeId }" />"
+                                   class="b-accept" id="addButton">
+                                    Đánh giá
+                                </a>
                                     </c:when>
-                                    <c:when test="${item.isAccept == -1 && item.isReview == false }">
-                                        <a data-id="${item.bookId }" class="a-accept huyphong">Đã hủy</a>
-                                        <a data-id="${item.bookId }" href="/show-reason/${item.bookId }"
-                                           class="showcancel a-accept" style="margin-left: 100px">Xem nguyên nhân</a>
-                                    </c:when>
-                                    <c:when test="${item.isAccept == 1 && item.isReview == false && review != null}">
-                                        <a href="<c:url value="/post-review/${item.bookId }/${item.place.placeId }" />"
-                                           class="b-accept" id="addButton">
-                                            Đánh giá
-                                        </a>
-                                    </c:when>
-                                    <c:when test="${item.isAccept == 1 &&item.isReview == true}">
-                                        <button type="button" class="a-accept">
-                                            Đã đánh giá
-                                        </button>
+                                    <c:when test="${item.isPayment == true && item.isReview == true}">
+                                            <button type="button" class="a-accept">Đã đánh giá</button>
                                     </c:when>
                                     <c:otherwise>
-                                        <a class="b-accept" href="/payment/${item.bookId}">Thanh toán</a>
+                                        <c:choose>
+                                            <c:when test="${item.isAccept == 1}">
+                                                <a class="b-accept" href="/payment/${item.bookId}">Thanh toán</a>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <c:choose>
+                                                    <c:when test="${item.isAccept == 0}">
+                                                        <a data-id="${item.bookId }" class="a-accept huyphong">Hủy đặt phòng</a>
+                                                    </c:when>
+                                                    <c:when test="${item.isAccept == -1}">
+                                                        <div>
+                                                            <a data-id="${item.bookId }" class="a-accept">Đã hủy</a>
+                                                            <a data-id="${item.bookId }" href="/show-reason/${item.bookId }"
+                                                               class="showcancel xem-reason" >Xem nguyên nhân</a>
+                                                        </div>
+                                                    </c:when>
+                                                </c:choose>
+                                            </c:otherwise>
+                                        </c:choose>
                                     </c:otherwise>
+
+<%--                                    <c:when test="${item.isAccept == 0 && item.isReview == false }">--%>
+<%--                                        <a data-id="${item.bookId }" class="a-accept huyphong">Hủy đặt phòng</a>--%>
+<%--                                    </c:when>--%>
+<%--                                    <c:when test="${item.isAccept == -1 && item.isReview == false }">--%>
+<%--                                        <a data-id="${item.bookId }" class="a-accept huyphong">Đã hủy</a>--%>
+<%--                                        <a data-id="${item.bookId }" href="/show-reason/${item.bookId }"--%>
+<%--                                           class="showcancel a-accept" style="margin-left: 100px">Xem nguyên nhân</a>--%>
+<%--                                    </c:when>--%>
+<%--                                    <c:when test="${item.isAccept == 1 && item.isReview == false && review != null}">--%>
+<%--                                        <a href="<c:url value="/post-review/${item.bookId }/${item.place.placeId }" />"--%>
+<%--                                           class="b-accept" id="addButton">--%>
+<%--                                            Đánh giá--%>
+<%--                                        </a>--%>
+<%--                                    </c:when>--%>
+<%--                                    <c:when test="${item.isAccept == 1 &&item.isReview == true}">--%>
+<%--                                        <button type="button" class="a-accept">--%>
+<%--                                            Đã đánh giá--%>
+<%--                                        </button>--%>
+<%--                                    </c:when>--%>
+<%--                                    <c:otherwise>--%>
+<%--                                        <a class="b-accept" href="/payment/${item.bookId}">Thanh toán</a>--%>
+<%--                                    </c:otherwise>--%>
                                 </c:choose>
                             </td>
 
@@ -230,13 +288,13 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <p class="modal-title">Nguyên nhân hủy phòng</p>
+                <p class="modal-title"><b style="font-size: 17px">Nguyên nhân hủy phòng</b></p>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <input class="form-group" id="reason">
+                <input class="form-control reason1" id="reason">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>

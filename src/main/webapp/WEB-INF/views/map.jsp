@@ -24,12 +24,12 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="logo pull-left">
-                    <a href="/index" />"><b class="head3">AirPay</b></a>
+                    <a href="/index"><b class="head3">AirPay</b></a>
                 </div>
 
             </div >
             <div class="col-sm-5 pull-left">
-                <form action="/places/pagination/1" method="post" width="100%">
+                <form action="/map/1" method="get" width="100%">
                     <div id="custom-search-input">
                         <div class="input-group">
                             <input type="text" name="search" class="search-query form-control" placeholder="Tìm kiếm nhà / phòng mong muốn..." />
@@ -67,43 +67,88 @@
         </div>
     </div>
 
-    <div class="container_12">
-        <div class="grid_12">
-            <div class="menu_block">
-                <nav class="horizontal-nav full-width horizontalNav-notprocessed">
-                    <ul class="sf-menu">
-                        <li><a href="/index">TRANG CHỦ</a></li>
-                        <li class="current"><a href="/places">KHÁM PHÁ</a></li>
-                        <li><a href="/bookroom">CHUYẾN ĐI</a></li>
-                        <li><a href="/index">BLOG</a></li>
-                        <li><a href="/index">LIÊN HỆ</a></li>
-                    </ul>
-                </nav>
-                <div class="clear"></div>
-            </div>
-        </div>
-        <div class="grid_12">
-            <h1>
-                <a href="/places">
-                    <img src="/asset/images/logo.png" alt="Your Happy Family">
-                </a>
-            </h1>
-        </div>
-    </div>
+
 </header>
 <!--==============================Content=================================-->
-<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
-    <div class="">
-        <br>
-        <c:if test="${categoryList.size() > 0 }">
-            <ul class="category"class="category">
-                <c:forEach var="item" items="${categoryList }">
-                    <a href="/places/${item.categoryId }"><li >${item.name }</li></a>
-                </c:forEach>
-                <a href="/places/"><li >Tất cả</li></a>
-            </ul>
+<div class="content">
+    <a href="/places" class="showmap1"><i class="fas fa-list"></i>Hiện danh sách</a>
+    <div>
+        <div style="width: 100%; padding: 50px">
+            <div style="float: left;width: 75%">
+                <c:if test="${categoryList.size() > 0 }">
+                    <ul class="category"class="category">
+                        <a href="/show-map"><li ><i class="fas fa-home"></i> Tất cả</li></a>
+                        <c:forEach var="item" items="${categoryList }">
+                            <c:if test="${category==item.categoryId}">
+                                <a href="/map/1?search=${search}&category=${item.categoryId}&filter=${filter}"><li class="active" >${item.name }</li></a>
+                            </c:if>
+                            <c:if test="${item.categoryId != category}">
+                                <a href="/map/1?search=${search}&category=${item.categoryId}&filter=${filter}"><li >${item.name }</li></a>
+                            </c:if>
 
-        </c:if>
+                        </c:forEach>
+                    </ul>
+                </c:if>
+            </div>
+            <div>
+                <div style="float: left;width: 13%; margin-right: 20px">
+                    <select class="form-control" name="filter" id="filter" onchange="filter()">
+                        <option value="">Giá</option>
+                        <c:if test="${filter.equals(\"asc\")}">
+                            <option value="asc" selected>Tăng dần theo giá</option>
+                        </c:if>
+                        <c:if test="${!filter.equals(\"asc\")}">
+                            <option value="asc">Tăng dần theo giá</option>
+                        </c:if>
+                        <c:if test="${filter.equals(\"desc\")}">
+                            <option value="desc" selected>Giảm dần theo giá</option>
+                        </c:if>
+                        <c:if test="${!filter.equals(\"desc\")}">
+                            <option value="desc">Giảm dần theo giá</option>
+                        </c:if>
+                        <c:if test="${filter.equals(\"pricethap100\")}">
+                            <option value="pricethap100" selected>Giá dưới $100/đêm</option>
+                        </c:if>
+                        <c:if test="${!filter.equals(\"pricethap100\")}">
+                            <option value="pricethap100">Giá dưới $100/đêm</option>
+                        </c:if>
+                        <c:if test="${filter.equals(\"price100\")}">
+                            <option value="price100" selected>Giá từ $100-200/đêm</option>
+                        </c:if>
+                        <c:if test="${!filter.equals(\"price100\")}">
+                            <option value="price100">Giá từ $100-200/đêm</option>
+                        </c:if>
+                        <c:if test="${filter.equals(\"price200\")}">
+                            <option value="price200" selected>Giá từ $200-300/đêm</option>
+                        </c:if>
+                        <c:if test="${!filter.equals(\"price200\")}">
+                            <option value="price200">Giá từ $200-300/đêm</option>
+                        </c:if>
+                        <c:if test="${filter.equals(\"price300\")}">
+                            <option value="price300" selected>Giá $300-400/đêm</option>
+                        </c:if>
+                        <c:if test="${!filter.equals(\"price300\")}">
+                            <option value="price300">Giá từ $300-400/đêm</option>
+                        </c:if>
+                        <c:if test="${filter.equals(\"price400\")}">
+                            <option value="price400" selected>Giá từ $400-500/đêm</option>
+                        </c:if>
+                        <c:if test="${!filter.equals(\"price400\")}">
+                            <option value="price400">Giá từ $400-500/đêm</option>
+                        </c:if>
+                        <c:if test="${filter.equals(\"price500\")}">
+                            <option value="price500" selected>Giá trên $500/đêm</option>
+                        </c:if>
+                        <c:if test="${!filter.equals(\"price500\")}">
+                            <option value="price500">Giá trên $500/đêm</option>
+                        </c:if>
+                    </select>
+                </div>
+                <div style="float: left;width: 5%">
+                    <button class="btn btn-light" data-toggle="modal" data-target="#exampleModal">Bộ lọc</button>
+                </div>
+            </div>
+        </div>
 
         <div style="display: none">
             <c:forEach var="item" items="${listPost }" varStatus="loop">
@@ -117,7 +162,190 @@
             </c:forEach>
         </div>
     </div>
+    <br>
     <div id="map" style="width: 100%; height: 900px"></div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <b class="modal-title" id="exampleModalLabel">Tìm kiếm linh hoạt</b>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/map/search-advanced" method="post">
+                <div class="modal-body">
+                    <div class="filter">
+                        <div class="search">
+                            <p style="padding-left: 10px">Loại nơi ở</p>
+                            <select name="category">
+                                <c:forEach var="item" items="${categoryList}">
+                                    <option value="${item.categoryId}">${item.name}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div class="search">
+                            <p style="padding-left: 10px">Loại nhà phòng</p>
+                            <select name="litlecategory">
+                                <c:forEach var="item" items="${litlecategoryList}">
+                                    <option value="${item.litleCategoryId}">${item.litleName}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="filter">
+                        <div class="search">
+                            <p style="padding-left: 10px">Loại phòng thuê</p>
+                            <select name="phongthue">
+                                <option value="toanbonha">Toàn bộ nhà</option>
+                                <option value="phongchung">Phòng chung</option>
+                                <option value="phongrieng">Phòng riêng</option>
+                            </select>
+                        </div>
+                        <div class="search">
+                            <p style="padding-left: 10px">Địa chỉ</p>
+                            <input name="address" class="form-control" style="border: none;-webkit-box-shadow: none;" placeholder="Địa chỉ cho thuê..." >
+                        </div>
+                    </div>
+
+                    <div class="filter">
+                        <div class="search">
+                            <p style="padding-left: 10px">Số người cho phép</p>
+                            <select name="people">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8+</option>
+                            </select>
+                        </div>
+                        <div class="search">
+                            <p style="padding-left: 10px">Phòng ngủ</p>
+                            <select name="phongngu">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8+</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="filter">
+                        <div class="search">
+                            <p style="padding-left: 10px">Giường</p>
+                            <select name="giuong">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8+</option>
+                            </select>
+                        </div>
+                        <div class="search">
+                            <p style="padding-left: 10px">Phòng tắm</p>
+                            <select name="phongtam">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8+</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="filter">
+                        <div class="search">
+                            <p style="padding-left: 10px">Thời gian bắt đầu</p>
+                            <input name="startdate" id="startdate" class="form-control" style="border: none;-webkit-box-shadow: none;" type="date" >
+                        </div>
+                        <div class="search">
+                            <p style="padding-left: 10px">Thời gian kết thúc</p>
+                            <input name="enddate" id="enddate" class="form-control" style="border: none;-webkit-box-shadow: none;" type="date">
+                        </div>
+                    </div>
+                    <div class="filter">
+                        <div class="search">
+                            <p style="padding-left: 10px">Giá tối thiểu (USD/đêm)</p>
+                            <input name="price1" class="form-control" style="border: none;-webkit-box-shadow: none;" type="number" value="0" >
+                        </div>
+                        <div class="search">
+                            <p style="padding-left: 10px">Giá tối đa (USD/đêm)</p>
+                            <input name="price2" class="form-control" style="border: none;-webkit-box-shadow: none;" type="number" value="1000">
+                        </div>
+                    </div>
+                    <div class="filtertiennghi">
+                        <p>Tiện nghi</p><br>
+                        <div class="group-form f20">
+                            <input type="checkbox" name="tiennghi" value="Bể bơi">
+                            <label > Bể bơi</label><br>
+                        </div>
+                        <div class="group-form f20">
+                            <input type="checkbox" name="tiennghi" value="Bồn tắm nước nóng">
+                            <label > Bồn tắm nước nóng</label><br>
+                        </div>
+                        <div class="group-form f20">
+                            <input type="checkbox" name="tiennghi" value="Lò sưởng trong nhà">
+                            <label > Lò sưởng trong nhà</label><br>
+                        </div>
+                        <div class="group-form f20">
+                            <input type="checkbox" name="tiennghi" value="Thiết bị tập thể dục">
+                            <label > Thiết bị tập thể dục</label><br>
+                        </div>
+                        <div class="group-form f20">
+                            <input type="checkbox" name="tiennghi" value="Bếp đốt lửa trại">
+                            <label > Bếp đốt lửa trại</label><br>
+                        </div>
+                        <div class="group-form f20">
+                            <input type="checkbox" name="tiennghi" value="Khu vực ăn uống ngoài trời">
+                            <label > Khu vực ăn uống ngoài trời</label><br>
+                        </div>
+                        <div class="group-form f20">
+                            <input type="checkbox" name="tiennghi" value="Wi-fi">
+                            <label > Wi-fi</label><br>
+                        </div>
+                        <div class="group-form f20">
+                            <input type="checkbox" name="tiennghi" value="TV">
+                            <label > TV</label><br>
+                        </div>
+                        <div class="group-form f20">
+                            <input type="checkbox" name="tiennghi" value="Bếp">
+                            <label > Bếp</label><br>
+                        </div>
+                        <div class="group-form f20">
+                            <input type="checkbox" name="tiennghi" value="Máy giặt">
+                            <label > Máy giặt</label><br>
+                        </div>
+                        <div class="group-form f20">
+                            <input type="checkbox" name="tiennghi" value="Điều hòa nhiệt độ">
+                            <label > Điều hòa nhiệt độ</label><br>
+                        </div>
+                        <div class="group-form f20">
+                            <input type="checkbox" name="tiennghi" value="Không gian riêng để làm việc">
+                            <label > Không gian riêng để làm việc</label><br>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer" style="border-top:none">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-light">Tìm kiếm</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 <!--==============================footer=================================-->
 
@@ -127,6 +355,18 @@
 <script src="/asset/map/showmap.js" ></script>
 
 <script>
+    document.getElementById("startdate").valueAsDate = new Date();
+    document.getElementById("enddate").valueAsDate = new Date();
+
+    //search advanced
+    function filter() {
+        const filter = document.getElementById("filter").value;
+        console.log(filter);
+        var search = "<c:out value='${search}'/>";
+        var category = "<c:out value='${category}'/>";
+        window.location="/map/1?search="+search+"&filter="+filter+"&category="+category;
+    }
+
     jQuery('.con1 a').click(function(evt) {
         evt.preventDefault();
 

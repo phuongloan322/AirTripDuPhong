@@ -392,9 +392,13 @@ a:focus {
 /******* Page Header CSS *******/
 /*******************************/
 .page-header {
+    /*position: relative;*/
+    /*margin-bottom: 45px;*/
+    /*padding: 150px 0 90px 0;*/
+    /*text-align: center;*/
+    /*background: #F7CAC9;*/
     position: relative;
-    margin-bottom: 45px;
-    padding: 150px 0 90px 0;
+    padding: 0px 0 80px 0;
     text-align: center;
     background: #F7CAC9;
 }
@@ -2187,16 +2191,26 @@ input[type='checkbox']:checked {
 .input-rep {
     border: 1px solid #f0f0f0;
     border-radius: 10px;
-    width: 70%;
-    height: 40px;
+    width: 100%;
+    height: 50px;
+    padding: 10px;
 }
-.okrep {
-	border: 1px solid #f0f0f0;
+.okrep, .huy {
     background: #f0f0f0;
     padding: 5px;
     margin-left: 10px;
     width: 70px;
     border-radius: 10px;
+    height: 50px;
+    border: 1px solid #c2c2c2;
+}
+.sua {
+    background: #f0f0f0;
+    padding: 5px;
+    margin-left: 10px;
+    border-radius: 10px;
+    height: 50px;
+    border: 1px solid #c2c2c2;
 }
 .okrep:hover {
 	 background: #b7b7b7;
@@ -2219,12 +2233,131 @@ input[type='checkbox']:checked {
 	color:#ef4365;
 }
 .deletereaction {
-	float: right;
-    margin-right: 200px;
-    font-size: 14px;
-    font-style: italic;
-    background: #f0f0f0;
-    width: 50px;
+	/*float: right;*/
+    /*margin-right: 200px;*/
+    /*font-size: 14px;*/
+    /*font-style: italic;*/
+    /*background: #f0f0f0;*/
+    /*width: 50px;*/
+    /*text-align: center;*/
+    /*border-radius: 5px;*/
+}
+.textoverflow1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 300px;
+    display: inline-block;
+}
+.cart_total i {
+    font-size: 18px;
+    margin-right: 10px;
+}
+.tinhtrang .fa-cancel {
+    width: 10px;
+    height: 10px;
+    background: darkred;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.tinhtrang .fa-check {
+    width: 20px;
+    height: 20px;
+    line-height: 22px;
+    border-radius: 50%;
+    margin-right: 10px;
+    color: #fff;
+    background: green;
     text-align: center;
+    font-size: 13px;
+}
+.xacnhan-place i {
+    width: 20px;
+}
+.ds .active {
+    color: darkcyan;
+    border-bottom: 2px solid darkcyan;
+}
+.upcomingstatus .fa-check {
+    background: green;
+    color: #fff;
+    border: none;
+    margin-right: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px;
     border-radius: 5px;
+}
+.upcomingstatus .fa-remove {
+    background: darkred;
+    color: #fff;
+    border: none;
+    margin-right: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 10px;
+    border-radius: 5px;
+}
+
+.upcomingstatus .fa-check:hover {
+    background: green;
+    color: #fff;
+    opacity: 0.6;
+}
+.upcomingstatus .fa-remove:hover {
+    background: darkred;
+    color: #fff;
+    cursor: pointer;
+    opacity: 0.6;
+}
+.daxacnhan .fa-check, .fa-remove {
+    /*color: #fff;*/
+    /*background: green;*/
+    /*width: 20px;*/
+    /*height: 20px;*/
+    /*border-radius: 50%;*/
+    /*line-height: 20px;*/
+    /*font-size: 10px;*/
+    /*text-align: center;*/
+    margin-right: 10px;
+}
+.test:after {
+    content: '\2807';
+    font-size: 20px;
+}
+.searchdate .thang {
+    width: 85%;
+    border: none;
+    outline: none;
+}
+.bothang {
+    border: 1px solid #c1c1c1;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 10px;
+    margin-right: 15px;
+}
+.searchdate .thang2 {
+    width: 80%;
+    border: none;
+    outline: none;
+}
+.nam1 {
+    border: none;
+    outline: none;
+    width: 100%;
+}
+.bonam {
+    height: 50px;
+    line-height: 50px;
+    border: 1px solid #c1c1c1;
+    border-radius: 10px;
+    margin-right: 25px;
+}
+.fa-times {
+    background: #fff;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    text-align: center;
 }

@@ -1,3 +1,31 @@
+<%--<%@ page language="java" contentType="text/html; charset=UTF-8"--%>
+<%--         pageEncoding="UTF-8" %>--%>
+<%--<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>--%>
+<%--<!DOCTYPE html>--%>
+<%--<html lang="en">--%>
+<%--<head>--%>
+<%--    <%@ include file="/WEB-INF/views/host/head3.jsp" %>--%>
+<%--</head>--%>
+
+<%--<body>--%>
+<%--<%@ include file="/WEB-INF/views/host/header3.jsp" %>--%>
+
+
+<%--<script src="<c:url value="/asset/host/lib/easing/easing.min.js" />"></script>--%>
+<%--<script src="<c:url value="/asset/host/js/lib/wow/wow.min.js" />"></script>--%>
+<%--<script src="<c:url value="/asset/host/lib/owlcarousel/owl.carousel.min.js" />"></script>--%>
+<%--<script src="<c:url value="/asset/host/lib/isotope/isotope.pkgd.min.js" />"></script>--%>
+<%--<script src="<c:url value="/asset/host/js/lib/lightbox/js/lightbox.min.js" />"></script>--%>
+
+<%--<!-- Contact Javascript File -->--%>
+<%--<script src="<c:url value="/asset/host/mail/jqBootstrapValidation.min.js" />"></script>--%>
+<%--<script src="<c:url value="/asset/host/mail/contact.js" />"></script>--%>
+
+<%--<!-- Template Javascript -->--%>
+<%--<script src="<c:url value="/asset/host/js/main.js" />"></script>--%>
+<%--</body>--%>
+<%--</html>--%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -112,7 +140,7 @@
                                 <tr> <td> ${loop.index +1 } </td>
                                     <td>${item.paymentId}</td>
                                     <td> <b><a href="<c:url value="/become-a-host/detailplace/${item.bookRoom.place.placeId }" />">
-                                                ${item.bookRoom.place.name }</a></b><br>
+                                            ${item.bookRoom.place.name }</a></b><br>
                                         <i class="iaddress">
                                             <c:if test="${item.bookRoom.place.startDay != null && item.bookRoom.place.endDay != null}">
                                                 Từ ${item.bookRoom.startDay.split("-")[2]} -
@@ -168,14 +196,14 @@
                     <label>Mã giao dịch</label>
                     <input class="form-control" name="paymentId" id="paymentId" readonly>
                 </div>
-				<div class="form-group">
-					<label>Mã đặt phòng</label>
-					<input class="form-control" name="bookId" id="bookId" readonly>
-				</div>
-				<div class="form-group">
-					<label>Tên khách hàng</label>
-					<input class="form-control" name="name" id="name" readonly>
-				</div>
+                <div class="form-group">
+                    <label>Mã đặt phòng</label>
+                    <input class="form-control" name="bookId" id="bookId" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Tên khách hàng</label>
+                    <input class="form-control" name="name" id="name" readonly>
+                </div>
                 <div class="form-group">
                     <label>Tài khoản thanh toán</label>
                     <input class="form-control" name="email" id="email" readonly>
@@ -219,103 +247,6 @@
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-<script>
-
-    function genderChanged(obj)
-    {
-        var month1 = document.getElementById('month1').value;
-        var year1 = document.getElementById('year1').value;
-        var month2 = document.getElementById('month2').value;
-        var year2 = document.getElementById('year2').value;
-
-        console.log(month1)
-        console.log(year1)
-        console.log(month2)
-        console.log(year2)
-
-        $.ajax({
-            type: "GET",
-            contentType: "application/json",
-            url: "/become-a-host/history/search",
-            data: {
-                month1: month1,
-                year1: year1,
-                month2: month2,
-                year2: year2,
-            },
-            timeout: 2000,
-            success: function (data) {
-                console.log("SUCCESS: ");
-                let html = '';
-                var i = 0;
-                $.each(data, function(i, item) {
-                    i++;
-                    html += '<tr> <td>'+i+'</td>'
-                        + '<td>'+item.paymentId+'</td>'
-                        + ' <td> <b><a href="/become-a-host/detailplace/'+item.bookRoom.place.placeId+'">'
-                        + ' '+item.bookRoom.place.name +'</a></b><br>'
-                        + '<i class="iaddress">'
-                        + 'Từ '+item.bookRoom.startDay.split("-")[2]+'-'
-                        + item.bookRoom.startDay.split("-")[1]+'-'
-                        + item.bookRoom.startDay.split("-")[0]+'đến'+item.bookRoom.endDay.split("-")[2] +'-'
-                    + item.bookRoom.endDay.split("-")[1]+'-'
-                    + item.bookRoom.endDay.split("-")[0]
-                    + '<i class="iaddress">Khách hàng: <a href="/detail-account/'+item.bookRoom.account.accountId +'">'+item.bookRoom.account.name +'</a>'
-                    + '</i><br> </td>'
-                    + '<td class="chitiet"> $ '+item.totalPrice +'</td>'
-                    + '<td>  $ '+item.transactionFee +'</td>'
-                    + '<td> '+item.createTime.split(" ")[1]+ ' '
-                    + item.createTime.split(" ")[0].split("-")[2]+'-'
-                    + item.createTime.split(" ")[0].split("-")[1]+'-'
-                    + item.createTime.split(" ")[0].split("-")[0]+'</td>'
-                    + '<td>'+item.status+'</td><td class="ikajasa" style="text-align: center">'
-                    + '<a href="/become-a-host/history/findById/'+item.paymentId+'" class="detail-payment">'
-                    + '<i class="far fa-calendar-alt" style="font-size: 25px; color: green;"></i>'
-                    + '</a>'
-                    + '</td>'
-                    + '</tr>';
-
-                });
-                document.getElementById("noidung").innerHTML = html;
-            },
-            error: function (e) {
-                console.log("ERROR: ", e);
-            }
-        });
-
-        // window.location.href = "/become-a-host/history/search?month1="+month1+"&year1="+year1+"&month2="+month2+"&year2="+year2;
-
-    }
-
-    function myFunction() {
-        var checkBox = document.getElementById("checkbox");
-        var text = document.getElementById("delete");
-        if (checkBox.checked == true) {
-            text.style.display = "block";
-        } else {
-            text.style.display = "none";
-        }
-    }
-
-	jQuery('.detail-payment').click(function (evt) {
-		evt.preventDefault();
-		var href = $(this).attr('href')
-		$.get(href, function (data, status) {
-			$('#paymentId').val(data.paymentId);
-			$('#email').val(data.email);
-			$('#totalPrice').val(data.totalPrice);
-			$('#transactionFee').val(data.transactionFee);
-			$('#description').val(data.description);
-			$('#createTime').val(data.createTime);
-			$('#status').val(data.status);
-			$('#countryCode').val(data.countryCode);
-			$('#postalCode').val(data.postalCode);
-            $('#bookId').val(data.bookRoom.bookId);
-            $('#name').val(data.bookRoom.account.name);
-		});
-		$('#paymentModal').modal();
-	});
-</script>
 <script src="<c:url value="/asset/host/lib/easing/easing.min.js" />"></script>
 <script src="<c:url value="/asset/host/js/lib/wow/wow.min.js" />"></script>
 <script src="<c:url value="/asset/host/lib/owlcarousel/owl.carousel.min.js" />"></script>
@@ -330,3 +261,4 @@
 <script src="<c:url value="/asset/host/js/main.js" />"></script>
 </body>
 </html>
+

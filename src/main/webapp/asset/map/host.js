@@ -35,8 +35,10 @@ function initMap() {
     marker = new google.maps.Marker({
         map,
     });
-    map.addListener("click", (e) => {
-        geocode({ location: e.latLng });
+    map.addListener("click", () => {
+        const inputText = document.getElementById("inputaddress").value;
+        console.log(inputText);
+        geocode({ address: inputText })
     });
     submitButton.addEventListener("click", () => {
         const inputText = document.getElementById("inputaddress").value;

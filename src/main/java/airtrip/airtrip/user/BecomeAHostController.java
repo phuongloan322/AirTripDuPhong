@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -97,26 +98,34 @@ public class BecomeAHostController extends HttpServlet {
 
 			List<Place> getPlaceByAccId = placeService.getPlaceByAccId(acc.getAccountId());
 			session.setAttribute("PlaceByAccId", getPlaceByAccId);
+
+			List<String> ratings = new ArrayList<String>();
+			float rating = 0;
+			float sumReview = 0;
+			for (Place place : getPlaceByAccId) {
+				List<Review> reviews = this.reviewService.getReviewByPlace(place.getPlaceId());
+				for (Review review : reviews) {
+					sumReview += review.getRate();
+				}
+				int n = reviews.size();
+				if(n != 0) {
+					rating = sumReview / (float)reviews.size();
+				}
+				if(n == 0) {
+					ratings.add(0 + " ("+reviews.size()+")");
+				}
+				else
+					ratings.add(rating + " ("+reviews.size()+")");
+			}
+			model.addAttribute("ratings", ratings);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return new ModelAndView("host/phongchothue");
 	}
 	
-	@RequestMapping("/become-a-host/history")
-	public ModelAndView BecomeAHostHistory(Model model, HttpServletRequest request, HttpSession session) {
-		try {
-			Account acc = (Account)session.getAttribute("accLogin");
-			if(acc == null)
-				return new ModelAndView("redirect:/login");
-			
-			List<BookRoom> bookroomList = bookRoomService.getBookRoomAccept(acc.getAccountId(), 1);
-			session.setAttribute("bookroomList", bookroomList);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return new ModelAndView("host/history");
-	}
+
 	
 	@RequestMapping(value="/become-a-host/detailplace/{placeId}")
 	public ModelAndView DetailPlace(Model model, HttpServletRequest request, HttpSession session, @PathVariable long placeId) {
@@ -159,6 +168,12 @@ public class BecomeAHostController extends HttpServlet {
 			e.printStackTrace();
 		}
 		return new ModelAndView("/host/detailphongchothue");
+	}
+
+	@RequestMapping(value="/become-a-host/detail-place/{placeId}")
+	public ModelAndView iDetailPlace(Model model, HttpServletRequest request, HttpSession session, @PathVariable long placeId) {
+
+		return new ModelAndView("/host/detailPlaceHost");
 	}
 	
 //	@RequestMapping(value="/become-a-host/detailplace/editdetail/{detailId}")
@@ -203,36 +218,78 @@ public class BecomeAHostController extends HttpServlet {
 		return "redirect:/become-a-host/listings";
 	}
 
-	@RequestMapping(value="/become-a-host/upcoming/no-accept")
-	public ModelAndView noAccept(Model model, HttpServletRequest request, HttpSession session) {
-		try {
-			Account Account = (Account)session.getAttribute("accLogin");
-			List<BookRoom> getBookRoomNoAcceptList = bookRoomService.getBookRoomAccept(Account.getAccountId(), 0);
-			model.addAttribute("acceptList", getBookRoomNoAcceptList);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return new ModelAndView("host/datphong");
-	}
-	
-	@RequestMapping(value="/become-a-host/upcoming/is-accept")
-	public ModelAndView isAccept(Model model, HttpServletRequest request, HttpSession session) {
-		try {
-			Account Account = (Account)session.getAttribute("accLogin");
-			List<BookRoom> getBookRoomisAcceptList = bookRoomService.getBookRoomAccept(Account.getAccountId(), 1);
-			model.addAttribute("acceptList", getBookRoomisAcceptList);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return new ModelAndView("host/datphong");
-	}
-	
 	@RequestMapping(value="/become-a-host/upcoming/all-accept")
-	public ModelAndView allAccept(Model model, HttpServletRequest request, HttpSession session) {
+	public ModelAndView allAccept(Model model, HttpSession session) {
 		try {
 			Account accLogin = (Account)session.getAttribute("accLogin");
 			List<BookRoom> getBookRoomAllAcceptList = bookRoomService.getBookRoomAllAccept(accLogin.getAccountId());
 			model.addAttribute("acceptList", getBookRoomAllAcceptList);
+			session.setAttribute("chooseHost", "tatca");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return new ModelAndView("host/datphong");
+	}
+
+	@RequestMapping(value="/become-a-host/upcoming/current-welcoming")
+	public ModelAndView currentwelcoming(Model model, HttpServletRequest request, HttpSession session) {
+		try {
+			Account Account = (Account)session.getAttribute("accLogin");
+			List<BookRoom> getBookRoomNoAcceptList = bookRoomService.getBookRoomAccept(Account.getAccountId(), false);
+			model.addAttribute("acceptList", getBookRoomNoAcceptList);
+			session.setAttribute("chooseHost", "currentwelcoming");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return new ModelAndView("host/datphong");
+	}
+	
+	@RequestMapping(value="/become-a-host/upcoming/coming-soon")
+	public ModelAndView comingsoon(Model model, HttpServletRequest request, HttpSession session) {
+		try {
+			Account Account = (Account)session.getAttribute("accLogin");
+			List<BookRoom> getBookRoomisAcceptList = bookRoomService.getBookRoomCoomingSoon(Account.getAccountId(), 1, true);
+			model.addAttribute("acceptList", getBookRoomisAcceptList);
+			session.setAttribute("chooseHost", "comingsoon");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return new ModelAndView("host/datphong");
+	}
+
+	@RequestMapping(value="/become-a-host/upcoming/chenkout-soon")
+	public ModelAndView chenkoutsoon(Model model, HttpServletRequest request, HttpSession session) {
+		try {
+			Account Account = (Account)session.getAttribute("accLogin");
+			List<BookRoom> getBookRoomisAcceptList = bookRoomService.getBookRoomCheckoutSoon(Account.getAccountId(), 1, true);
+			model.addAttribute("acceptList", getBookRoomisAcceptList);
+			session.setAttribute("chooseHost", "chenkoutsoon");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return new ModelAndView("host/datphong");
+	}
+
+	@RequestMapping(value="/become-a-host/upcoming/finish")
+	public ModelAndView finish(Model model, HttpServletRequest request, HttpSession session) {
+		try {
+			Account Account = (Account)session.getAttribute("accLogin");
+			List<BookRoom> getBookRoomisAcceptList = bookRoomService.getBookRoomByFinish(Account.getAccountId(), 1, true);
+			model.addAttribute("acceptList", getBookRoomisAcceptList);
+			session.setAttribute("chooseHost", "finish");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return new ModelAndView("host/datphong");
+	}
+
+	@RequestMapping(value="/become-a-host/upcoming/cancel")
+	public ModelAndView cancel(Model model, HttpSession session) {
+		try {
+			Account accLogin = (Account)session.getAttribute("accLogin");
+			List<BookRoom> getBookRoomAllAcceptList = bookRoomService.getBookRoomCancelHost(accLogin.getAccountId(), -1);
+			model.addAttribute("acceptList", getBookRoomAllAcceptList);
+			session.setAttribute("chooseHost", "cancel");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -273,14 +330,15 @@ public class BecomeAHostController extends HttpServlet {
 	
 	@RequestMapping(value="/become-a-host/detailplace/editplace", method = RequestMethod.POST)
 	public @ResponseBody ResponseEntity<Object> EditPlace (
-			@RequestParam(name = "placeId") String placeId,
-			@RequestParam(name = "tieude") String tieude,
-			@RequestParam(name = "detail") String detail,
-			@RequestParam(name = "address") String address,
-			@RequestParam(name = "price") String price,
-			@RequestParam(name = "startDay") String startDay,
-			@RequestParam(name = "endDay") String endDay,
-			@RequestParam(name = "isEmpty") boolean isEmpty) {
+			@RequestParam(name = "placeId", required = false) String placeId,
+			@RequestParam(name = "tieude", required = false) String tieude,
+			@RequestParam(name = "detail", required = false) String detail,
+			@RequestParam(name = "address", required = false) String address,
+			@RequestParam(name = "price", required = false) String price,
+			@RequestParam(name = "startDay", required = false) String startDay,
+			@RequestParam(name = "endDay", required = false) String endDay,
+			@RequestParam(name = "isEmpty", required = false) boolean isEmpty,
+			@RequestParam(name = "numberPlace", required = false) int numberPlace) {
 		
 		try {
 			System.out.println(placeId);
@@ -292,7 +350,7 @@ public class BecomeAHostController extends HttpServlet {
 			System.out.println(endDay);
 			System.out.println(isEmpty);
 
-			placeService.EditPlace(tieude, detail, address, Long.parseLong(price), startDay, endDay, isEmpty, Long.parseLong(placeId));
+			placeService.EditPlace(tieude, detail, address, Long.parseLong(price), startDay, endDay, isEmpty, Long.parseLong(placeId), numberPlace);
 			
 			return new ResponseEntity<Object>(HttpStatus.OK);
 			
@@ -388,6 +446,10 @@ public class BecomeAHostController extends HttpServlet {
 								HttpServletRequest request) {
 		CancelBook cancelBook = new CancelBook();
 		String reason = request.getParameter("reason");
+		String reasonother = request.getParameter("reasonother");
+		if(reason == "")
+			reason = reasonother;
+
 		cancelBook.setBookRoom(bookRoomService.findById(bookId));
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy/MM/dd hh:MM:ss");
 		Date date = new Date();
@@ -398,6 +460,37 @@ public class BecomeAHostController extends HttpServlet {
 		this.cancelBookService.save(cancelBook);
 
 		this.bookRoomService.acceptBookRoom(bookId, -1);
+
+		return "redirect:"+request.getHeader("Referer");
+	}
+
+	@RequestMapping(value="/become-a-host/listings/status", method = RequestMethod.GET)
+	public @ResponseBody Boolean StatusOffPlaceAjax(
+			@RequestParam("placeId") long placeId) {
+		try {
+			Place placebean = placeService.findById(placeId);
+
+			if(placebean.getIsEmpty() == false)
+				placeService.EditEmptyPlace(true, placeId);
+			else
+				placeService.EditEmptyPlace(false, placeId);
+
+
+				Place place = this.placeService.findById(placeId);
+				return place.getIsEmpty();
+
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	@RequestMapping("/become-a-host/listings/delete/{placeId}")
+	public String deletePlace(Model model,
+								@PathVariable long placeId,
+								HttpServletRequest request) {
+		this.placeService.deleteById(placeId);
 
 		return "redirect:"+request.getHeader("Referer");
 	}

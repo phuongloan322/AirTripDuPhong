@@ -31,7 +31,7 @@ public class Account {
     private String image;
     private String introduce;
     private Boolean isIdentity;
-    private LocalDateTime createDate;
+    private String createDate;
     private boolean enabled;
 
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)

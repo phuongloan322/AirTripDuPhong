@@ -23,7 +23,7 @@
 				<div class="row">
 					<div class="col-sm-3">
 						<div class="logo pull-left">
-							<a href="/index" />"><b class="head3">AirPay</b></a>
+							<a href="/index"><b class="head3">AirPay</b></a>
 						</div>
 						
 					</div >
@@ -66,32 +66,33 @@
 				</div>
 			</div>
 			
-			<div class="container_12">
-				<div class="grid_12">
-					<div class="menu_block">
-						<nav class="horizontal-nav full-width horizontalNav-notprocessed">
-							<ul class="sf-menu">
-								<li><a href="/index">TRANG CHỦ</a></li>
-								<li class="current"><a href="/places">KHÁM PHÁ</a></li>
-								<li><a href="/bookroom">CHUYẾN ĐI</a></li>
-								<li><a href="/index">BLOG</a></li>
-								<li><a href="/index">LIÊN HỆ</a></li>
-							</ul>
-						</nav>
-						<div class="clear"></div>
-					</div>
-				</div>
-				<div class="grid_12">
-					<h1>
-						<a href="/places">
-							<img src="/asset/images/logo.png" alt="Your Happy Family">
-						</a>
-					</h1>
-				</div>
-			</div>
+<%--			<div class="container_12">--%>
+<%--				<div class="grid_12">--%>
+<%--					<div class="menu_block">--%>
+<%--						<nav class="horizontal-nav full-width horizontalNav-notprocessed">--%>
+<%--							<ul class="sf-menu">--%>
+<%--								<li><a href="/index">TRANG CHỦ</a></li>--%>
+<%--								<li class="current"><a href="/places">KHÁM PHÁ</a></li>--%>
+<%--								<li><a href="/bookroom">CHUYẾN ĐI</a></li>--%>
+<%--								<li><a href="/index">BLOG</a></li>--%>
+<%--								<li><a href="/index">LIÊN HỆ</a></li>--%>
+<%--							</ul>--%>
+<%--						</nav>--%>
+<%--						<div class="clear"></div>--%>
+<%--					</div>--%>
+<%--				</div>--%>
+<%--				<div class="grid_12">--%>
+<%--					<h1>--%>
+<%--						<a href="/places">--%>
+<%--							<img src="/asset/images/logo.png" alt="Your Happy Family">--%>
+<%--						</a>--%>
+<%--					</h1>--%>
+<%--				</div>--%>
+<%--			</div>--%>
 		</header>
 <!--==============================Content=================================-->
-		<div class="content"><div class="ic">More Website Templates @ TemplateMonster.com - February 10, 2014!</div>
+		<div class="content" style="padding-bottom: 50px">
+			<a href="/show-map" class="showmap1"><i class="fas fa-map"></i>Hiện bản đồ</a>
 			<div class="">
 				<br>
 				<div style="margin: 50px auto; width: 100%">
@@ -235,7 +236,7 @@
 				</table>
 			</div>
 			<c:if test="${msg == null }">
-				<div class="pagination">
+				<div class="pagination" style="padding-bottom: 100px">
 					<c:if test="${currentPage > 1}">
 						<a href="/places/page/${currentPage-1 }?search=${search}&category=${category}&filter=${filter}">«</a>
 					</c:if>
@@ -252,6 +253,7 @@
 					</c:if>
 			 </div>
 			</c:if>
+
 		</div>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -457,7 +459,7 @@
 			document.getElementById("startdate").valueAsDate = new Date();
 			document.getElementById("enddate").valueAsDate = new Date();
 
-
+			//search advanced
 			function filter() {
 				const filter = document.getElementById("filter").value;
 				console.log(filter);
@@ -465,6 +467,7 @@
 				var category = "<c:out value='${category}'/>";
 				window.location="/places/page/1?search="+search+"&filter="+filter+"&category="+category;
 			}
+
 		jQuery('.con1 a').click(function(evt) {
 			  evt.preventDefault();
 

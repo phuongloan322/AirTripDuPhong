@@ -12,4 +12,7 @@ public interface ReviewRepository extends JpaRepository<Review, Long> {
 
     @Query(value = "select t from Review t where t.place.placeId = ?1")
     List<Review> getReviewByPlace(long placeId);
+
+    @Query(value = "select t from Review t where t.place.account.accountId = ?1")
+    List<Review> getReviewByAccount(long accountId);
 }
