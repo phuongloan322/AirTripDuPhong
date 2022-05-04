@@ -1,0 +1,90 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<aiml>
+   <category>
+      <pattern>Hi</pattern>
+      <template>
+         Hello!. I am ACLEDA Chatbot, your robot assitant.
+         Please choose language
+         <li>Khmer</li>
+         <li>English</li>
+      </template>
+   </category>
+
+     <category>
+          <pattern>Khmer</pattern>
+          <template>
+             សូមជ្រើស ប្រធានបទ រឺ វាយ សំនួររបស់លោកអ្នកនៅទីនេះ?
+             <ul class="list-group">
+               <li class="list-group-item">Cras justo odio</li>
+               <li class="list-group-item">Dapibus ac facilisis in</li>
+               <li class="list-group-item">Morbi leo risus</li>
+               <li class="list-group-item">Porta ac consectetur ac</li>
+               <li class="list-group-item">Vestibulum at eros</li>
+             </ul>
+          </template>
+      </category>
+
+
+     <category>
+         <pattern>LET DISCUSS MOVIES</pattern>
+         <template>Yes <set name = "topic">movies</set></template>
+      </category>
+
+
+   <category>
+      <pattern>Loan</pattern>
+      <template>
+         Please help to give some information.
+         What is your first name?
+      </template>
+   </category>
+
+   <category>
+         <pattern>first name is *</pattern>
+         <template>
+            Your first name is <star/> !!
+
+            What is your last name?
+         </template>
+      </category>
+
+        <category>
+               <pattern>last name is *</pattern>
+               <template>
+                  Your first name is <star/> !!
+
+                  What is your last name?
+               </template>
+            </category>
+
+
+
+
+   <category>
+      <pattern>my name is *</pattern>
+      <template>
+         Hello <star/> !!
+		 How can I help you ?
+      </template>
+   </category>
+
+   <category>
+      <pattern>I am *</pattern>
+      <template>
+         Hello <star/> !!
+		 How can I help you ?
+      </template>
+   </category>
+
+   <category>
+      <pattern>*</pattern>
+	  <that>Hi, May I know your good name?</that>
+      <template>
+         Hello <star/> !!
+		 How can I help you ?
+      </template>
+   </category>
+
+
+
+</aiml>

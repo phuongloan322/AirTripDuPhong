@@ -1,0 +1,9 @@
+0,HI,*,*,Hello!. I am ACLEDA Chatbot#Comma your robot assitant.#Newline         Please choose language#Newline         <li>Khmer</li>#Newline         <li>English</li>,test.aiml
+0,KHMER,*,*,សូមជ្រើស ប្រធានបទ រឺ វាយ សំនួររបស់លោកអ្នកនៅទីនេះ?#Newline             <ul class="list-group">#Newline               <li class="list-group-item">Cras justo odio</li>#Newline               <li class="list-group-item">Dapibus ac facilisis in</li>#Newline               <li class="list-group-item">Morbi leo risus</li>#Newline               <li class="list-group-item">Porta ac consectetur ac</li>#Newline               <li class="list-group-item">Vestibulum at eros</li>#Newline             </ul>,test.aiml
+0,LET DISCUSS MOVIES,*,*,Yes <set name="topic">movies</set>,test.aiml
+0,LOAN,*,*,Please help to give some information.#Newline         What is your first name?,test.aiml
+0,FIRST NAME IS *,*,*,Your first name is <star/> !!#Newline#Newline            What is your last name?,test.aiml
+0,LAST NAME IS *,*,*,Your first name is <star/> !!#Newline#Newline                  What is your last name?,test.aiml
+0,MY NAME IS *,*,*,Hello <star/> !!#Newline		 How can I help you ?,test.aiml
+0,I AM *,*,*,Hello <star/> !!#Newline		 How can I help you ?,test.aiml
+0,*,HI, MAY I KNOW YOUR GOOD NAME?,*,Hello <star/> !!#Newline		 How can I help you ?,test.aiml
