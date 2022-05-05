@@ -1,4 +1,4 @@
-package airtrip.airtrip.user;
+package airtrip.airtrip.controller.user;
 
 import airtrip.airtrip.entity.*;
 import airtrip.airtrip.service.*;
@@ -156,7 +156,7 @@ public class BecomeAHostController extends HttpServlet {
 					i++;
 				}
 				float rating = s/i;
-				model.addAttribute("rating", rating);
+				model.addAttribute("rating", (double) Math.ceil (rating * 100) / 100);
 			}
 			else {
 				model.addAttribute("rating", 0);

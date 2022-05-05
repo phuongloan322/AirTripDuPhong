@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
@@ -8,475 +8,285 @@
 <head>
   <meta charset="utf-8" />
   <title>
-    Quản lý Loại chỗ thuê
+    Quản Lý Mục Thuê
   </title>
-  <%@ include file="/WEB-INF/views/layout/head.jsp" %>
+  <%@ include file="/WEB-INF/views/admin/layout/head.jsp" %>
 </head>
 
 <body class="light-edition">
-  <div class="wrapper ">
-    <%@ include file="/WEB-INF/views/layout/sidebar.jsp" %>
-    <div class="main-panel">
-      <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
-        <div class="container-fluid">
-          <div class="navbar-wrapper">
-            <a class="navbar-brand" href="javascript:void(0)">QUẢN LÝ LOẠI CHỖ THUÊ </a>
-          </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-            <span class="navbar-toggler-icon icon-bar"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end">
-            <form class="navbar-form">
-              <div class="input-group no-border">
-                <input type="text" value="" class="form-control" placeholder="Search...">
-                <button type="submit" class="btn btn-default btn-round btn-just-icon">
-                  <i class="material-icons">search</i>
-                  <div class="ripple-container"></div>
-                </button>
-              </div>
-            </form>
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)">
-                  <i class="material-icons">dashboard</i>
-                  <p class="d-lg-none d-md-block">
-                    Stats
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link" href="javscript:void(0)" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="material-icons">notifications</i>
-                  <span class="notification">5</span>
-                  <p class="d-lg-none d-md-block">
-                    Some Actions
-                  </p>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="javascript:void(0)">Mike John responded to your email</a>
-                  <a class="dropdown-item" href="javascript:void(0)">You have 5 new tasks</a>
-                  <a class="dropdown-item" href="javascript:void(0)">You're now friend with Andrew</a>
-                  <a class="dropdown-item" href="javascript:void(0)">Another Notification</a>
-                  <a class="dropdown-item" href="javascript:void(0)">Another One</a>
-                </div>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="javascript:void(0)">
-                  <i class="material-icons">person</i>
-                  <p class="d-lg-none d-md-block">
-                    Account
-                  </p>
-                </a>
-              </li>
-            </ul>
-          </div>
+<div class="wrapper ">
+  <%@ include file="/WEB-INF/views/admin/layout/sidebar.jsp" %>
+  <div class="main-panel">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example" style="background-color: darkslategrey !important;color:#fff">
+      <div class="container-fluid">
+        <div class="navbar-wrapper">
+          <a class="navbar-brand" href="javascript:void(0)">QUẢN LÝ MỤC THUÊ</a>
         </div>
-      </nav>
-      <!-- End Navbar -->
-      <div class="content">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card">
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Loại Chỗ Thuê</h4>
-                </div>
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table">
-                      <thead class=" text-primary">
+
+        <div class="collapse navbar-collapse justify-content-end">
+
+          <form action="/admin/manager-category/${litleCategoryList[0].category.categoryId}" method="post" class="navbar-form">
+            <div class="input-group no-border">
+              <input type="text" value="${search}" class="form-control" style="color: #fff" name="search" placeholder="Search...">
+              <button type="submit" class="btn btn-default btn-round btn-just-icon">
+                <i class="material-icons">search</i>
+                <div class="ripple-container"></div>
+              </button>
+            </div>
+          </form>
+
+          <%@ include file="/WEB-INF/views/admin/layout/nav-link.jsp" %>
+        </div>
+      </div>
+    </nav>
+    <!-- End Navbar -->
+
+    <div class="content">
+
+      <%@ include file="/WEB-INF/views/admin/layout/message.jsp" %>
+
+
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalThem">
+              <i class="material-icons large">add_box</i> Add new
+            </button>
+
+            <div class="card">
+              <div class="card-header card-header-primary">
+                <h4 class="card-title ">Category Place</h4>
+                <p class="card-category"> Danh sách Mục thuê</p>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <c:choose>
+                    <c:when test="${litleCategoryList.size() > 0 }">
+                      <table class="table">
+                        <thead class=" text-primary">
                         <th>
                           STT
                         </th>
                         <th>
-                          Mã 
+                          Mã mục thuê
                         </th>
                         <th>
-                          Tên loại 
+                          Tên mục thuê
                         </th>
-                        <th>
+                        <th width="30%">
                           Mô tả
                         </th>
                         <th>
                           Chức năng
                         </th>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            1
-                          </td>
-                          <td>
-                            Dakota Rice
-                          </td>
-                          <td>
-                            Niger
-                          </td>
-                          <td>
-                            Oud-Turnhout
-                          </td>
-                          <td class="text-primary">
-                            $36,738
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            2
-                          </td>
-                          <td>
-                            Minerva Hooper
-                          </td>
-                          <td>
-                            Curaçao
-                          </td>
-                          <td>
-                            Sinaai-Waas
-                          </td>
-                          <td class="text-primary">
-                            $23,789
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            3
-                          </td>
-                          <td>
-                            Sage Rodriguez
-                          </td>
-                          <td>
-                            Netherlands
-                          </td>
-                          <td>
-                            Baileux
-                          </td>
-                          <td class="text-primary">
-                            $56,142
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            4
-                          </td>
-                          <td>
-                            Philip Chaney
-                          </td>
-                          <td>
-                            Korea, South
-                          </td>
-                          <td>
-                            Overland Park
-                          </td>
-                          <td class="text-primary">
-                            $38,735
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            5
-                          </td>
-                          <td>
-                            Doris Greene
-                          </td>
-                          <td>
-                            Malawi
-                          </td>
-                          <td>
-                            Feldkirchen in Kärnten
-                          </td>
-                          <td class="text-primary">
-                            $63,542
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            6
-                          </td>
-                          <td>
-                            Mason Porter
-                          </td>
-                          <td>
-                            Chile
-                          </td>
-                          <td>
-                            Gloucester
-                          </td>
-                          <td class="text-primary">
-                            $78,615
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-12">
-              <div class="card card-plain">
-                <div class="card-header card-header-primary">
-                  <h4 class="card-title mt-0"> Table on Plain Background</h4>
-                  <p class="card-category"> Here is a subtitle for this table</p>
-                </div>
-                <div class="card-body">
-                  <div class="table-responsive">
-                    <table class="table table-hover">
-                      <thead class="">
-                        <th>
-                          ID
-                        </th>
-                        <th>
-                          Name
-                        </th>
-                        <th>
-                          Country
-                        </th>
-                        <th>
-                          City
-                        </th>
-                        <th>
-                          Salary
-                        </th>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            1
-                          </td>
-                          <td>
-                            Dakota Rice
-                          </td>
-                          <td>
-                            Niger
-                          </td>
-                          <td>
-                            Oud-Turnhout
-                          </td>
-                          <td>
-                            $36,738
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            2
-                          </td>
-                          <td>
-                            Minerva Hooper
-                          </td>
-                          <td>
-                            Curaçao
-                          </td>
-                          <td>
-                            Sinaai-Waas
-                          </td>
-                          <td>
-                            $23,789
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            3
-                          </td>
-                          <td>
-                            Sage Rodriguez
-                          </td>
-                          <td>
-                            Netherlands
-                          </td>
-                          <td>
-                            Baileux
-                          </td>
-                          <td>
-                            $56,142
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            4
-                          </td>
-                          <td>
-                            Philip Chaney
-                          </td>
-                          <td>
-                            Korea, South
-                          </td>
-                          <td>
-                            Overland Park
-                          </td>
-                          <td>
-                            $38,735
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            5
-                          </td>
-                          <td>
-                            Doris Greene
-                          </td>
-                          <td>
-                            Malawi
-                          </td>
-                          <td>
-                            Feldkirchen in Kärnten
-                          </td>
-                          <td>
-                            $63,542
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>
-                            6
-                          </td>
-                          <td>
-                            Mason Porter
-                          </td>
-                          <td>
-                            Chile
-                          </td>
-                          <td>
-                            Gloucester
-                          </td>
-                          <td>
-                            $78,615
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
+                        </thead>
+                        <tbody>
+                        <c:forEach var="item" items="${litleCategoryList }" varStatus="loop">
+                          <tr>
+                            <td>
+                                ${loop.index + 1 }
+                            </td>
+                            <td>
+                                ${item.litleCategoryId }
+                            </td>
+                            <td>
+                                ${item.litleName }
+                            </td>
+                            <td class="textoverflow3" style="padding-bottom: 0; ">
+                                ${item.detail }
+                            </td>
+                            <td class="chucnang">
+                              <a href="<c:url value="/admin/manager-litlecategory/findById/${item.litleCategoryId }" />" class="detailButton"><i class="material-icons detail">event_note</i></a>
+                              <a href="<c:url value="/admin/manager-litlecategory/findById/${item.litleCategoryId }" />" class="editButton"><i class="material-icons edit">mode_edit</i></a>
+                              <a href="<c:url value="/admin/manager-litlecategory/delete/${item.litleCategoryId }" />" class="deleteButton"><i class="material-icons delete">delete</i></a>
+                            </td>
+                          </tr>
+                        </c:forEach>
+                        </tbody>
+                      </table>
+                    </c:when>
+                    <c:otherwise>
+                      Không tìm thấy kết quả nào
+                    </c:otherwise>
+                  </c:choose>
+
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <footer class="footer">
-        <div class="container-fluid">
-          <nav class="float-left">
-            <ul>
-              <li>
-                <a href="https://www.creative-tim.com">
-                  Creative Tim
-                </a>
-              </li>
-              <li>
-                <a href="https://creative-tim.com/presentation">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="http://blog.creative-tim.com">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="https://www.creative-tim.com/license">
-                  Licenses
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <div class="copyright float-right" id="date">
-            , made with <i class="material-icons">favorite</i> by
-            <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
+    </div>
+  </div>
+</div>
+
+<!-- Modal ADD-->
+<div class="modal fade" id="modalThem" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" >Thêm Mục Thuê</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action ="<c:url value="/admin/manager-litlecategory/add" />" method="post">
+          <label class="">Loại danh mục</label><br>
+          <input type="text" class="form-control-file " value="${litleCategoryList[0].category.categoryId}" name="categoryId"><br>
+
+          <label class="">Mã loại nhà</label><br>
+          <input type="text" class="form-control-file "  name="litleCategoryId"><br>
+
+          <label class="">Tên loại nhà</label>
+          <input type="text" class="form-control-file "  name="litleName">
+
+          <label class="">Mô tả</label>
+          <textarea type="text" class="form-control-file " style="height: 100px !important;" name="detail"></textarea>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
+            <button type="submit" class="btn btn-primary">Thêm</button>
           </div>
-        </div>
-      </footer>
-      <script>
-        const x = new Date().getFullYear();
-        let date = document.getElementById('date');
-        date.innerHTML = '&copy; ' + x + date.innerHTML;
-      </script>
+        </form>
+      </div>
     </div>
   </div>
-  <div class="fixed-plugin">
-    <div class="dropdown show-dropdown">
-      <a href="#" data-toggle="dropdown">
-        <i class="fa fa-cog fa-2x"> </i>
-      </a>
-      <ul class="dropdown-menu">
-        <li class="header-title"> Sidebar Filters</li>
-        <li class="adjustments-line">
-          <a href="javascript:void(0)" class="switch-trigger active-color">
-            <div class="badge-colors ml-auto mr-auto">
-              <span class="badge filter badge-purple active" data-color="purple"></span>
-              <span class="badge filter badge-azure" data-color="azure"></span>
-              <span class="badge filter badge-green" data-color="green"></span>
-              <span class="badge filter badge-warning" data-color="orange"></span>
-              <span class="badge filter badge-danger" data-color="danger"></span>
-            </div>
-            <div class="clearfix"></div>
-          </a>
-        </li>
-        <li class="header-title">Images</li>
-        <li>
-          <a class="img-holder switch-trigger" href="javascript:void(0)">
-            <img src="../assets/img/sidebar-1.jpg" alt="">
-          </a>
-        </li>
-        <li class="active">
-          <a class="img-holder switch-trigger" href="javascript:void(0)">
-            <img src="../assets/img/sidebar-2.jpg" alt="">
-          </a>
-        </li>
-        <li>
-          <a class="img-holder switch-trigger" href="javascript:void(0)">
-            <img src="../assets/img/sidebar-3.jpg" alt="">
-          </a>
-        </li>
-        <li>
-          <a class="img-holder switch-trigger" href="javascript:void(0)">
-            <img src="../assets/img/sidebar-4.jpg" alt="">
-          </a>
-        </li>
-        <li class="button-container">
-          <a href="https://www.creative-tim.com/product/material-dashboard-dark" target="_blank" class="btn btn-primary btn-block">Free Download</a>
-        </li>
-        <!-- <li class="header-title">Want more components?</li>
-            <li class="button-container">
-                <a href="https://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-warning btn-block">
-                  Get the pro version
-                </a>
-            </li> -->
-        <li class="button-container">
-          <a href="https://demos.creative-tim.com/material-dashboard-dark/docs/2.0/getting-started/introduction.html" target="_blank" class="btn btn-default btn-block">
-            View Documentation
-          </a>
-        </li>
-        <li class="button-container github-star">
-          <a class="github-button" href="https://github.com/creativetimofficial/material-dashboard/tree/dark-edition" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a>
-        </li>
-        <li class="header-title">Thank you for 95 shares!</li>
-        <li class="button-container text-center">
-          <button id="twitter" class="btn btn-round btn-twitter"><i class="fa fa-twitter"></i> &middot; 45</button>
-          <button id="facebook" class="btn btn-round btn-facebook"><i class="fa fa-facebook-f"></i> &middot; 50</button>
-          <br>
-          <br>
-        </li>
-      </ul>
+</div>
+
+
+<!-- MODAL EDIT -->
+<div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Thông tin mục thuê</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action ="" method="post">
+
+          <label class="">Loại danh mục</label>
+          <input type="text" class="form-control-file " value="${litleCategoryList[0].category.categoryId}" name="categoryId" readonly>
+
+          <label class="">Mã loại nhà</label>
+          <input type="text" class="form-control-file " id="litleCategoryIddetail" name="litleCategoryId" readonly>
+
+          <label class="">Tên loại nhà</label>
+          <input type="text" class="form-control-file " id="litleNamedetail" name="litleName">
+
+          <label class="">Mô tả</label>
+          <textarea type="text" class="form-control-file " id="detaildetail" name="detail" style="height: 100px !important;"></textarea>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-  <!--   Core JS Files   -->
-  <script src="<c:url value="/assets/js/core/jquery.min.js" />"></script>
-  <script src="<c:url value="/assets/js/core/popper.min.js" />"></script>
-  <script src="<c:url value="/assets/js/core/bootstrap-material-design.min.js" />"></script>
-  <script src="https://unpkg.com/default-passive-events"></script>
-  <script src="<c:url value="/assets/js/plugins/perfect-scrollbar.jquery.min.js" />"></script>
-  <!-- Place this tag in your head or just before your close body tag. -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-  <!--  Google Maps Plugin    -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
-  <!-- Chartist JS -->
-  <script src="<c:url value="/assets/js/plugins/chartist.min.js" />"></script>
-  <!--  Notifications Plugin    -->
-  <script src="<c:url value="/assets/js/plugins/bootstrap-notify.js" />"></script>
-  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="<c:url value="/assets/js/material-dashboard.js?v=2.1.0" />"></script>
-  <!-- Material Dashboard DEMO methods, don't include it in your project! -->
-  <script src="<c:url value="/assets/demo/demo.js" />"></script>
-  <script src="<c:url value="/assets/js/main.js" />"></script>
-</body>
+</div>
+
+
+<!-- MODAL EDIT -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Thông tin mục thuê</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action ="<c:url value="/admin/manager-litlecategory/edit" />" method="post">
+
+          <label class="">Loại danh mục</label>
+          <input type="text" class="form-control-file " value="${litleCategoryList[0].category.categoryId}" name="categoryId" readonly>
+
+          <label class="">Mã loại nhà</label>
+          <input type="text" class="form-control-file " id="litleCategoryId" name="litleCategoryId" readonly>
+
+          <label class="">Tên loại nhà</label>
+          <input type="text" class="form-control-file " id="litleName" name="litleName">
+
+          <label class="">Mô tả</label>
+          <textarea type="text" class="form-control-file " id="detail" name="detail" style="height: 100px !important;"></textarea>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
+            <button type="submit" class="btn btn-primary">Cập nhật</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DELETE MODAL -->
+
+<div class="modal" id="deleteModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Xác nhận xóa</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn có chắc chắn muốn xóa mục này?</p>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary" id="confirmDeleteButton" href="">Xóa</a>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+
+    $('table .editButton').on('click', function(event){
+      event.preventDefault();
+      var href= $(this).attr('href')
+      console.log(href)
+      $.get(href, function(litleCategory, status){
+        $('#litleCategoryId').val(litleCategory.litleCategoryId);
+        $('#litleName').val(litleCategory.litleName);
+        $('#detail').val(litleCategory.detail);
+      });
+
+      $('#editModal').modal();
+    });
+
+    $('table .detailButton').on('click', function(event){
+      event.preventDefault();
+      var href= $(this).attr('href')
+      console.log(href)
+      $.get(href, function(litleCategory, status){
+        $('#litleCategoryIddetail').val(litleCategory.litleCategoryId);
+        $('#litleNamedetail').val(litleCategory.litleName);
+        $('#detaildetail').val(litleCategory.detail);
+      });
+
+      $('#detailModal').modal();
+    });
+
+    $('table .deleteButton').on('click', function() {
+      event.preventDefault();
+      var href = $(this).attr('href');
+      $('#confirmDeleteButton').attr('href', href);
+      $('#deleteModal').modal();
+    });
+  });
+
+</script>
+<%@ include file="/WEB-INF/views/admin/layout/footer.jsp" %>
 
 </html>

@@ -26,6 +26,6 @@
        <br>
    </c:forEach>
 </div>
-
+<%@ include file="/WEB-INF/views/layouts/footer.jsp" %>
 </body>
 </html>

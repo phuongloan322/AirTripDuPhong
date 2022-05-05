@@ -1,10 +1,14 @@
 package airtrip.airtrip.service;
 
 import airtrip.airtrip.entity.BookRoom;
+import airtrip.airtrip.entity.Place;
 import airtrip.airtrip.repository.AccountRepository;
 import airtrip.airtrip.repository.BookRoomRepository;
 import airtrip.airtrip.repository.PlaceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,7 +20,7 @@ import java.util.List;
 public class BookRoomService {
 
     @Autowired
-    private BookRoomRepository  bookRoomRepository;
+    private BookRoomRepository bookRoomRepository;
 
     @Autowired
     private PlaceRepository placeRepository;
@@ -94,7 +98,7 @@ public class BookRoomService {
             long getDiff = date2.getTime() - date1.getTime();
 
             getDaysDiff = getDiff / (24 * 60 * 60 * 1000);
-            if(getDaysDiff < 0) getDaysDiff = -getDaysDiff;
+            if (getDaysDiff < 0) getDaysDiff = -getDaysDiff;
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -118,7 +122,23 @@ public class BookRoomService {
     }
 
     public List<BookRoom> getBookRoomCancelHost(long accountId, int i) {
-        return this.bookRoomRepository.getBookRoomCancelHost(accountId,i);
+        return this.bookRoomRepository.getBookRoomCancelHost(accountId, i);
+    }
+
+    public BookRoom getBookRoomById(long bookId) {
+        return this.bookRoomRepository.findById(bookId).orElse(null);
+    }
+
+    public List<BookRoom> getBookRoomByAccount(long accountId) {
+        return this.bookRoomRepository.getBookRoomByAccount(accountId);
+    }
+
+    public Page<BookRoom> findBookRoomByPaginatedAdmin(int pageNo, String search, String filter, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+        if (filter != "") {
+
+        }
+        return this.bookRoomRepository.getBookRoomAllAdmin(pageable);
     }
 }
 

@@ -35,16 +35,19 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="logo pull-left">
-                    <a href="<c:url value="/index" />"><b class="head3">AirPay</b></a>
+                    <div style="margin-top: 30px">
+                        <a href="<c:url value="/index" />"><b class="head3" style="color: #ef4365; ">
+                            <i class="fas fa-cannabis" style="margin-right: 10px;margin-top: -5px"></i>AirTrip</b>
+                        </a>
+                    </div>
                 </div>
 
             </div>
-            <div class="col-sm-5 pull-left">
-                <form action="<c:url value="/places" />" method="post" width="100%">
+            <div class="col-sm-6 pull-left">
+                <form action="/places/page/1" method="post" width="100%">
                     <div id="custom-search-input">
                         <div class="input-group">
-                            <input type="text" name="search" class="search-query form-control"
-                                   placeholder="Tìm kiếm sản phẩm mong muốn..."/>
+                            <input type="text" name="search" value="${search}" class="search-query form-control" placeholder="Tìm kiếm nhà / phòng mong muốn..." />
                             <span class="input-group-btn">
                                     <button class="btn btn-danger" type="button">
                                         <span class=" glyphicon glyphicon-search"></span>
@@ -54,11 +57,7 @@
                     </div>
                 </form>
             </div>
-            <div class="col-sm-4">
-                <div class="shop-menu pull-right">
-                    <%@ include file="/WEB-INF/views/layouts/menu.jsp" %>
-                </div>
-            </div>
+            <%@ include file="/WEB-INF/views/layouts/menu.jsp" %>
         </div>
     </div>
     <!--
@@ -118,7 +117,7 @@
                     <c:forEach var="item" items="${bookroomList }">
                         <tr class="gachduoi" id="item-${item.bookId }">
                             <td class="item1"><a href="<c:url value="/detailplace/${item.place.placeId }" />">
-                                <img src="<c:url value="/asset/images/${item.place.images[0].name }" />" alt=""></a>
+                                <img src="<c:url value="/asset/images/${item.place.images[0].name }" />" width="426px0" height="284px"></a>
                             </td>
                             <td class="chung1 c2">
                                 <a href="<c:url value="/detailplace/${item.place.placeId }" />"><b
@@ -319,21 +318,7 @@
     });
 </script>
 <!--==============================footer=================================-->
-<footer>
-    <div class="container_12">
-        <div class="grid_12">
-            <div class="socials">
-                <a href="#" class="fa fa-facebook"></a>
-                <a href="#" class="fa fa-twitter"></a>
-                <a href="#" class="fa fa-google-plus"></a>
-            </div>
-            <div class="copy">
-                Your Trip (c) 2014 | <a href="#">Privacy Policy</a> | Website Template Designed by <a
-                    href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com</a>
-            </div>
-        </div>
-    </div>
-</footer>
+<%@ include file="/WEB-INF/views/layouts/footer.jsp" %>
 
 <script>
 
@@ -377,5 +362,6 @@
     });
 
 </script>
+
 </body>
 </html>

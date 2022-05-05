@@ -27,6 +27,15 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/asset/richtextediter/richtext.min.css">
 
+    <style>
+        .richText .richText-editor {
+            height: 400px;
+        }
+        input[type="checkbox"] {
+            transform: scale(2);
+            margin-right: 10px;
+        }
+    </style>
 
     <style>
         /**
@@ -270,7 +279,7 @@
                                             <b>Tạo tiêu đề</b>
                                         </h3>
                                         <br>
-                                        <textarea name="tieude" rows="3" cols="27" class="ftd"
+                                        <textarea name="tieude" rows="3" cols="27" class="ftd" id="title"
                                                   maxlength="100"></textarea>
                                     </div>
                                 </div>
@@ -282,7 +291,7 @@
                         <div class="item">
                             <div class="work-wrap d-md-flex">
                                 <div class="img chaadd"
-                                     style="background-image: linear-gradient(to bottom right, purple, pink);">
+                                     style="background-image: url(asset/images/nen13.jpg);"">
                                     <h2 class="address">Chỗ ở của bạn nằm ở đâu?</h2>
                                 </div>
                                 <div class="text text-left d-flex align-items-center setaddcha">
@@ -300,11 +309,11 @@
                         <div class="item">
                             <div class="work-wrap d-md-flex">
                                 <div class="img chaadd "
-                                     style="background-image: linear-gradient(to top right, blue, pink);">
+                                     style="background-image: url(asset/images/anh2.jpg);">
                                     <h2 class="address">Tiếp theo, hãy thêm 5 ảnh chụp nổi bật
                                         chỗ ở của bạn</h2>
                                 </div>
-                                <div style="background-image: url(asset/images/anh2.jpg);"
+                                <div
                                      class="text text-left  p-4 px-xl-5 d-flex align-items-center">
                                     <div class="py-md-5">
                                         <img id="imgSrc1" style="display:none" width="200px" height="200px"
@@ -334,13 +343,16 @@
                         <div class="item">
                             <div class="work-wrap d-md-flex">
                                 <div class="img chaadd"
-                                     style="background-image: linear-gradient(to top right, blue, pink);">
-                                    <h2 class="address">Bạn muốn chào đón bao nhiêu khách?</h2>
+                                     style="background-image: url(/asset/images/nen10.jpg);">
+
                                 </div>
                                 <div
                                         class="text text-left  p-4 px-xl-5 d-flex align-items-center">
                                     <div class="py-md-5">
                                         <table class="bnkhach">
+                                            <tr>
+                                                <h3><b style="padding: 20px 50px; color: #445; font-size: 30px;">Bạn muốn chào đón bao nhiêu khách?</b></h3>
+                                            </tr>
                                             <tr>
                                                 <td><b>Khách </b></td>
                                                 <td><input type="number" name="khach" value="1"
@@ -371,7 +383,7 @@
                         <div class="item">
                             <div class="work-wrap d-md-flex">
                                 <div class="img chaadd"
-                                     style="background-image: linear-gradient(to top right, blue, pink);">
+                                     style="background-image: url(/asset/images/i121.jpg);">
                                     <h2 class="address">Bạn muốn cho thuê bao nhiêu nhà/phòng?</h2>
                                 </div>
                                 <div class="text text-left  p-4 px-xl-5 d-flex align-items-center">
@@ -418,18 +430,18 @@
                         <div class="item">
                             <div class="work-wrap d-md-flex">
                                 <div class="img chaadd"
-                                     style="background-image: linear-gradient(to top right, violet, orange);">
+                                     style="background-image: url(asset/images/anh2.jpg);">
                                     <h2 class="address">Bây giờ đến phần thú vị rồi đặt giá và ngày
-                                        cho thuê nào</h2>
+                                        cho thuê nào?</h2>
                                 </div>
-                                <div style="background-image: url(asset/images/anh2.jpg);"
+                                <div s
                                      class="text text-left  p-4 px-xl-5 d-flex align-items-center">
-                                    <div class="py-md-5" style="margin: 0 auto">
+                                    <div class="py-md-5" style="margin: 0 auto; ">
                                         <h3>
-                                            <b style="color: #fff">Hãy nhập giá phù hợp với chỗ ở của bạn</b>
+                                            <b>Hãy nhập giá phù hợp với chỗ ở của bạn</b>
                                         </h3>
                                         <br>
-                                        <div class="buttons_added" style="text-align: center;">
+                                        <div class="buttons_added" style="text-align: center;margin-left: 70px">
                                             <input class="minus is-form" type="button" value="-">
                                             <input class="input-qty" max="10000000"
                                                    min="0" name="price" type="number" value="1">
@@ -445,27 +457,25 @@
                         <div class="item">
                             <div class="work-wrap d-md-flex">
                                 <div class="img chaadd"
-                                     style="background-image: linear-gradient(to top right, violet, orange);">
-                                    <h2 class="address">Bây giờ đến phần thú vị rồi đặt giá và ngày
-                                        cho thuê nào</h2>
+                                     style="background-image: url(asset/images/nen1.jpg);">
                                 </div>
-                                <div style="background-image: url(asset/images/anh2.jpg);"
+                                <div
                                      class="text text-left  p-4 px-xl-5 d-flex align-items-center">
                                     <div class="py-md-5" style="margin: 0 auto">
                                         <h3>
-                                            <b style="color: #fff">Hãy nhập giá phù hợp với chỗ ở của bạn</b>
+                                            <b>Thời gian bạn cho thuê</b>
                                         </h3>
                                         <br>
                                         <br>
                                         <table class="startdate">
                                             <tr>
-                                                <td class="ngay"><b style="color: #fff">Ngày bắt đầu </b></td>
-                                                <td><input type="date" name="startDay"
+                                                <td class="ngay"><b>Ngày bắt đầu </b></td>
+                                                <td><input type="date" name="startDay" id="startDay"
                                                            placeholder="Chọn ngày bắt đầu cho thuế"/></td>
                                             </tr>
                                             <tr>
-                                                <td class="ngay "><b style="color: #fff">Ngày kết thúc </b></td>
-                                                <td><input type="date" name="endDay"
+                                                <td class="ngay "><b >Ngày kết thúc </b></td>
+                                                <td><input type="date" name="endDay" id="endDay"
                                                            placeholder="Chọn ngày kết thúc cho thuế"/></td>
                                             </tr>
                                         </table>
@@ -482,9 +492,8 @@
                                      style="background-image: url(asset/images/i121.jpg);">
                                     <h2 class="address">Bây giờ, hãy mô tả chỗ ở của bạn</h2>
                                 </div>
-                                <div
-                                        class="text text-left  p-4 px-xl-5 d-flex align-items-center">
-                                    <div class="py-md-5">
+                                <div class="text text-left p-4 px-xl-5 d-flex align-items-center">
+                                    <div class="">
                                         <h3>
                                             <b>Tạo phần mô tả</b>
                                         </h3>
@@ -609,7 +618,7 @@
                                         <h3>
                                             <b>Chỉ cần nhấn xác nhận là hoàn thành mục cho thuê mới</b>
                                         </h3>
-                                        <button class="finish" style="bottom: 50px">Hoàn thành</button>
+                                        <button onclick="return validate()" class="finish" style="bottom: 50px">Hoàn thành</button>
                                     </div>
                                 </div>
                             </div>
@@ -668,6 +677,38 @@
 </script>
 
 <script type="text/javascript">
+
+    function validate() {
+        var flag = true;
+
+        if ($('input[name=category]:checked').length <= 0) {
+            flag = false;
+            alert("Vui lòng chọn loại nhà ở!");
+        }
+        if ($('input[name=litleCategory]:checked').length <= 0) {
+            flag = false;
+            alert("Vui lòng chọn loại nhà ở!");
+        }
+        if ($('#title').val() == '') {
+            flag = false;
+            alert("Vui lòng nhập tiêu đề!");
+        }
+        if ($('#inputaddress').val() == '') {
+            flag = false;
+            alert("Vui lòng nhập địa chỉ chính xác!");
+        }
+        if ($('#content').val() == '') {
+            flag = false;
+            alert("Vui lòng nhập thông tin mô tả nhà phòng!");
+        }
+        if ($('#imageFile').val() == '') {
+            flag = false;
+            alert("Vui lòng chọn ít nhất 5 ảnh!");
+        }
+
+        return flag;
+    }
+
     function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -794,6 +835,11 @@ $('input.input-qty').each(function () {
         $this.attr('value', d).val(d)
     })
 })
+
+document.getElementById("startDay").valueAsDate = new Date();
+document.getElementById("endDay").valueAsDate = new Date();
+
+
 //]]></script>
 
 <script src="/asset/map/host.js"></script>

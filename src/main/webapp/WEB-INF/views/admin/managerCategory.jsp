@@ -10,55 +10,50 @@
   <title>
     Quản Lý Mục Thuê
   </title>
-  <%@ include file="/WEB-INF/views/layout/head.jsp" %>
+  <%@ include file="/WEB-INF/views/admin/layout/head.jsp" %>
 </head>
 
 <body class="light-edition">
   <div class="wrapper ">
-    <%@ include file="/WEB-INF/views/layout/sidebar.jsp" %>
+    <%@ include file="/WEB-INF/views/admin/layout/sidebar.jsp" %>
     <div class="main-panel">
       <!-- Navbar -->
-      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example" style="background-color: darkslategrey !important;color:#fff">
         <div class="container-fluid">
           <div class="navbar-wrapper">
             <a class="navbar-brand" href="javascript:void(0)">QUẢN LÝ MỤC THUÊ</a>
           </div>
-          
+
           <div class="collapse navbar-collapse justify-content-end">
-          
-            <form action="<c:url value="/manager-category" />" method="post" class="navbar-form">
+
+            <form action="<c:url value="/admin/manager-category" />" method="post" class="navbar-form">
               <div class="input-group no-border">
-                <input type="text" value="" class="form-control" name="search" placeholder="Search...">
+                <input type="text" value="${search}" class="form-control" name="search" placeholder="Search..." style="color: #fff" >
                 <button type="submit" class="btn btn-default btn-round btn-just-icon">
                   <i class="material-icons">search</i>
                   <div class="ripple-container"></div>
                 </button>
               </div>
             </form>
-            
-            <%@ include file="/WEB-INF/views/layout/nav-link.jsp" %>
+
+            <%@ include file="/WEB-INF/views/admin/layout/nav-link.jsp" %>
           </div>
         </div>
       </nav>
       <!-- End Navbar -->
-      
-      <div class="content">
-      
-     <div id="msg">
-	      <c:if test="${msg != null }">
-	       		<div class="alert alert-info"  role="alert">${msg }</div>     
-	      </c:if>
-      </div>
-      <%@ include file="/WEB-INF/views/layout/message.jsp" %>
 
-      
+      <div class="content">
+
+      <%@ include file="/WEB-INF/views/admin/layout/message.jsp" %>
+
+
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-12">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalThem">
             	<i class="material-icons large">add_box</i> Add new
             </button>
-			
+
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title ">Category Place</h4>
@@ -96,19 +91,20 @@
 		                            ${item.name }
 		                          </td>
 		                          <td class="chucnang">
-		                            <a href="<c:url value="/manager-category/findById/${item.categoryId }" />" id="editButton"><i class="material-icons edit">mode_edit</i></a>
-		                            <a href="<c:url value="/manager-category/delete/${item.categoryId }" />" id="deleteButton"><i class="material-icons delete">delete</i></a>
+									  <a href="<c:url value="/admin/manager-category/${item.categoryId }" />"><i class="material-icons detail">event_note</i></a>
+		                            <a href="<c:url value="/admin/manager-category/findById/${item.categoryId }" />" class="editButton"><i class="material-icons edit">mode_edit</i></a>
+		                            <a href="<c:url value="/admin/manager-category/delete/${item.categoryId }" />" class="deleteButton"><i class="material-icons delete">delete</i></a>
 		                          </td>
 		                        </tr>
 		                        </c:forEach>
 		                      </tbody>
-		                    </table>	
+		                    </table>
                   		</c:when>
                   		<c:otherwise>
                   			Không tìm thấy kết quả nào
                   		</c:otherwise>
                   	</c:choose>
-                    
+
                   </div>
                 </div>
               </div>
@@ -118,35 +114,35 @@
       </div>
     </div>
   </div>
-  
+
   <!-- Modal ADD-->
 	<div class="modal fade" id="modalThem" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLabel">Thêm Mục Thuê</h5>
+	        <h5 class="modal-title" >Thêm Mục Thuê</h5>
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
 	      </div>
 	      <div class="modal-body">
-	        <form action ="<c:url value="/manager-category/add" />" method="post">
-				<label for="exampleFormControlFile1" class="">Mã mục thuê</label><br>
-				<input type="text" class="form-control-file " id="exampleFormControlFile1" name="categoryId"><br>
-				  
-				<label for="exampleFormControlFile1" class="">Tên mục thuê</label>
-				<input type="text" class="form-control-file " id="exampleFormControlFile1" name="name">
-				  
+	        <form action ="<c:url value="/admin/manager-category/add" />" method="post">
+				<label class="">Mã mục thuê</label><br>
+				<input type="text" class="form-control-file "  name="categoryId"><br>
+
+				<label class="">Tên mục thuê</label>
+				<input type="text" class="form-control-file "  name="name">
+
 				<div class="modal-footer">
 			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
 			        <button type="submit" class="btn btn-primary">Thêm</button>
-			    </div>        
+			    </div>
 	        </form>
 	      </div>
 	    </div>
 	  </div>
 	</div>
-	<!-- MODAL EDIT -->	
+	<!-- MODAL EDIT -->
 
 	<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
@@ -158,29 +154,29 @@
 	        </button>
 	      </div>
 	      <div class="modal-body">
-	        <form action ="<c:url value="/manager-category/edit" />" method="post">
-	        
+	        <form action ="<c:url value="/admin/manager-category/edit" />" method="post">
+
 	        	<div class="">
-				    <label for="exampleFormControlFile1" class="">Mã mục thuê</label>
+				    <label class="">Mã mục thuê</label>
 				    <input type="text" class="form-control-file " id="categoryId" name="categoryId"  readonly>
 				  </div>
 				  <div class="">
-				    <label for="exampleFormControlFile1" class="">Tên mục thuê</label>
+				    <label class="">Tên mục thuê</label>
 				    <input type="text" class="form-control-file " id="name" name="name" >
 				  </div>
-				  
+
 				<div class="modal-footer">
 			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Thoát</button>
 			        <button type="submit" class="btn btn-primary">Cập nhật</button>
-			      </div>        
+			      </div>
 	        </form>
 	      </div>
 	    </div>
 	  </div>
 	</div>
-	
+
 	 <!-- DELETE MODAL -->
-	 
+
 	<div class="modal" id="deleteModal" tabindex="-1" role="dialog">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
@@ -204,28 +200,28 @@
 
 	 <script type="text/javascript">
 	  $(document).ready(function(){
-		
-		  $('table #editButton').on('click', function(event){
+
+		  $('table .editButton').on('click', function(event){
 				event.preventDefault();
-				
+
 				var href= $(this).attr('href')
 				 $.get(href, function(category, status){
 					$('#categoryId').val(category.categoryId);
 					$('#name').val(category.name);
-				});  
-				
+				});
+
 				$('#editModal').modal();
 			});
-		  
-		  $('table #deleteButton').on('click', function() {
+
+		  $('table .deleteButton').on('click', function() {
 				event.preventDefault();
 				var href = $(this).attr('href');
 				$('#confirmDeleteButton').attr('href', href);
 				$('#deleteModal').modal();
 			});
 	  });
-	  
+
 	</script>
-    <%@ include file="/WEB-INF/views/layout/footer.jsp" %>
+    <%@ include file="/WEB-INF/views/admin/layout/footer.jsp" %>
 
 </html>

@@ -27,7 +27,11 @@
 	<div class="head1">
 		<div class="head2">
 			<div class="float-left">
-				<a href="<c:url value="/index" />"><b class="head3">AirPay</b></a>
+				<div style="">
+					<a href="<c:url value="/index" />"><b class="head3" style="color: #ef4365; ">
+						<i class="fas fa-cannabis" style="margin-right: 10px;margin-top: 20px"></i>AirTrip</b>
+					</a>
+				</div>
 			</div>
 			<div class="float-right">
 				

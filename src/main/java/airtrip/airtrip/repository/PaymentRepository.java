@@ -1,6 +1,8 @@
 package airtrip.airtrip.repository;
 
 import airtrip.airtrip.entity.Payment;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -20,4 +22,10 @@ public interface PaymentRepository extends JpaRepository<Payment, String> {
 
     @Query(value = "select t from Payment t where t.bookRoom.place.account.accountId = ?1 and (t.createTime >= ?2 and t.createTime <= ?3)")
     List<Payment> getPaymentBySearchHost(long accountId, String startDate, String endDate);
+
+    @Query(value = "select t from Payment t order by t.paymentId desc")
+    Page<Payment> getPaymentAllAdmin(Pageable pageable);
+
+    @Query(value = "select t from Payment t where t.createTime >= ?1 and t.createTime <= ?2")
+    List<Payment> getPaymentBySearchAdmin(String startDate, String endDate);
 }

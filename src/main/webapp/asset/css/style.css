@@ -24,7 +24,7 @@ a[href^="tel:"] {
 body {
 	position: relative;
 	min-width: 960px;
-    background-color: #002141;
+    /*background-color: #002141;*/
     color: #737272;
     font: 14px/20px 'Open Sans', sans-serif;
 }
@@ -272,12 +272,13 @@ a.btn:hover {
 header {
 	display: block;
     background: url(../images/slide.jpg) center 0 repeat-x;
+    /*height: 150px;*/
     -webkit-background-size: 100% auto;
     -moz-background-size: 100% auto;
     -ms-background-size: 100% auto;
     -o-background-size: 100% auto;
     background-size: 100% auto;
-    padding-bottom: 98px;
+    padding-bottom: 70px;
 }
 
 .page1 header {
@@ -1067,7 +1068,7 @@ header h1 a {
 }
 .slidego {
 	background: url(../images/slidego.PNG) center 0 repeat-x !important;
-	height: 300px;
+	height: 200px;
 }
 .pagination .active {
     background: #ef4365 !important;

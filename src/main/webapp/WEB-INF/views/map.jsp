@@ -24,11 +24,15 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="logo pull-left">
-                    <a href="/index"><b class="head3">AirPay</b></a>
+                    <div style="margin-top: 30px">
+                        <a href="<c:url value="/index" />"><b class="head3" style="color: #ef4365; ">
+                            <i class="fas fa-cannabis" style="margin-right: 10px;margin-top: -5px"></i>AirTrip</b>
+                        </a>
+                    </div>
                 </div>
 
             </div >
-            <div class="col-sm-5 pull-left">
+            <div class="col-sm-6 pull-left">
                 <form action="/map/1" method="get" width="100%">
                     <div id="custom-search-input">
                         <div class="input-group">
@@ -42,10 +46,9 @@
                     </div>
                 </form>
             </div>
-            <div class="col-sm-4">
+            <div class="col-sm-3">
                 <div class="shop-menu pull-right">
                     <ul class="nav navbar-nav">
-                        <li><a href="/become-a-host" class="i-chu">Trở thành chủ nhà</a></li>
                         <c:if test="${accLogin != null }">
                             <li class="dropdown"><a class="i-chu"><i class="fa fa-user"></i>${accLogin.name }<i class="fa fa-angle-down"></i></a>
                                 <ul role="menu" class="sub-menu">
@@ -73,7 +76,7 @@
 <div class="content">
     <a href="/places" class="showmap1"><i class="fas fa-list"></i>Hiện danh sách</a>
     <div>
-        <div style="width: 100%; padding: 50px">
+        <div style="width: 100%;padding: 20px 50px 50px 50px;">
             <div style="float: left;width: 75%">
                 <c:if test="${categoryList.size() > 0 }">
                     <ul class="category"class="category">
@@ -85,7 +88,6 @@
                             <c:if test="${item.categoryId != category}">
                                 <a href="/map/1?search=${search}&category=${item.categoryId}&filter=${filter}"><li >${item.name }</li></a>
                             </c:if>
-
                         </c:forEach>
                     </ul>
                 </c:if>
@@ -145,7 +147,8 @@
                     </select>
                 </div>
                 <div style="float: left;width: 5%">
-                    <button class="btn btn-light" data-toggle="modal" data-target="#exampleModal">Bộ lọc</button>
+                    <button class="btn btn-light" data-toggle="modal" data-target="#exampleModal">
+                        <i class="fas fa-filter" style="margin-top: 5px"></i> Bộ lọc</button>
                 </div>
             </div>
         </div>
@@ -348,7 +351,7 @@
     </div>
 </div>
 <!--==============================footer=================================-->
-
+<%@ include file="/WEB-INF/views/layouts/footer.jsp" %>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
         defer
 ></script>

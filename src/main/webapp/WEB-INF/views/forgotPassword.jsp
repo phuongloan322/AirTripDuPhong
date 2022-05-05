@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="/asset/login/img/apple-icon.png">
     <link rel="icon" type="image/png" href="/asset/login/img/favicon.png">
     <title>
-        Material Dashboard 2 by Creative Tim
+        AirTrip | Thay đổi mật khẩu
     </title>
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -38,7 +38,7 @@
             <nav class="navbar navbar-expand-lg blur border-radius-lg top-0 z-index-3 shadow position-absolute mt-4 py-2 start-0 end-0 mx-4">
                 <div class="container-fluid ps-2 pe-0">
                     <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="../pages/dashboard.html">
-                        Material Dashboard 2
+                        <h4>AirTrip</h4>
                     </a>
                     <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon mt-2">
@@ -50,33 +50,28 @@
                     <div class="collapse navbar-collapse" id="navigation">
                         <ul class="navbar-nav mx-auto">
                             <li class="nav-item">
-                                <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="../pages/dashboard.html">
+                                <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="/index">
                                     <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
-                                    Dashboard
+                                    Trang chủ
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link me-2" href="../pages/profile.html">
+                                <a class="nav-link me-2" href="/places">
                                     <i class="fa fa-user opacity-6 text-dark me-1"></i>
-                                    Profile
+                                    Khám phá
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link me-2" href="../pages/sign-up.html">
+                                <a class="nav-link me-2" href="/blog">
                                     <i class="fas fa-user-circle opacity-6 text-dark me-1"></i>
-                                    Sign Up
+                                    Trải nghiệm
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link me-2" href="../pages/sign-in.html">
+                                <a class="nav-link me-2" href="/contact">
                                     <i class="fas fa-key opacity-6 text-dark me-1"></i>
-                                    Sign In
+                                    Liên hệ
                                 </a>
-                            </li>
-                        </ul>
-                        <ul class="navbar-nav d-lg-block d-none">
-                            <li class="nav-item">
-                                <a href="https://www.creative-tim.com/product/material-dashboard" class="btn btn-sm mb-0 me-1 bg-gradient-dark">Free download</a>
                             </li>
                         </ul>
                     </div>
@@ -91,11 +86,11 @@
         <div class="page-header min-vh-100">
             <div class="container">
                 <div class="row">
-                    <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 start-0 text-center justify-content-center flex-column">
-                        <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center" style="background-image: url('/asset/login/img/illustrations/illustration-signup.jpg'); background-size: cover;">
+                    <div class="col-5 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 start-0 text-center justify-content-center flex-column">
+                        <div class="bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center" style="background-image: url('/asset/login/img/illustrations/nenregister.jpg'); background-size: cover;position: -webkit-sticky;position: sticky; top: 0; height: 100%">
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column ms-auto me-auto ms-lg-auto me-lg-5">
+                    <div class="col-xl-6 col-lg-5 col-md-7  d-flex flex-column ms-auto me-auto ms-lg-auto me-lg-5">
                         <div class="card card-plain">
                             <div class="card-header">
                             </div>

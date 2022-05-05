@@ -33,8 +33,6 @@
                         </c:otherwise>
                     </c:choose>
                     <br><br>
-                    <a class="capnhatanh" href="" data-toggle="modal" data-target="#modalThem">Cập nhât ảnh</a>
-                    <hr>
                     <c:if test="${account.isIdentity == false}">
                          <h4><i class="fas fa-exclamation"></i>${account.name } chưa xác nhận danh tính</h4>
                     </c:if>
@@ -90,10 +88,12 @@
                                                      </c:otherwise>
                                                  </c:choose>
 											</span>
-                                                <img src="/asset/images/${item.images[0].name }" alt="" width="260px">
+                                                <img src="/asset/images/${item.images[0].name }" alt="" width="260px" height="174px">
                                             </div>
                                             <div class="label1">
-                                                <i class="fas fa-star"></i>${rate}
+                                                <div>
+                                                    <i class="fas fa-star"></i>${rate}
+                                                </div>
                                                 <a href="/detailplace/${item.placeId }">
                                                     <b class="textoverflow1" style="color:#1a2035">${item.name }</b>
                                                 </a>
@@ -142,10 +142,12 @@
                                                      </c:otherwise>
                                                  </c:choose>
 											</span>
-                                            <img src="/asset/images/${item.images[0].name }" alt="" width="260px">
+                                            <img src="/asset/images/${item.images[0].name }" alt="" width="260px" height="174px">
                                         </div>
                                         <div class="label1">
-                                            <i class="fas fa-star"></i>${rate}
+                                            <div>
+                                                <i class="fas fa-star"></i>${rate}
+                                            </div>
                                             <a href="/detailplace/${item.placeId }">
                                                 <b class="textoverflow1" style="color:#1a2035">${item.name }</b>
                                             </a>
@@ -166,7 +168,7 @@
             <u id="xemthem">Xem tất cả nhà/phòng</u>
     <hr>
     <div>
-        <h3><i class="fas fa-star"></i> ${reviewById.size()} đánh giá</h3><br>
+        <h3><i class="fas fa-star" style="color: #ef4365"></i> ${reviewById.size()} đánh giá</h3><br>
         <c:choose>
             <c:when test="${reviewById.size() > 0}">
                 <c:forEach var="item" items="${reviewById}">
@@ -178,13 +180,13 @@
                             <div class="right">
                                 <b style="margin-right: 10px">${item.account.name }</b>
                                 <c:forEach begin="1" end="${item.rate }" varStatus="loop">
-                                    <i class="fas fa-star item-star"></i>
+                                    <i class="fas fa-star item-star" ></i>
                                 </c:forEach>
                                 <p>${item.dateSubmit }</p>
                             </div>
                         </div>
                         <div class="d-avt">
-                            <div style="min-width: 700px">
+                            <div style="min-width: 769px">
                                 <h4>${item.place.name }</h4>
                                 <p>${item.content }</p>
                             </div>
@@ -204,7 +206,7 @@
 
     </div>
 </div>
-
+<%@ include file="/WEB-INF/views/layouts/footer.jsp" %>
 
 <script type="text/javascript">
 

@@ -35,11 +35,15 @@
                     <a class="capnhatanh" href="" data-toggle="modal" data-target="#modalThem">Cập nhât ảnh</a>
                     <hr>
                     <c:if test="${accLogin.isIdentity == false}">
-                        <h4>${accLogin.name } chưa xác nhận danh tính</h4>
+                        <h4>
+                            <i class="fas fa-exclamation"></i>
+                                ${accLogin.name } chưa xác nhận danh tính</h4>
                         <a href="/identity?email=${accLogin.email}" data-email="${accLogin.email}" id="identity">Xác nhận danh tính</a>
                     </c:if>
                     <c:if test="${accLogin.isIdentity == true}">
-                        <h4>${accLogin.name } đã xác nhận danh tính</h4>
+                        <h4>
+                            <i class="fas fa-check"></i>
+                                ${accLogin.name } đã xác nhận danh tính</h4>
                     </c:if>
 
                 </div>
@@ -88,7 +92,7 @@
 
                 <div class="form-group">
                     <label>Giới thiệu</label><br>
-                    <textarea class="nhap" type="text" name="introduce">${accLogin.introduce }</textarea>
+                    <textarea class="nhap" type="text" style="height: 100px; background-color: #fff" name="introduce">${accLogin.introduce }</textarea>
                 </div>
                 <br>
 
@@ -251,6 +255,6 @@
         }
     </script>
     <br><br>
-
+<%@ include file="/WEB-INF/views/layouts/footer.jsp" %>
 </body>
 </html>

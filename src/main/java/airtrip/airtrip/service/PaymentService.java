@@ -3,6 +3,9 @@ package airtrip.airtrip.service;
 import airtrip.airtrip.entity.Payment;
 import airtrip.airtrip.repository.PaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -77,5 +80,21 @@ public class PaymentService {
                 break;
             }
             return date;
+    }
+
+    public Page<Payment> findPaymentByPaginatedAdmin(int pageNo, String search, String filter, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+        if(filter != "" ) {
+
+        }
+        return this.paymentRepository.getPaymentAllAdmin(pageable);
+    }
+
+    public List<Payment> getPaymentBySearchtAdmin(int month1, int year1, int month2, int year2) {
+        String startDate = year1+"-"+month1+"-1";
+        String endDate = year2+"-"+month2+"-"+numberDate(month2, year2);
+        System.out.println(startDate);
+        System.out.println(endDate);
+        return this.paymentRepository.getPaymentBySearchAdmin(startDate, endDate);
     }
 }

@@ -47,6 +47,9 @@ public interface PlaceRepository extends JpaRepository<Place, Long> {
     @Query(value = "select * from place where place_id = ?1", nativeQuery = true)
     Place getPlaceById(long placeId);
 
-    @Query(value = "select t from Place t where t.litleCategory.category.name = ?1 and t.litleCategory.litleName = ?2 and t.detailPlace.phongkhach >= ?3 and t.detailPlace.phongngu >= ?4 and t.detailPlace.giuong >= ?5 and t.detailPlace.phongvs >= ?6 and t.startDay >= ?7 and t.endDay >= ?8 and t.price >= ?9 and t.price <= ?10 and t.address like %?11%")
-    List<Place> searchAdvanced(String category, String litlecategory, int people, int phongngu, int giuong, int phongtam, String startdate, String enddate, long price1, long price2, String address);
+    @Query(value = "select t from Place t where t.litleCategory.litleCategoryId = ?1 and t.detailPlace.phongkhach >= ?2 and t.detailPlace.phongngu >= ?3 and t.detailPlace.giuong >= ?4 and t.detailPlace.phongvs >= ?5 and t.startDay >= ?6 and t.endDay >= ?7 and t.price >= ?8 and t.price <= ?9 and t.address like %?10%")
+    List<Place> searchAdvanced(String litlecategory, int people, int phongngu, int giuong, int phongtam, String startdate, String enddate, long price1, long price2, String address);
+
+    @Query(value = "select t from Place t order by t.placeId desc")
+    Page<Place> getPlaceAllAdmin(Pageable pageable);
 }

@@ -146,7 +146,7 @@ public class PlaceService {
     }
 
     public List<Place> searchAdvanced(String category, String litlecategory, String address,int people, int phongngu, int giuong, int phongtam, String startdate, String enddate, long price1, long price2) {
-        return this.placeRepository.searchAdvanced(category, litlecategory,people,phongngu, giuong, phongtam, startdate, enddate, price1, price2, address);
+        return this.placeRepository.searchAdvanced(litlecategory,people,phongngu, giuong, phongtam, startdate, enddate, price1, price2, address);
     }
 
     public void editIsEmpty(boolean b, long placeId) {
@@ -163,5 +163,19 @@ public class PlaceService {
 
     public void deleteById(long placeId) {
         this.placeRepository.deleteById(placeId);
+    }
+
+    public void EditPlaceAccept(boolean b, long placeId) {
+        Place place = placeRepository.findById(placeId).orElse(null);
+        place.setIsAccept(b);
+        placeRepository.save(place);
+    }
+
+    public Page<Place> findPlaceByPaginatedAdmin(int pageNo, String search, String filter, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+        if(filter != "" ) {
+
+        }
+        return this.placeRepository.getPlaceAllAdmin(pageable);
     }
 }

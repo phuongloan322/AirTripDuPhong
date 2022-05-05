@@ -1,4 +1,4 @@
-package airtrip.airtrip.user;
+package airtrip.airtrip.controller.user;
 
 import airtrip.airtrip.Capcha.VerifyUtils;
 import airtrip.airtrip.entity.Account;
@@ -49,16 +49,16 @@ public class AccountController {
 	@Autowired
 	private ReviewService reviewService;
 
-	@RequestMapping(value = "/admin/login", method = RequestMethod.GET)
-	public String adminPage(Model model, Principal principal) {
-
-		User loginedUser = (User) ((Authentication) principal).getPrincipal();
-
-		String userInfo = WebUtils.toString(loginedUser);
-		model.addAttribute("userInfo", userInfo);
-
-		return "adminPage";
-	}
+//	@RequestMapping(value = "/admin/login", method = RequestMethod.GET)
+//	public String adminPage(Model model, Principal principal) {
+//
+//		User loginedUser = (User) ((Authentication) principal).getPrincipal();
+//
+//		String userInfo = WebUtils.toString(loginedUser);
+//		model.addAttribute("userInfo", userInfo);
+//
+//		return "adminPage";
+//	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String loginPage(Model model) {
@@ -67,7 +67,8 @@ public class AccountController {
 	}
 
 	@RequestMapping(value = "/logoutSuccessful", method = RequestMethod.GET)
-	public String logoutSuccessfulPage(Model model) {
+	public String logoutSuccessfulPage(HttpSession session) {
+		session.removeAttribute("accLogin");
 		return "login";
 	}
 
@@ -280,7 +281,7 @@ public class AccountController {
 				ratings.add(0 + " ("+reviews.size()+")");
 			}
 			else
-				ratings.add(rating + " ("+reviews.size()+")");
+				ratings.add((double) Math.ceil (rating * 100) / 100 + " ("+reviews.size()+")");
 		}
 		model.addAttribute("ratings", ratings);
 

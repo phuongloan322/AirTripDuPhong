@@ -1,6 +1,7 @@
 package airtrip.airtrip.service;
 
 import airtrip.airtrip.entity.Account;
+import airtrip.airtrip.entity.Blog;
 import airtrip.airtrip.entity.Image;
 import airtrip.airtrip.entity.Place;
 import airtrip.airtrip.repository.ImageRepository;
@@ -25,6 +26,9 @@ public class ImageService {
 
     @Autowired
     private AccountService accountService;
+
+    @Autowired
+    private BlogService blogService;
 
     public void saveImages(Place place, MultipartFile file, Account admin, HttpServletRequest request) {
         String name = fileService.saveImageToServer(request, file);
@@ -76,4 +80,5 @@ public class ImageService {
             }
         }
     }
+
 }

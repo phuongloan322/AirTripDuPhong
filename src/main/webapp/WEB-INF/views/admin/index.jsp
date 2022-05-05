@@ -1,21 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <title>
-    AirPay - Trang quản lý
-  </title>
-  <%@ include file="/WEB-INF/views/layout/head.jsp" %>
+    <meta charset="utf-8" />
+    <title>
+        Quản Lý
+    </title>
+    <%@ include file="/WEB-INF/views/admin/layout/head.jsp" %>
 </head>
 
-<body class="dark-edition">
+<body class="">
   <div class="wrapper ">
-    <%@ include file="/WEB-INF/views/layout/sidebar.jsp" %>
+    <%@ include file="/WEB-INF/views/admin/layout/sidebar.jsp" %>
     <div class="main-panel">
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
@@ -35,7 +35,7 @@
               </div>
             </form>
            
-            <%@ include file="/WEB-INF/views/layout/nav-link.jsp" %>
+            <%@ include file="/WEB-INF/views/admin/layout/nav-link.jsp" %>
           </div>
         </div>
       </nav>
@@ -112,7 +112,7 @@
       
     </div>
   </div>
-  
+  <%@ include file="/WEB-INF/views/admin/layout/footer.jsp" %>
 </body>
 
 </html>

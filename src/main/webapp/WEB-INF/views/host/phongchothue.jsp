@@ -115,9 +115,9 @@
 								</form>
 							</c:when>
 							<c:otherwise>
-								<p>Bạn chưa có mục cho thuê nào</p>
-								<br>
-								<a href="<c:url value="/become-a-host" />">Tạo mục cho thuê mới</a>
+								<p class="thongbao">
+									Bạn chưa có mục cho thuê nào
+								</p>
 							</c:otherwise>
 						</c:choose>
 						
@@ -199,17 +199,7 @@
 		});
 
         </script>
-        <script src="<c:url value="/asset/host/lib/easing/easing.min.js" />"></script>
-        <script src="<c:url value="/asset/host/js/lib/wow/wow.min.js" />"></script>
-        <script src="<c:url value="/asset/host/lib/owlcarousel/owl.carousel.min.js" />"></script>
-        <script src="<c:url value="/asset/host/lib/isotope/isotope.pkgd.min.js" />"></script>
-        <script src="<c:url value="/asset/host/js/lib/lightbox/js/lightbox.min.js" />"></script>
-        
-        <!-- Contact Javascript File -->
-        <script src="<c:url value="/asset/host/mail/jqBootstrapValidation.min.js" />"></script>
-        <script src="<c:url value="/asset/host/mail/contact.js" />"></script>
-
-        <!-- Template Javascript -->
-        <script src="<c:url value="/asset/host/js/main.js" />"></script>
+		<%@ include file="/WEB-INF/views/host/libfooter.jsp" %>
+		<%@ include file="/WEB-INF/views/layouts/footer.jsp" %>
     </body>
 </html>

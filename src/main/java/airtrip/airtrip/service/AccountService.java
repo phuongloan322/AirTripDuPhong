@@ -4,6 +4,10 @@ import airtrip.airtrip.entity.Account;
 import airtrip.airtrip.repository.AccountRepository;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -77,5 +81,30 @@ public class AccountService {
     public void EditAvatar(Account account, String image) {
         account.setImage(image);
         this.accountRepository.save(account);
+    }
+
+    public void DeleteAccountAdmin(long accountId) {
+        this.accountRepository.deleteById((accountId));
+    }
+
+    public Account getAccountByIdAdmin(long accountId) {
+       return this.accountRepository.findById(accountId).orElse(null);
+    }
+
+    public void EditAccountAdmin(Account account) {
+        this.accountRepository.save(account);
+    }
+
+    public Page<Account> findAccountByPaginated(int pageNo, String search, String filter, int pageSize) {
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
+        if(filter != "" ) {
+
+        }
+        return this.accountRepository.getAccountBySearch(search, pageable);
+    }
+
+
+    public List<Account> getAccountAdmin() {
+        return this.accountRepository.getAccountAdmin();
     }
 }

@@ -21,4 +21,19 @@ public class LitleCategoryService {
         return this.categoryRepository.findAll();
     }
 
+    public List<LitleCategory> getLitleCategorySearch(String search) {
+        return this.categoryRepository.getLitleCategorySearch(search);
+    }
+
+    public void AddLitleCategory(LitleCategory litlecategory) {
+        this.categoryRepository.save(litlecategory);
+    }
+
+    public void EditLitleCategory(LitleCategory litlecategory) {
+        this.categoryRepository.save(litlecategory);
+    }
+
+    public void DeleteLitleCategory(String litleCategoryId) {
+        this.categoryRepository.deleteById(litleCategoryId);
+    }
 }

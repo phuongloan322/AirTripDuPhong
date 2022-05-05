@@ -627,4 +627,95 @@ input.star:checked ~ .rev-box{
     color: #222;
     font-weight: 600;
 }
+.oans {
+    font-size: 42px;
+    color: #111;
+    font-weight: 600;
+    font-family: 'Open Sans';
+    margin-bottom: 50px;
+}
+.ihihk {
 
+}
+.setw-25 {
+    width: 23.5%;
+    float: left;
+    margin-right: 15px;
+}
+.idna1 {
+    min-height: 200px;
+    padding: 24px 16px 16px;
+    background: rgb(217, 59, 48);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.idna2 {
+    min-height: 200px;
+    padding: 24px 16px 16px;
+    background: rgb(222, 49, 81);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.idna3 {
+    min-height: 200px;
+    padding: 24px 16px 16px;
+    background: rgb(204, 45, 74);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+.idna4 {
+    min-height: 200px;
+    padding: 24px 16px 16px;
+    background: rgb(188, 26, 110);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.idna1 .a, .idna2 .a, .idna3 .a, .idna4 .a{
+    color: #fff;
+    font-size: 35px;
+    font-weight: 600;
+    padding-top: 10px;
+}
+
+.aihdi {
+    font-size: 18px;
+    color: #fff;
+    padding-top: 30px;
+}
+.suahs {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.setw-50 {
+    width: 48%;
+    float: left;
+    margin-right: 20px;
+    position: relative;
+}
+.pdwjod {
+    position: absolute;
+    top: 0;
+    margin: 50px;
+}
+.asihd {
+    font-size: 50px;
+    line-height: 1.5;
+    width: 400px;
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 50px;
+}
+.dadww {
+    color: #000;
+    font-size: 20px;
+    background: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 700;
+}
+.setw-100 img {
+    border-radius: 15px;
+    margin-top: 100px;
+    width: 97%;
+}

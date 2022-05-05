@@ -1,4 +1,4 @@
-package airtrip.airtrip.user;
+package airtrip.airtrip.controller.user;
 
 import airtrip.airtrip.entity.CancelBook;
 import airtrip.airtrip.service.CancelBookService;

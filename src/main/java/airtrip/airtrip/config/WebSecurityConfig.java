@@ -3,6 +3,7 @@ import airtrip.airtrip.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -15,6 +16,7 @@ import javax.sql.DataSource;
 
 @Configuration
     @EnableWebSecurity
+@Order(2)
     public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         @Autowired
@@ -46,18 +48,18 @@ import javax.sql.DataSource;
 
             // Trang /userInfo yêu cầu phải login với vai trò ROLE_USER hoặc ROLE_ADMIN.
             // Nếu chưa login, nó sẽ redirect tới trang /login.
-            http.authorizeRequests().antMatchers("/userInfo").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')");
+//            http.authorizeRequests().antMatchers("/userInfo").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')");
 
             // Trang chỉ dành cho ADMIN
-            http.authorizeRequests().antMatchers("/admin").access("hasRole('ROLE_ADMIN')");
+//            http.authorizeRequests().antMatchers("/admin").access("hasRole('ROLE_ADMIN')");
 
             // Khi người dùng đã login, với vai trò XX.
             // Nhưng truy cập vào trang yêu cầu vai trò YY,
             // Ngoại lệ AccessDeniedException sẽ ném ra.
-            http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/403");
+//            http.authorizeRequests().and().exceptionHandling().accessDeniedPage("/403");
 
             // Cấu hình cho Login Form.
-            http.authorizeRequests().and().formLogin()//
+            http.authorizeRequests().antMatchers("/userInfo").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')").and().formLogin()//
                     // Submit URL của trang login
                     .loginProcessingUrl("/j_spring_security_check") // Submit URL
                     .loginPage("/login")//
@@ -65,7 +67,7 @@ import javax.sql.DataSource;
                     .failureUrl("/login?error=true")//
                     .usernameParameter("username")//
                     .passwordParameter("password")
-                    // Cấu hình cho Logout Page.
+                    .and().exceptionHandling().accessDeniedPage("/403")
                     .and().logout().logoutUrl("/logout").logoutSuccessUrl("/logoutSuccessful");
 
             // Cấu hình Remember Me.
@@ -81,5 +83,12 @@ import javax.sql.DataSource;
             db.setDataSource(dataSource);
             return db;
         }
+
+//    // Token stored in Memory (Of Web Server).
+//    @Bean
+//    public PersistentTokenRepository persistentTokenRepository() {
+//        InMemoryTokenRepositoryImpl memory = new InMemoryTokenRepositoryImpl();
+//        return memory;
+//    }
 
     }

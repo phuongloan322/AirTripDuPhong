@@ -1,6 +1,8 @@
 package airtrip.airtrip.repository;
 
 import airtrip.airtrip.entity.BookRoom;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -40,6 +42,11 @@ public interface BookRoomRepository extends JpaRepository<BookRoom, Long> {
     @Query(value = "select * from book_room b join place p on b.place_id = p.place_id where p.account_id = ?1 and b.is_accept = ?2 and b.is_payment = ?3 and b.start_day <= GETDATE() and b.end_day >= GETDATE()",nativeQuery = true)
     List<BookRoom> getBookRoomCheckoutSoon(long accountId, int i, boolean b);
     @Query(value = "select * from book_room b join place p on b.place_id = p.place_id where p.account_id = ?1 and b.is_accept = ?2 and b.is_payment = ?3 and b.start_day < GETDATE() and b.end_day < GETDATE()",nativeQuery = true)
-
     List<BookRoom> getBookRoomByFinish(long accountId, int i, boolean b);
+
+    @Query(value = "select t from BookRoom t where t.account.accountId = ?1")
+    List<BookRoom> getBookRoomByAccount(long accountId);
+
+    @Query(value = "select t from BookRoom t order by t.bookId desc ")
+    Page<BookRoom> getBookRoomAllAdmin(Pageable pageable);
 }

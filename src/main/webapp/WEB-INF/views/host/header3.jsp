@@ -26,7 +26,11 @@
         <!-- Nav Bar Start -->
         <div class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container-fluid">
-                <a href="<c:url value="/become-a-host/index" />" class="navbar-brand">A<span>ir</span>Pay</a>
+                <div>
+                    <a href="<c:url value="/become-a-host/index" />"><b style="color: #fff;font-size: 25px;  ">
+                        <i class="fas fa-cannabis" style="margin-right: 10px;margin-top: -5px"></i>AirTrip</b>
+                    </a>
+                </div>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -37,9 +41,10 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Menu</a>
                             <div class="dropdown-menu">
-                                <a href="<c:url value="/become-a-host/listings" />" class="dropdown-item">Nhà / phòng cho thuê</a>
-                                <a href="<c:url value="/become-a-host/upcoming/all-accept" />" class="dropdown-item">Đặt phòng</a>
                                 <a href="<c:url value="/become-a-host" />" class="dropdown-item">Tạo mục cho thuê mới</a>
+                                <a href="<c:url value="/become-a-host/listings" />" class="dropdown-item">Quản lý nhà phòng</a>
+                                <a href="<c:url value="/become-a-host/upcoming/all-accept" />" class="dropdown-item">Quản lý đặt phòng</a>
+                                <a href="<c:url value="/become-a-host/manager-blog" />" class="dropdown-item">Quản lý Blog</a>
                                 <a href="<c:url value="/become-a-host/history" />" class="dropdown-item">Lịch sử giao dịch</a>
                             </div>
                         </div>
@@ -48,6 +53,7 @@
                             <div class="dropdown-menu">
                                 <a href="<c:url value="/index" />" class="dropdown-item">Chế độ du lịch</a>
                                 <a href="<c:url value="/manager-account" />" class="dropdown-item">Quản lý tài khoản</a>
+                                <a href="<c:url value="/chat" />" class="dropdown-item">Trợ giúp</a>
                                 <a href="<c:url value="/logout" />" class="dropdown-item">Đăng xuất</a>
                             </div>
                         </div>

@@ -1248,6 +1248,8 @@ a:focus {
     text-transform: uppercase;
     color: #343148;
     transition: .3s;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .blog .blog-item a.btn i {
@@ -1255,7 +1257,8 @@ a:focus {
 }
 
 .blog .blog-item a.btn:hover {
-    color: #F7CAC9;
+    background: #ef4365;
+    color: #fff;
 }
 
 .blog .blog-meta {
@@ -2360,4 +2363,60 @@ input[type='checkbox']:checked {
     height: 15px;
     border-radius: 50%;
     text-align: center;
+}
+.thongbao {
+    height: 100px;
+    vertical-align: middle;
+    border: 1px solid #c2c2c2;
+    padding: 35px 40px;
+    border-radius: 5px;
+}
+.textoverflow3 {
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    display: -webkit-box;
+}
+.textoverflow2 {
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    display: -webkit-box;
+}
+.blog-edit {
+    color: #ef4365; background:#fff; border:1px solid #ef4365;
+}
+
+.blog-edit:hover {
+    color: #fff; background:#ef4365; border:1px solid #ef4365;
+}
+.blog-text .title {
+    font-weight: 700;
+    font-size: 20px;
+    color: #111;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    display: -webkit-box;
+}
+.image-blog {
+    border-radius: 50%;
+    width: 80px !important;
+    height: 80px;
+}
+.setanh43 {
+    max-width: 350px;
+    min-width: 350px;
+    max-height: 233px;
+    min-height: 233px;
+}
+.settielws {
+    font-size: 18px !important;
+    font-family: fangsong !important;
+    font-weight: 100 !important;
+    line-height: 1.5 !important;
+}
+.sethis {
+    max-height: 278px !important;
+    min-height: 278px !important;
 }

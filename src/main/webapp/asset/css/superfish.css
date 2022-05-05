@@ -3,9 +3,9 @@
 	margin-right: 4px;
 	z-index: 999;
 	position: relative;
-	background: url(../images/menu_bg.png) 0 0 repeat-x #d73430;
+	background: rgb(255, 56, 92);
 	margin-bottom: 68px;
-	border-radius: 0 0 6px 6px;
+	border-radius: 25px;
 	box-shadow: 3px 3px 3px #001c35;
 }
 

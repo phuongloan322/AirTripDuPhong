@@ -1,4 +1,4 @@
-package airtrip.airtrip.user;
+package airtrip.airtrip.controller.user;
 
 import airtrip.airtrip.service.ChatService;
 import org.springframework.beans.factory.annotation.Autowired;

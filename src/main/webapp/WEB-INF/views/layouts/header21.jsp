@@ -6,7 +6,11 @@
 				<div class="row">
 					<div class="col-sm-3">
 						<div class="logo pull-left">
-							<a href="<c:url value="/index" />"><b class="head3">AirPay</b></a>
+							<div style="margin-top: 30px">
+								<a href="<c:url value="/index" />"><b class="head3" style="color: #fff; ">
+									<i class="fas fa-cannabis" style="margin-right: 10px;margin-top: -5px"></i>AirTrip</b>
+								</a>
+							</div>
 						</div>
 						
 					</div >

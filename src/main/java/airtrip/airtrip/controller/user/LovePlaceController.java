@@ -1,4 +1,4 @@
-package airtrip.airtrip.user;
+package airtrip.airtrip.controller.user;
 
 import airtrip.airtrip.entity.Place;
 import airtrip.airtrip.service.LovePlaceService;

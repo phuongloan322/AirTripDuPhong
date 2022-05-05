@@ -82,7 +82,7 @@
 .imgcon i {
 	position: absolute;
     right: 10px;
-    top: -50px;
+    top: -70px;
     color: #444;
 }
 .fa-angle-left {
@@ -143,6 +143,7 @@
   color: #999;
   background: #fff;
   padding: 10px 15px;
+  border: 1px solid #d3d3d3;
 }
 .modal-6 a:hover {
   color: #E34E48;
@@ -193,7 +194,6 @@
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.25) inset;
 }
 .st-on {
-	border: 1px solid #999;
     padding: 10px;
     border-radius: 10px;
     color: #000 !important;
@@ -22281,4 +22281,102 @@ fieldset[disabled][disabled] .dark-edition .has-error .form-control,
   }
 }
 
+.pagination .active {
+  background: #9c27b0 !important;
+  color:#fff !important;
+}
+
 /*# sourceMappingURL=dashboard-free.css.map */
+
+
+.textoverflow3 {
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  display: -webkit-box;
+}
+.page-border-right {
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.page-border-left {
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.editbtn {
+  float: right;
+  font-weight: 600;
+  text-decoration: underline;
+  font-size: 14px;
+  border: none;
+}
+.deleteimg {
+  background: #fff;
+  border-radius: 50%;
+}
+.detailaccount .fa-exclamation {
+  color: goldenrod;
+  text-align: center;
+  border-radius: 50%;
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.detailaccount .fa-check {
+  color: green;
+  text-align: center;
+  border-radius: 50%;
+  margin-left: 10px;
+  font-size: 20px;
+}
+.textoverflow1 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 259px;
+  display: inline-block;
+}
+.test:after {
+  content: '\2807';
+  font-size: 15px;
+}
+.form-control-file {
+  border: 1px solid #c2c2c2 !important;
+  border-radius: 5px !important;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+
+.searchdate .thang {
+  width: 80%;
+  border: none;
+  height: 40px;
+}
+.bothang {
+  border: 1px solid #c1c1c1;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 10px;
+  margin-right: 15px;
+  background: #fff;
+}
+.searchdate .thang2 {
+  width: 75%;
+  border: none;
+  outline: none;
+  height: 40px;
+}
+.nam1 {
+  border: none;
+  outline: none;
+  width: 100%;
+  height: 40px;
+}
+.bonam {
+  height: 50px;
+  line-height: 50px;
+  border: 1px solid #c1c1c1;
+  border-radius: 10px;
+  margin-right: 25px;
+  background: #fff;
+}

@@ -23,12 +23,16 @@
 				<div class="row">
 					<div class="col-sm-3">
 						<div class="logo pull-left">
-							<a href="/index"><b class="head3">AirPay</b></a>
+							<div style="margin-top: 30px">
+								<a href="<c:url value="/index" />"><b class="head3" style="color: #ef4365; ">
+									<i class="fas fa-cannabis" style="margin-right: 10px;margin-top: -5px"></i>AirTrip</b>
+								</a>
+							</div>
 						</div>
 						
 					</div >
-					<div class="col-sm-5 pull-left">
-						<form action="/places/page/1?" method="post" width="100%">
+					<div class="col-sm-6 pull-left">
+						<form action="/places/page/1" method="post" width="100%">
 							<div id="custom-search-input">
                             <div class="input-group">
                                 <input type="text" name="search" value="${search}" class="search-query form-control" placeholder="Tìm kiếm nhà / phòng mong muốn..." />
@@ -41,64 +45,42 @@
                         </div>
 						</form>
 					</div>
-					<div class="col-sm-4">
-						<div class="shop-menu pull-right">
-							<ul class="nav navbar-nav">
-								<li><a href="/become-a-host" class="i-chu">Trở thành chủ nhà</a></li>
-									<c:if test="${accLogin != null }">
-										<li class="dropdown"><a class="i-chu"><i class="fa fa-user"></i>${accLogin.name }<i class="fa fa-angle-down"></i></a>
-	                                    	<ul role="menu" class="sub-menu">
-	                                    		<li><a href="/manager-account">Thông tin cá nhân</a></li>
-	                                    		<li><a href="/loveplace">Danh sách Yêu thích</a></li>
-	                                    		<li><a href="/bookroom">Nhà / phòng đã đặt</a></li>
-	                                    		<hr>
-	                                    		<li><a href="/become-a-host/index">Chế độ chủ nhà</a></li>
-		                                        <li><a href="/logout">Đăng xuất</a></li>
-		                                    </ul>
-		                                </li>
-	                                </c:if> 
-									<c:if test="${accLogin == null }">
-										<li><a href="/login" class="i-chu"><i class="fa fa-lock"></i> Đăng nhập</a></li>
-									</c:if> 	
-							</ul>
-						</div>
-					</div>
+					<%@ include file="/WEB-INF/views/layouts/menu.jsp" %>
 				</div>
 			</div>
-			
-<%--			<div class="container_12">--%>
-<%--				<div class="grid_12">--%>
-<%--					<div class="menu_block">--%>
-<%--						<nav class="horizontal-nav full-width horizontalNav-notprocessed">--%>
-<%--							<ul class="sf-menu">--%>
-<%--								<li><a href="/index">TRANG CHỦ</a></li>--%>
-<%--								<li class="current"><a href="/places">KHÁM PHÁ</a></li>--%>
-<%--								<li><a href="/bookroom">CHUYẾN ĐI</a></li>--%>
-<%--								<li><a href="/index">BLOG</a></li>--%>
-<%--								<li><a href="/index">LIÊN HỆ</a></li>--%>
-<%--							</ul>--%>
-<%--						</nav>--%>
-<%--						<div class="clear"></div>--%>
-<%--					</div>--%>
-<%--				</div>--%>
-<%--				<div class="grid_12">--%>
-<%--					<h1>--%>
-<%--						<a href="/places">--%>
-<%--							<img src="/asset/images/logo.png" alt="Your Happy Family">--%>
-<%--						</a>--%>
-<%--					</h1>--%>
-<%--				</div>--%>
-<%--			</div>--%>
+			<%--				<div class="grid_12">--%>
+			<%--					<div class="menu_block">--%>
+			<%--						<nav class="horizontal-nav full-width horizontalNav-notprocessed">--%>
+			<%--							<ul class="sf-menu">--%>
+			<%--								<li><a href="/index">TRANG CHỦ</a></li>--%>
+			<%--								<li class="current"><a href="/places">KHÁM PHÁ</a></li>--%>
+			<%--								<li><a href="/bookroom">CHUYẾN ĐI</a></li>--%>
+			<%--								<li><a href="/index">BLOG</a></li>--%>
+			<%--								<li><a href="/index">LIÊN HỆ</a></li>--%>
+			<%--							</ul>--%>
+			<%--						</nav>--%>
+			<%--						<div class="clear"></div>--%>
+			<%--					</div>--%>
+			<%--				</div>--%>
+			<div class="container_12">
+				<div class="grid_12">
+					<h1>
+						<a href="/places">
+							<img src="/asset/images/logo.png" alt="Your Happy Family">
+						</a>
+					</h1>
+				</div>
+			</div>
 		</header>
 <!--==============================Content=================================-->
 		<div class="content" style="padding-bottom: 50px">
 			<a href="/show-map" class="showmap1"><i class="fas fa-map"></i>Hiện bản đồ</a>
 			<div class="">
-				<br>
-				<div style="margin: 50px auto; width: 100%">
+				<div style="margin: 20px auto; width: 100%">
 					<div style="float: left;width: 75%">
 						<c:if test="${categoryList.size() > 0 }">
 							<ul class="category"class="category">
+								<a href="/places"><li ><i class="fas fa-home"></i> Tất cả</li></a>
 								<c:forEach var="item" items="${categoryList }">
 									<c:if test="${category==item.categoryId}">
 										<a href="/places/page/1?search=${search}&category=${item.categoryId}&filter=${filter}"><li class="active" >${item.name }</li></a>
@@ -106,9 +88,7 @@
 									<c:if test="${item.categoryId != category}">
 										<a href="/places/page/1?search=${search}&category=${item.categoryId}&filter=${filter}"><li >${item.name }</li></a>
 									</c:if>
-
 								</c:forEach>
-								<a href="/places/"><li >Tất cả</li></a>
 							</ul>
 						</c:if>
 					</div>
@@ -167,11 +147,13 @@
 							</select>
 						</div>
 						<div style="float: left;width: 5%">
-							<button class="btn btn-light" data-toggle="modal" data-target="#exampleModal">Bộ lọc</button>
+							<button class="btn btn-light" data-toggle="modal" data-target="#exampleModal">
+								<i class="fas fa-filter" style="margin-top: 5px"></i> Bộ lọc
+							</button>
 						</div>
 					</div>
 				</div>
-				
+
 				<table class="table itable" style="max-width: 90%">
 					<tr>
 					<c:choose>
@@ -179,6 +161,7 @@
 							<c:forEach var="item" items="${listPost }" varStatus="loop">
 							<input id="ed" value="${ item.placeId }" hidden/>
 								<td style="width:33%">
+									<div class="wow fadeInUp" data-wow-delay="0.4s">
 									<div class="iPlace">
 										<div class="cha">
 											<span class="con1">
@@ -220,6 +203,7 @@
 												</c:if>
 											</c:if>
 										</div>
+									</div>
 									</div>
 								</td>
 								<c:if test="${ (loop.index + 1) % 3 == 0 || (loop.index + 1) == placeList.size() }">
@@ -288,7 +272,7 @@
 				<div class="filter">
 					<div class="search">
 						<p style="padding-left: 10px">Loại phòng thuê</p>
-						<select style="phongthue">
+						<select class="phongthue">
 							<option value="toanbonha">Toàn bộ nhà</option>
 							<option value="phongchung">Phòng chung</option>
 							<option value="phongrieng">Phòng riêng</option>
@@ -438,20 +422,7 @@
 </div>
 
 <!--==============================footer=================================-->
-		<footer>
-			<div class="container_12">
-				<div class="grid_12">
-					<div class="socials">
-						<a href="#" class="fa fa-facebook"></a>
-						<a href="#" class="fa fa-twitter"></a>
-						<a href="#" class="fa fa-google-plus"></a>
-					</div>
-					<div class="copy">
-						Your Trip (c) 2014 | <a href="#">Privacy Policy</a> | Website Template Designed by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com</a>
-					</div>
-				</div>
-			</div>
-		</footer>
+<%@ include file="/WEB-INF/views/layouts/footer.jsp" %>
 		
 
 		<script>
@@ -497,5 +468,7 @@
 		
 			
 		</script>
+
 	</body>
+	<%@ include file="/WEB-INF/views/host/libfooter.jsp" %>
 </html>

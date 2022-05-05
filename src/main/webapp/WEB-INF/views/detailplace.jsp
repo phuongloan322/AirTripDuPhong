@@ -95,8 +95,6 @@
 						</div>
 					</div>
 				</div>
-
-
 			</div>
 			<div>
 				<table class="dtable" style="width:100%">
@@ -104,7 +102,7 @@
 					  <tr>
 						  <th rowspan="2" width="50%" height="100%">
 							  <a href="/show-image/${detailPlace.placeId}" >
-							  <img src="<c:url value="/asset/images/${detailPlace.images[0].name }" />" height="100%" class="setimgdetail1">
+							  <img src="<c:url value="/asset/images/${detailPlace.images[0].name }" />" height="361px" width="540px" class="setimgdetail1">
 							  </a>
 						  </th>
 						  <td width="25%" height="50%"><a href="/show-image/${detailPlace.placeId}" ><img src="<c:url value="/asset/images/${detailPlace.images[1].name }" />" height="100%" class="setimgdetail" ></a></td>
@@ -161,7 +159,7 @@
 										</div>
 										<div id="reaction-${item.reviewId }" class="reaction">
 												<c:forEach var="itemReaction" items="${reactionList }">
-													<c:if test="${itemReaction.reviewId == item.reviewId }">
+													<c:if test="${itemReaction.review.reviewId == item.reviewId }">
 														<div class="reac">
 															<div class="avt left">
 																<img alt="" width="50px" height="50px" src="<c:url value="/asset/images/${itemReaction.account.image }" />">
@@ -362,5 +360,6 @@
 	//     $("#endDay").val( getDefaultDate());
 	// });
 	</script>
+	<%@ include file="/WEB-INF/views/layouts/footer.jsp" %>
 	</body>
 </html>
