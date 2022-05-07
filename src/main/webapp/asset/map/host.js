@@ -68,7 +68,7 @@ function geocode(request) {
             return results;
         })
         .catch((e) => {
-            alert("Geocode was not successful for the following reason: " + e);
+            alert("Không tìm thấy địa chỉ trên bản đồ! Vui lòng thực hiện lại!");
         });
 }
 

@@ -19,6 +19,10 @@
     <style>
         h5, h4, h3, h2 {
             text-transform: none !important;
+            padding-bottom: 0 !important;
+            font-weight: unset !important;
+            color: #1b1e21 !important;
+            font-size: 16px !important;
         }
     </style>
 </head>
@@ -109,21 +113,6 @@
 
 </div>
 
-<!--==============================footer=================================-->
-<%--<footer>--%>
-<%--    <div class="container_12">--%>
-<%--        <div class="grid_12">--%>
-<%--            <div class="socials">--%>
-<%--                <a href="#" class="fa fa-facebook"></a>--%>
-<%--                <a href="#" class="fa fa-twitter"></a>--%>
-<%--                <a href="#" class="fa fa-google-plus"></a>--%>
-<%--            </div>--%>
-<%--            <div class="copy">--%>
-<%--                Your Trip (c) 2014 | <a href="#">Privacy Policy</a> | Website Template Designed by <a href="http://www.templatemonster.com/" rel="nofollow">TemplateMonster.com</a>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</footer>--%>
     <%@ include file="/WEB-INF/views/layouts/footer.jsp" %>
 <%@ include file="/WEB-INF/views/host/libfooter.jsp" %>
 </body>

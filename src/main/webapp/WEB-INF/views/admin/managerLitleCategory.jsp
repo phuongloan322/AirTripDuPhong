@@ -11,6 +11,7 @@
     Quản Lý Mục Thuê
   </title>
   <%@ include file="/WEB-INF/views/admin/layout/head.jsp" %>
+
 </head>
 
 <body class="light-edition">
@@ -21,12 +22,12 @@
     <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example" style="background-color: darkslategrey !important;color:#fff">
       <div class="container-fluid">
         <div class="navbar-wrapper">
-          <a class="navbar-brand" href="javascript:void(0)">QUẢN LÝ MỤC THUÊ</a>
+          <a class="navbar-brand" href="/admin/manager-category"> <i class="fas fa-angle-left"></i>QUẢN LÝ LOẠI NHÀ</a>
         </div>
 
         <div class="collapse navbar-collapse justify-content-end">
 
-          <form action="/admin/manager-category/${litleCategoryList[0].category.categoryId}" method="post" class="navbar-form">
+          <form action="/admin/manager-category/${category.categoryId}" method="post" class="navbar-form">
             <div class="input-group no-border">
               <input type="text" value="${search}" class="form-control" style="color: #fff" name="search" placeholder="Search...">
               <button type="submit" class="btn btn-default btn-round btn-just-icon">
@@ -56,8 +57,8 @@
 
             <div class="card">
               <div class="card-header card-header-primary">
-                <h4 class="card-title ">Category Place</h4>
-                <p class="card-category"> Danh sách Mục thuê</p>
+                <h4 class="card-title ">Manager Litle Category</h4>
+                <p class="card-category"> Danh sách Loại nhà</p>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
@@ -134,7 +135,7 @@
       <div class="modal-body">
         <form action ="<c:url value="/admin/manager-litlecategory/add" />" method="post">
           <label class="">Loại danh mục</label><br>
-          <input type="text" class="form-control-file " value="${litleCategoryList[0].category.categoryId}" name="categoryId"><br>
+          <input type="text" class="form-control-file " value="${category.categoryId}" name="categoryId" readonly><br>
 
           <label class="">Mã loại nhà</label><br>
           <input type="text" class="form-control-file "  name="litleCategoryId"><br>
@@ -170,7 +171,7 @@
         <form action ="" method="post">
 
           <label class="">Loại danh mục</label>
-          <input type="text" class="form-control-file " value="${litleCategoryList[0].category.categoryId}" name="categoryId" readonly>
+          <input type="text" class="form-control-file " value="${category.categoryId}" name="categoryId" readonly>
 
           <label class="">Mã loại nhà</label>
           <input type="text" class="form-control-file " id="litleCategoryIddetail" name="litleCategoryId" readonly>
@@ -205,7 +206,7 @@
         <form action ="<c:url value="/admin/manager-litlecategory/edit" />" method="post">
 
           <label class="">Loại danh mục</label>
-          <input type="text" class="form-control-file " value="${litleCategoryList[0].category.categoryId}" name="categoryId" readonly>
+          <input type="text" class="form-control-file " value="${category.categoryId}" name="categoryId" readonly>
 
           <label class="">Mã loại nhà</label>
           <input type="text" class="form-control-file " id="litleCategoryId" name="litleCategoryId" readonly>

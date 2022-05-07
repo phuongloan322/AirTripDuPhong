@@ -185,6 +185,7 @@
                         <div class="search">
                             <p style="padding-left: 10px">Loại nơi ở</p>
                             <select name="category">
+                                <option value="">Tất cả</option>
                                 <c:forEach var="item" items="${categoryList}">
                                     <option value="${item.categoryId}">${item.name}</option>
                                 </c:forEach>
@@ -192,7 +193,8 @@
                         </div>
                         <div class="search">
                             <p style="padding-left: 10px">Loại nhà phòng</p>
-                            <select name="litlecategory">
+                            <select name="litlecategory" id="litlecategory">
+                                <option value="">Tất cả</option>
                                 <c:forEach var="item" items="${litlecategoryList}">
                                     <option value="${item.litleCategoryId}">${item.litleName}</option>
                                 </c:forEach>
@@ -202,7 +204,7 @@
                     <div class="filter">
                         <div class="search">
                             <p style="padding-left: 10px">Loại phòng thuê</p>
-                            <select name="phongthue">
+                            <select class="phongthue">
                                 <option value="toanbonha">Toàn bộ nhà</option>
                                 <option value="phongchung">Phòng chung</option>
                                 <option value="phongrieng">Phòng riêng</option>
@@ -210,15 +212,16 @@
                         </div>
                         <div class="search">
                             <p style="padding-left: 10px">Địa chỉ</p>
-                            <input name="address" class="form-control" style="border: none;-webkit-box-shadow: none;" placeholder="Địa chỉ cho thuê..." >
+                            <input name="address" class="form-control" style="border: none;-webkit-box-shadow: none;" id="address"
+                                   placeholder="Địa chỉ cho thuê...">
                         </div>
                     </div>
 
                     <div class="filter">
                         <div class="search">
                             <p style="padding-left: 10px">Số người cho phép</p>
-                            <select name="people">
-                                <option value="1">1</option>
+                            <select name="people" id="people">
+                                <option value="1" selected>1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                                 <option value="4">4</option>
@@ -230,7 +233,7 @@
                         </div>
                         <div class="search">
                             <p style="padding-left: 10px">Phòng ngủ</p>
-                            <select name="phongngu">
+                            <select name="phongngu" id="phongngu">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -245,7 +248,7 @@
                     <div class="filter">
                         <div class="search">
                             <p style="padding-left: 10px">Giường</p>
-                            <select name="giuong">
+                            <select name="giuong" id="giuong">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -258,7 +261,7 @@
                         </div>
                         <div class="search">
                             <p style="padding-left: 10px">Phòng tắm</p>
-                            <select name="phongtam">
+                            <select name="phongtam" id="phongtam">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -273,74 +276,78 @@
                     <div class="filter">
                         <div class="search">
                             <p style="padding-left: 10px">Thời gian bắt đầu</p>
-                            <input name="startdate" id="startdate" class="form-control" style="border: none;-webkit-box-shadow: none;" type="date" >
+                            <input name="startdate" id="startdate" class="form-control"
+                                   style="border: none;-webkit-box-shadow: none;" type="date">
                         </div>
                         <div class="search">
                             <p style="padding-left: 10px">Thời gian kết thúc</p>
-                            <input name="enddate" id="enddate" class="form-control" style="border: none;-webkit-box-shadow: none;" type="date">
+                            <input name="enddate" id="enddate" class="form-control"
+                                   style="border: none;-webkit-box-shadow: none;" type="date">
                         </div>
                     </div>
                     <div class="filter">
                         <div class="search">
                             <p style="padding-left: 10px">Giá tối thiểu (USD/đêm)</p>
-                            <input name="price1" class="form-control" style="border: none;-webkit-box-shadow: none;" type="number" value="0" >
+                            <input name="price1" class="form-control" style="border: none;-webkit-box-shadow: none;" id="price1"
+                                   type="number" value="0">
                         </div>
                         <div class="search">
                             <p style="padding-left: 10px">Giá tối đa (USD/đêm)</p>
-                            <input name="price2" class="form-control" style="border: none;-webkit-box-shadow: none;" type="number" value="1000">
+                            <input name="price2" class="form-control" style="border: none;-webkit-box-shadow: none;" id="price2"
+                                   type="number" value="1000">
                         </div>
                     </div>
-                    <div class="filtertiennghi">
-                        <p>Tiện nghi</p><br>
-                        <div class="group-form f20">
-                            <input type="checkbox" name="tiennghi" value="Bể bơi">
-                            <label > Bể bơi</label><br>
-                        </div>
-                        <div class="group-form f20">
-                            <input type="checkbox" name="tiennghi" value="Bồn tắm nước nóng">
-                            <label > Bồn tắm nước nóng</label><br>
-                        </div>
-                        <div class="group-form f20">
-                            <input type="checkbox" name="tiennghi" value="Lò sưởng trong nhà">
-                            <label > Lò sưởng trong nhà</label><br>
-                        </div>
-                        <div class="group-form f20">
-                            <input type="checkbox" name="tiennghi" value="Thiết bị tập thể dục">
-                            <label > Thiết bị tập thể dục</label><br>
-                        </div>
-                        <div class="group-form f20">
-                            <input type="checkbox" name="tiennghi" value="Bếp đốt lửa trại">
-                            <label > Bếp đốt lửa trại</label><br>
-                        </div>
-                        <div class="group-form f20">
-                            <input type="checkbox" name="tiennghi" value="Khu vực ăn uống ngoài trời">
-                            <label > Khu vực ăn uống ngoài trời</label><br>
-                        </div>
-                        <div class="group-form f20">
-                            <input type="checkbox" name="tiennghi" value="Wi-fi">
-                            <label > Wi-fi</label><br>
-                        </div>
-                        <div class="group-form f20">
-                            <input type="checkbox" name="tiennghi" value="TV">
-                            <label > TV</label><br>
-                        </div>
-                        <div class="group-form f20">
-                            <input type="checkbox" name="tiennghi" value="Bếp">
-                            <label > Bếp</label><br>
-                        </div>
-                        <div class="group-form f20">
-                            <input type="checkbox" name="tiennghi" value="Máy giặt">
-                            <label > Máy giặt</label><br>
-                        </div>
-                        <div class="group-form f20">
-                            <input type="checkbox" name="tiennghi" value="Điều hòa nhiệt độ">
-                            <label > Điều hòa nhiệt độ</label><br>
-                        </div>
-                        <div class="group-form f20">
-                            <input type="checkbox" name="tiennghi" value="Không gian riêng để làm việc">
-                            <label > Không gian riêng để làm việc</label><br>
-                        </div>
-                    </div>
+<%--                    <div class="filtertiennghi">--%>
+<%--                        <p>Tiện nghi</p><br>--%>
+<%--                        <div class="group-form f20">--%>
+<%--                            <input type="checkbox" name="tiennghi" value="Bể bơi">--%>
+<%--                            <label > Bể bơi</label><br>--%>
+<%--                        </div>--%>
+<%--                        <div class="group-form f20">--%>
+<%--                            <input type="checkbox" name="tiennghi" value="Bồn tắm nước nóng">--%>
+<%--                            <label > Bồn tắm nước nóng</label><br>--%>
+<%--                        </div>--%>
+<%--                        <div class="group-form f20">--%>
+<%--                            <input type="checkbox" name="tiennghi" value="Lò sưởng trong nhà">--%>
+<%--                            <label > Lò sưởng trong nhà</label><br>--%>
+<%--                        </div>--%>
+<%--                        <div class="group-form f20">--%>
+<%--                            <input type="checkbox" name="tiennghi" value="Thiết bị tập thể dục">--%>
+<%--                            <label > Thiết bị tập thể dục</label><br>--%>
+<%--                        </div>--%>
+<%--                        <div class="group-form f20">--%>
+<%--                            <input type="checkbox" name="tiennghi" value="Bếp đốt lửa trại">--%>
+<%--                            <label > Bếp đốt lửa trại</label><br>--%>
+<%--                        </div>--%>
+<%--                        <div class="group-form f20">--%>
+<%--                            <input type="checkbox" name="tiennghi" value="Khu vực ăn uống ngoài trời">--%>
+<%--                            <label > Khu vực ăn uống ngoài trời</label><br>--%>
+<%--                        </div>--%>
+<%--                        <div class="group-form f20">--%>
+<%--                            <input type="checkbox" name="tiennghi" value="Wi-fi">--%>
+<%--                            <label > Wi-fi</label><br>--%>
+<%--                        </div>--%>
+<%--                        <div class="group-form f20">--%>
+<%--                            <input type="checkbox" name="tiennghi" value="TV">--%>
+<%--                            <label > TV</label><br>--%>
+<%--                        </div>--%>
+<%--                        <div class="group-form f20">--%>
+<%--                            <input type="checkbox" name="tiennghi" value="Bếp">--%>
+<%--                            <label > Bếp</label><br>--%>
+<%--                        </div>--%>
+<%--                        <div class="group-form f20">--%>
+<%--                            <input type="checkbox" name="tiennghi" value="Máy giặt">--%>
+<%--                            <label > Máy giặt</label><br>--%>
+<%--                        </div>--%>
+<%--                        <div class="group-form f20">--%>
+<%--                            <input type="checkbox" name="tiennghi" value="Điều hòa nhiệt độ">--%>
+<%--                            <label > Điều hòa nhiệt độ</label><br>--%>
+<%--                        </div>--%>
+<%--                        <div class="group-form f20">--%>
+<%--                            <input type="checkbox" name="tiennghi" value="Không gian riêng để làm việc">--%>
+<%--                            <label > Không gian riêng để làm việc</label><br>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
                 </div>
                 <div class="modal-footer" style="border-top:none">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -369,6 +376,52 @@
         var category = "<c:out value='${category}'/>";
         window.location="/map/1?search="+search+"&filter="+filter+"&category="+category;
     }
+    var litlecategory = '<c:out value="${litlecategory}"/>';
+    document.getElementById("litlecategory").value = litlecategory;
+    var address = '<c:out value="${address}"/>';
+    document.getElementById("address").value = address;
+
+    var people = '<c:out value="${people}"/>';
+    if(people != "") {
+        document.getElementById("people").value = people;
+    }
+
+    var phongngu = '<c:out value="${phongngu}"/>';
+    if(phongngu != "") {
+        document.getElementById("phongngu").value = phongngu;
+    }
+
+    var giuong = '<c:out value="${giuong}"/>';
+    if(giuong != "") {
+        document.getElementById("giuong").value = giuong;
+    }
+
+    var phongtam = '<c:out value="${phongtam}"/>';
+    if(phongtam != "") {
+        document.getElementById("phongtam").value = phongtam;
+    }
+
+    var startdate = '<c:out value="${startdate}"/>';
+    if(startdate != "") {
+        document.getElementById("startdate").value = startdate;
+    }
+
+    var enddate = '<c:out value="${enddate}"/>';
+    if(enddate != "") {
+        document.getElementById("enddate").value = enddate;
+    }
+
+    var price1 = '<c:out value="${price1}"/>';
+    if(price1 != "") {
+        document.getElementById("price1").value = price1;
+    }
+
+    var price2 = '<c:out value="${price2}"/>';
+    if(price2 != "") {
+        document.getElementById("price2").value = price2;
+    }
+
+
 
     jQuery('.con1 a').click(function(evt) {
         evt.preventDefault();

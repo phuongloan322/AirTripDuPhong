@@ -171,10 +171,23 @@ public class PlaceService {
         placeRepository.save(place);
     }
 
-    public Page<Place> findPlaceByPaginatedAdmin(int pageNo, String search, String filter, int pageSize) {
+    public Page<Place> findPlaceByPaginatedAdmin(int pageNo, String search, String filter, String category, int pageSize) {
         Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
-        if(filter != "" ) {
-
+        if(filter == "" && search != "") {
+            return this.placeRepository.searchAll(search, pageable);
+        }
+        else if(filter != "") {
+            if(filter.equals("danhmuc")) {
+                return this.placeRepository.searchCategory(category, pageable);
+            } else if(filter.equals("date")) {
+                return this.placeRepository.searchDate(search, pageable);
+            } else if(filter.equals("price")) {
+                return this.placeRepository.serachPrice(Long.parseLong(search) - 50, Long.parseLong(search) + 50, pageable);
+            } else if(filter.equals("price asc")) {
+                return this.placeRepository.searchASC(search,pageable);
+            } else if(filter.equals("price desc")) {
+                return this.placeRepository.searchDESC(search,pageable);
+            }
         }
         return this.placeRepository.getPlaceAllAdmin(pageable);
     }

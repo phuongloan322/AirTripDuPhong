@@ -17,7 +17,7 @@
         <li class="nav-item ">
             <a class="nav-link" href="/admin/account-admin">
               <i class="material-icons">person</i>
-              <p>${adminLogin.name }</p>
+              <p>${accAdmin.name }</p>
             </a>
           </li>
           

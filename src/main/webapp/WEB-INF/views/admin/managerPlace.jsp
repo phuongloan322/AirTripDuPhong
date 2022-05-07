@@ -27,9 +27,23 @@
 
                 <div class="collapse navbar-collapse justify-content-end">
 
-                    <form action="<c:url value="/manager-place" />" method="post" class="navbar-form">
+                    <form action="<c:url value="/admin/manager-place/page/1" />" method="post" class="navbar-form">
                         <div class="input-group no-border">
-                            <input type="text" value="" class="form-control" name="search" placeholder="Search...">
+                            <select onchange="test()" class="form-control" name="filter" id="filter" style="height: 36px; margin-right: 20px; color: #fff">
+                                <option style="color: #222" value=""> Tìm kiếm tất cả </option>
+                                <option style="color: #222" value="danhmuc"> Theo danh mục</option>
+                                <option style="color: #222" value="date"> Theo ngày </option>
+                                <option style="color: #222" value="price"> Theo giá </option>
+                                <option style="color: #222" value="price asc"> Giá tăng dần </option>
+                                <option style="color: #222" value="price desc"> Giá giảm dần </option>
+                            </select>
+                            <select class="form-control" name="category" id="category" style="height: 36px; margin-right: 20px; color: #fff; display: none">
+                                <option style="color: #222" value="">Tất cả</option>
+                                <c:forEach items="${categories}" var="item">
+                                    <option style="color: #222" value="${item.categoryId}">${item.name}</option>
+                                </c:forEach>
+                            </select>
+                            <input type="text" id="search" value="${search}" class="form-control" name="search" placeholder="Search..." style="color:#fff">
                             <button type="submit" class="btn btn-default btn-round btn-just-icon">
                                 <i class="material-icons">search</i>
                                 <div class="ripple-container"></div>
@@ -259,6 +273,58 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+
+    function test() {
+        const e = document.getElementById("filter");
+        const index = e.selectedIndex;
+        console.log(index)
+
+        if(index == 1) {
+            $("#category").css("display", "block");
+            $("#search").css("display", "none");
+        }
+        else {
+            $("#category").css("display", "none");
+            $("#search").css("display", "block");
+            if(index == 2) {
+                $("#search").attr('type', 'date');
+            }
+            else if(index == 3) {
+                $("#search").attr('type', 'number');
+            }
+            if(index == 4) {
+                window.location.href = "/admin/manager-place/page/1?filter=price asc";
+            }
+            else if(index == 5) {
+                window.location.href = "/admin/manager-place/page/1?filter=price desc";
+            }
+            else if(index == 0) {
+                $("#search").attr('type', 'text');
+            }
+        }
+
+    }
+    var filter = '<c:out value="${filter}"/>';
+    document.getElementById("filter").value = filter;
+    var category = '<c:out value="${category}"/>';
+    document.getElementById("category").value = category;
+
+    if(filter == "date") {
+        console.log("ok")
+        $("#search").attr('type', 'date');
+    }
+    if(filter == "danhmuc") {
+        $("#category").css("display", "block");
+        $("#search").css("display", "none");
+    }
+
+
+
+
+
+
+    //
+
     $(document).ready(function () {
 
         $('table #editButton').on('click', function (event) {

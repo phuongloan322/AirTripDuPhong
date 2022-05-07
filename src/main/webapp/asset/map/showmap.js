@@ -82,7 +82,7 @@ function initMap() {
             +'<br><p style="font-size: 14px; width: 250px"><b>'+price+'</b></p>'
             +'<br><a href="/detailplace/'+placeId+'" ><u style="font-size: 14px">Xem chi tiết</u></a>'
             +'<a style="margin-left: 30px" href="/AddLovePlace/'+placeId+'" ><u style="font-size: 14px">Yêu thích</u></a>'
-            +'<script>console.log("Loan")</script>');
+            +'<script>console.log("LoanLoan")</script>');
             map.setCenter(new google.maps.LatLng(lat, lng));
             map.setZoom(25);
             infowindow.open(map,marker);

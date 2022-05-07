@@ -15,7 +15,41 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
             integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
             crossorigin="anonymous"></script>
+    <style>
+        .fa-check {
+            width: 20px;
+            height: 20px;
+            color: green;
+            /*background: green;*/
+            border-radius: 50%;
+            line-height: 20px;
+            text-align: center;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        .fa-remove {
+            width: 20px;
+            height: 20px;
+            /* background: darkred; */
+            border-radius: 50%;
+            line-height: 20px;
+            text-align: center;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        .fa-hourglass {
+            width: 20px;
+            height: 20px;
+            color: darkgoldenrod;
+            /* background: darkred; */
+            border-radius: 50%;
+            line-height: 20px;
+            text-align: center;
+            font-size: 15px;
+            margin-right: 10px;
+        }
     </style>
+
 </head>
 
 <body class="light-edition">
@@ -55,7 +89,10 @@
                             <p style="font-weight: 400; font-size: 18px">Giới thiệu:</p>
                         </div>
                         <div class="col-6 detailaccount">
-                            <p style="font-weight: 300; font-size: 18px">${account.name}</p>
+                            <p style="font-weight: 300; font-size: 18px">
+
+                                    ${account.name}
+                            </p>
                             <c:if test="${account.isIdentity == true}">
                                 <p style="font-weight: 300; font-size: 18px">Chưa xác nhận danh tính
                                     <i class="fas fa-check"></i></p>
@@ -86,7 +123,7 @@
                     <c:when test="${places.size() > 0 }">
                         <c:forEach var="item" items="${places }" varStatus="loop">
                             <c:forEach var="rate" items="${ratings }" varStatus="i">
-                                <c:if test="${(loop.index == 0 || loop.index == 1 || loop.index == 2) && loop.index == i.index}">
+                                <c:if test="${(loop.index == 0 || loop.index == 1 || loop.index == 2 || loop.index == 3) && loop.index == i.index}">
                                     <div class="col-3">
                                         <div class="iPlace" style="margin: 0">
                                             <div class="aa">
@@ -113,7 +150,7 @@
                         </c:forEach>
                     </c:when>
                     <c:otherwise>
-                        <h5 style="text-align: center;"><b>Không có kết quả nào được tìm thấy</b></h5>
+                        <p style="margin-left: 30px"><b>Không tìm thấy kết quả nào</b></p>
                     </c:otherwise>
                 </c:choose>
             </div>
@@ -146,10 +183,10 @@
                     </c:forEach>
                 </c:forEach>
             </div>
-            <c:if test="${places.size() > 3}" >
+            <c:if test="${places.size() > 4}" >
                 <u id="xemthem">Xem tất cả nhà/phòng</u>
             </c:if>
-
+            <br><br><br>
             <hr>
             <h3><b><i class="fas fa-check" style="margin-right: 10px"></i>Thông tin đặt phòng</b></h3><br>
             <div class="card-body">
@@ -166,10 +203,7 @@
                                     Thông tin nhà/phòng
                                 </th>
                                 <th>
-                                    Người cho thuê
-                                </th>
-                                <th>
-                                    Người thuê
+                                    Chủ nhà
                                 </th>
                                 <th>
                                     Chi tiết thuê
@@ -195,12 +229,8 @@
                                             <i class="iaddress"><b>$ ${item.place.price } / đêm</b></i>
                                         </td>
                                         <td>
-                                                ${item.place.account.name }<br>
+                                            <a href="/admin/detail-account/${item.place.account.accountId}"> ${item.place.account.name }<br></a>
                                             Sđt: ${item.place.account.phone }
-                                        </td>
-                                        <td>
-                                                ${item.account.name }<br>
-                                            Sđt: ${item.account.phone }
                                         </td>
                                         <td class="chitiet">
                                             <c:if test="${item.place.startDay != null && item.place.endDay != null}">
@@ -229,17 +259,8 @@
                                                             <c:when test="${item.isAccept == 1 && item.isPayment == false}">
                                                                 <div class="row">
                                                                     <div class="col" style="margin-top: 10px">
-                                                                        <a class="b-accept"><i class="fas fa-check"></i>Đã
+                                                                        <a class="b-accept"><i class="fas fa-check" style="color: #222"></i>Đã
                                                                             xác nhận</a>
-                                                                    </div>
-                                                                    <div>
-                                                                        <a href="#" class="nav-link test"
-                                                                           data-toggle="dropdown"></a>
-                                                                        <div class="dropdown-menu">
-                                                                            <a data-toggle="modal" data-target="#addModal"
-                                                                               data-id="${item.bookId}"
-                                                                               class="dropdown-item cancel">Từ chối</a>
-                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </c:when>
@@ -295,7 +316,7 @@
                             </table>
                         </c:when>
                         <c:otherwise>
-                            Không tìm thấy kết quả nào
+                            <p><b>Không tìm thấy kết quả nào</b></p>
                         </c:otherwise>
                     </c:choose>
 

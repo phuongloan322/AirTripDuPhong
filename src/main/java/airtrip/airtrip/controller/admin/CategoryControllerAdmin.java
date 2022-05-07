@@ -168,6 +168,8 @@ public class CategoryControllerAdmin {
                 List<LitleCategory> liltecategoryList = categoryService.getLitleCategoryByCategory(categoryId);
                 model.addAttribute("litleCategoryList", liltecategoryList);
             }
+            Category category = categoryService.getCategoryId(categoryId);
+            model.addAttribute("category", category);
 
         } catch (Exception e) {
             e.printStackTrace();

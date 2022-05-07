@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -61,13 +62,28 @@
           
           <div class="collapse navbar-collapse justify-content-end">
           
-            <form action="<c:url value="/admin/manager-bookroom" />" method="post" class="navbar-form">
+            <form action="<c:url value="/admin/manager-bookroom/page/1" />" method="post" class="navbar-form">
               <div class="input-group no-border">
-                <input type="text" value="" class="form-control" name="search" placeholder="Search...">
-                <button type="submit" class="btn btn-default btn-round btn-just-icon">
-                  <i class="material-icons">search</i>
-                  <div class="ripple-container"></div>
-                </button>
+				  <select onchange="test()" class="form-control" name="filter" id="filter" style="height: 36px; margin-right: 20px; color: #fff">
+					  <option style="color: #222" value=""> Tìm kiếm tất cả </option>
+					  <option style="color: #222" value="danhmuc"> Theo tình trạng</option>
+					  <option style="color: #222" value="date"> Theo ngày </option>
+					  <option style="color: #222" value="price"> Theo tổng tiền thuê </option>
+					  <option style="color: #222" value="price asc"> Tổng tiền tăng dần </option>
+					  <option style="color: #222" value="price desc"> Tổng tiền giảm dần </option>
+				  </select>
+				  <select class="form-control" name="status" id="statusz" style="height: 36px; margin-right: 20px; color: #fff; display: none">
+					  <option style="color: #222" value="">Tất cả</option>
+					  <option style="color: #222" value="0/false">Chờ xác nhận</option>
+					  <option style="color: #222" value="1/false">Đã xác nhận</option>
+					  <option style="color: #222" value="1/true">Đã thanh toán</option>
+					  <option style="color: #222" value="-1/false">Đã huỷ</option>
+				  </select>
+				  <input type="text" id="search" value="${search}" class="form-control" name="search" placeholder="Search..." style="color:#fff">
+				  <button type="submit" class="btn btn-default btn-round btn-just-icon">
+					  <i class="material-icons">search</i>
+					  <div class="ripple-container"></div>
+				  </button>
               </div>
             </form>
             
@@ -88,7 +104,7 @@
 			
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Category Place</h4>
+                  <h4 class="card-title ">Manager Booking</h4>
                   <p class="card-category"> Danh sách Đặt phòng</p>
                 </div>
                 <div class="card-body">
@@ -105,10 +121,10 @@
 		                          Thông tin nhà/phòng
 		                        </th>
 		                        <th>
-		                          Người cho thuê
+		                          Chủ nhà
 		                        </th>
 		                        <th>
-		                          Người thuê
+		                          Khách hàng
 		                        </th>
 		                        <th>
 		                          Chi tiết thuê
@@ -134,15 +150,19 @@
 		                          <td>
 		                            <b><a href="<c:url value="/admin/manager-place/detail/${item.place.placeId }" />">${item.place.name }</a></b><br>
 									<i class="iaddress">${item.place.address }</i><br>
-									<i class="iaddress"><b>$ ${item.place.price } / đêm</b></i>
+									<i class="iaddress"><b>$ <fmt:formatNumber type="number" groupingUsed="true" value="${item.place.price }" /> / đêm</b></i>
 		                          </td>
 		                          <td>
-		                            ${item.place.account.name }<br>
-									Sđt: ${item.place.account.phone }
+									  <a href="/admin/detail-account/${item.place.account.accountId}">
+											  ${item.place.account.name }<br>
+										  Sđt: ${item.place.account.phone }
+									  </a>
 		                          </td>
 		                          <td>
+									  <a href="/admin/detail-account/${item.account.accountId}">
 		                            ${item.account.name }<br>
 									Sđt: ${item.account.phone }
+									  </a>
 		                          </td>
 		                          <td class="chitiet">
 										<c:if test="${item.place.startDay != null && item.place.endDay != null}">
@@ -155,7 +175,7 @@
 												${item.endDay.split("-")[0]}
 											<br>
 										</c:if>
-										Tổng tiền thuê: $${item.totalPrice }<br>
+										Tổng tiền thuê: $<fmt:formatNumber type="number" groupingUsed="true" value="${item.totalPrice }" /><br>
 										Số người: ${item.people }
 								  </td>
 								  <td >
@@ -171,17 +191,8 @@
 													  <c:when test="${item.isAccept == 1 && item.isPayment == false}">
 														  <div class="row">
 															  <div class="col" style="margin-top: 10px">
-																  <a class="b-accept"><i class="fas fa-check"></i>Đã
+																  <a class="b-accept"><i class="fas fa-check" style="color: #222"></i>Đã
 																	  xác nhận</a>
-															  </div>
-															  <div>
-																  <a href="#" class="nav-link test"
-																	 data-toggle="dropdown"></a>
-																  <div class="dropdown-menu">
-																	  <a data-toggle="modal" data-target="#addModal"
-																		 data-id="${item.bookId}"
-																		 class="dropdown-item cancel">Từ chối</a>
-																  </div>
 															  </div>
 														  </div>
 													  </c:when>
@@ -207,8 +218,7 @@
 													  <c:when test="${item.isAccept == -1}">
 														  <div class="row">
 															  <div class="col" style="margin-top: 10px">
-																  <a class="b-accept"><i class="fas fa-remove"></i>Đã
-																	  từ chối</a>
+																  <a class="b-accept"><i class="fas fa-remove"></i>Đã huỷ</a>
 															  </div>
 															  <div>
 																  <a href="#" class="nav-link test"
@@ -357,6 +367,54 @@
   <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 
   <script type="text/javascript">
+
+
+	  function test() {
+		  const e = document.getElementById("filter");
+		  const index = e.selectedIndex;
+		  console.log(index)
+
+		  if(index == 1) {
+			  $("#statusz").css("display", "block");
+			  $("#search").css("display", "none");
+		  }
+		  else {
+			  $("#statusz").css("display", "none");
+			  $("#search").css("display", "block");
+			  if(index == 2) {
+				  $("#search").attr('type', 'date');
+			  }
+			  else if(index == 3) {
+				  $("#search").attr('type', 'number');
+			  }
+			  if(index == 4) {
+				  window.location.href = "/admin/manager-bookroom/page/1?filter=price asc";
+			  }
+			  else if(index == 5) {
+				  window.location.href = "/admin/manager-bookroom/page/1?filter=price desc";
+			  }
+			  else if(index == 0) {
+				  $("#search").attr('type', 'text');
+			  }
+		  }
+
+	  }
+	  var filter = '<c:out value="${filter}"/>';
+	  document.getElementById("filter").value = filter;
+	  var statusz = '<c:out value="${statusz}"/>';
+	  document.getElementById("statusz").value = statusz;
+	  console.log(statusz)
+
+	  if(filter == "date") {
+		  $("#search").attr('type', 'date');
+	  }
+	  if(filter == "danhmuc") {
+		  $("#statusz").css("display", "block");
+		  $("#search").css("display", "none");
+	  }
+
+	  //
+	  //
 	  $(document).ready(function() {
 
 		  jQuery('.show-payment').click(function (evt) {

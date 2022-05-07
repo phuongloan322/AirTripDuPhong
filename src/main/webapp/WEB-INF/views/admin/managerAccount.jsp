@@ -11,6 +11,7 @@
     Quản Lý Khách Hàng
   </title>
   <%@ include file="/WEB-INF/views/admin/layout/head.jsp" %>
+
 </head>
 
 <body class="light-edition">
@@ -81,7 +82,9 @@
 		                            ${loop.index + 1 }
 		                          </td>
 		                          <td>
-		                            ${item.name }
+		                            <a href="/admin/detail-account/${item.accountId}">
+											${item.name }
+									</a>
 		                          </td>
 		                          <td>
 		                            ${item.phone }

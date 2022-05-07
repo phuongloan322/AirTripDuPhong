@@ -30,24 +30,26 @@ public class BookRoomControllerAdmin {
 
     @RequestMapping("/admin/manager-bookroom")
     public String getAllPlace(Model model, HttpServletRequest request) throws Exception{
-        return this.findPaginated(1, null, null, model, request);
+        return this.findPaginated(1, null, null,null, model, request);
     }
 
     @RequestMapping("/admin/manager-bookroom/page/{pageNo}")
     public String findPaginated(@PathVariable(value = "pageNo") int pageNo,
                                 @RequestParam(value = "search", required = false) String search,
                                 @RequestParam(value = "filter", required = false) String filter,
+                                @RequestParam(value = "status", required = false) String status,
                                 Model model,
                                 HttpServletRequest request) throws Exception {
         HttpSession session = request.getSession();
         if(search == null) search = "";
         if(filter == null) filter = "";
+        if(status == null) status = "";
         Account accLogin = (Account) session.getAttribute("accAdmin");
         if(accLogin == null)
             return "redirect:/admin/login";
 
         int pageSize = 10;
-        Page<BookRoom> page = bookRoomService.findBookRoomByPaginatedAdmin(pageNo, search, filter, pageSize);
+        Page<BookRoom> page = bookRoomService.findBookRoomByPaginatedAdmin(pageNo, search, filter, status, pageSize);
         List<BookRoom> listPost = page.getContent();
 
         model.addAttribute("currentPage", pageNo);
@@ -57,6 +59,7 @@ public class BookRoomControllerAdmin {
         model.addAttribute("pageSize", pageSize);
         model.addAttribute("search", search);
         model.addAttribute("filter", filter);
+        model.addAttribute("statusz", status);
         return "admin/managerBookRoom";
     }
 

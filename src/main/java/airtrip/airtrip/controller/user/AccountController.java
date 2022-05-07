@@ -86,8 +86,7 @@ public class AccountController {
 		model.addAttribute("userInfo", userInfo);
 
 		Account account = accountService.getAccountByUsername(userName);
-		System.out.println(account.getName());
-		System.out.println(account);
+
 		session.setAttribute("accLogin", account);
 
 		return "redirect:/index";

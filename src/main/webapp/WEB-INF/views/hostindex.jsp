@@ -438,7 +438,7 @@
                                      class="text text-left  p-4 px-xl-5 d-flex align-items-center">
                                     <div class="py-md-5" style="margin: 0 auto; ">
                                         <h3>
-                                            <b>Hãy nhập giá phù hợp với chỗ ở của bạn</b>
+                                            <b>Hãy nhập giá phù hợp với chỗ ở của bạn<br> (USD/đêm)</b>
                                         </h3>
                                         <br>
                                         <div class="buttons_added" style="text-align: center;margin-left: 70px">

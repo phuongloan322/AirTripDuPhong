@@ -9,6 +9,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Service
 public class ReviewService {
@@ -38,8 +40,16 @@ public class ReviewService {
 
     public Page<Review> findReviewByPaginatedAdmin(int pageNo, String search, String filter, int pageSize) {
         Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
-        if(filter != "" ) {
-
+        if(search != "") {
+            Pattern pattern = Pattern.compile("\\d*");
+            Matcher matcher = pattern.matcher(search);
+            if (matcher.matches()) {
+                int rate = Integer.parseInt(search);
+                return this.reviewRepository.searchRate(rate, pageable);
+            } else
+            {
+                return this.reviewRepository.searchReview(search, pageable);
+            }
         }
         return this.reviewRepository.getPlaceAllAdmin(pageable);
     }

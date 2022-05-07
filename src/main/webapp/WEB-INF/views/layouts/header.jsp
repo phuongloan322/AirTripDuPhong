@@ -20,6 +20,7 @@
 <script src="<c:url value="/asset/js/jquery.easing.1.3.js" />"></script>
 <script src="<c:url value="/asset/js/owl.carousel.js" />"></script>
 <script src="<c:url value="/asset/js/camera.js" />"></script>
+
 <!--[if (gt IE 9)|!(IE)]><!-->
 <%-- <script src="<c:url value="/asset/s/jquery.mobile.customized.min.js" />"></script> --%>
 <!--<![endif]-->

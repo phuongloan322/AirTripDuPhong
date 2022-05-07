@@ -133,12 +133,32 @@ public class BookRoomService {
         return this.bookRoomRepository.getBookRoomByAccount(accountId);
     }
 
-    public Page<BookRoom> findBookRoomByPaginatedAdmin(int pageNo, String search, String filter, int pageSize) {
+    public Page<BookRoom> findBookRoomByPaginatedAdmin(int pageNo, String search, String filter, String status, int pageSize) {
         Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
-        if (filter != "") {
-
+        if(filter == "" && search != "") {
+            return this.bookRoomRepository.searchAll(search, pageable);
+        }
+        else if(filter != "") {
+            if(filter.equals("danhmuc")) {
+                String[]a = status.split("/");
+                System.out.println(a[0]);
+                System.out.println(a[1]);
+                return this.bookRoomRepository.searchStatus(Integer.parseInt(a[0]),Boolean.parseBoolean(a[1]), pageable);
+            } else if(filter.equals("date")) {
+                return this.bookRoomRepository.searchDate(search, pageable);
+            } else if(filter.equals("price")) {
+                return this.bookRoomRepository.serachPrice(Long.parseLong(search) - 50, Long.parseLong(search) + 50, pageable);
+            } else if(filter.equals("price asc")) {
+                return this.bookRoomRepository.searchASC(search,pageable);
+            } else if(filter.equals("price desc")) {
+                return this.bookRoomRepository.searchDESC(search,pageable);
+            }
         }
         return this.bookRoomRepository.getBookRoomAllAdmin(pageable);
+    }
+
+    public List<BookRoom> getAllBookRoom() {
+        return this.bookRoomRepository.findAll();
     }
 }
 

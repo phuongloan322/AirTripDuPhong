@@ -4,6 +4,7 @@ import com.paypal.api.payments.*;
 import com.paypal.base.rest.APIContext;
 import com.paypal.base.rest.PayPalRESTException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -28,8 +29,9 @@ public class PaypalService {
 			String successUrl) throws PayPalRESTException{
 		Amount amount = new Amount();
 		amount.setCurrency(currency);
-		total = new BigDecimal(total).setScale(2, RoundingMode.HALF_UP).doubleValue();
-		amount.setTotal(String.format("%.2f", total));
+//		total = new BigDecimal(total).setScale(2, RoundingMode.HALF_UP).doubleValue();
+//		String.format("%.2f", )
+		amount.setTotal(total.toString());
 
 		Transaction transaction = new Transaction();
 		transaction.setDescription(description);

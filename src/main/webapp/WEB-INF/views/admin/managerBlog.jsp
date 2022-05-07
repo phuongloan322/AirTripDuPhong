@@ -39,7 +39,7 @@
                     <form action="/admin/manager-blog/page/1" method="post" class="navbar-form">
                         <div class="input-group no-border">
                             <input type="text" value="${search}" class="form-control" style="color: #fff" name="search"
-                                   placeholder="Search...">
+                                   placeholder="Search..." >
                             <button type="submit" class="btn btn-default btn-round btn-just-icon">
                                 <i class="material-icons">search</i>
                                 <div class="ripple-container"></div>
@@ -118,7 +118,7 @@
                                                         <td class="chucnang">
 <%--                                                            <a href="<c:url value="/admin/manager-blog/findById/${i.blogId }" />"--%>
 <%--                                                               class="detailButton"><i class="material-icons detail">event_note</i></a>--%>
-                                                            <a href="<c:url value="/admin/manager-blog/findById/${i.blogId }" />"
+                                                            <a href="<c:url value="/admin/manager-blog/edit/${i.blogId }" />"
                                                                class="editButton"><i class="material-icons edit">mode_edit</i></a>
                                                             <a href="<c:url value="/admin/manager-blog/delete/${i.blogId }" />"
                                                                class="deleteButton"><i class="material-icons delete">delete</i></a>
@@ -341,20 +341,20 @@
     });
 
     //edit
-    function readURL2(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $('#editimgSrc').attr('src', e.target.result);
-            }
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-
-    $("#imageEdit").change(function () {
-        readURL2(this);
-        $("#editimgSrc").show();
-    });
+    // function readURL2(input) {
+    //     if (input.files && input.files[0]) {
+    //         var reader = new FileReader();
+    //         reader.onload = function (e) {
+    //             $('#editimgSrc').attr('src', e.target.result);
+    //         }
+    //         reader.readAsDataURL(input.files[0]);
+    //     }
+    // }
+    //
+    // $("#imageEdit").change(function () {
+    //     readURL2(this);
+    //     $("#editimgSrc").show();
+    // });
 
     function getValue(id) {
         return document.getElementById(id).value.trim();
@@ -433,29 +433,29 @@
 </script>
 
 <script>
-    var htmledit = '';
-    $('table .editButton').on('click', function (event) {
-        event.preventDefault();
-
-        var href = $(this).attr('href')
-        $.get(href, function (data, status) {
-            $('#editblogId').val(data.blogId);
-            $('#edittitle').val(data.title);
-            $('#editaccount').val(data.account.name);
-            $("#editimgSrc").attr("src", "/asset/images/" + data.image);
-            htmledit = '' + data.content + '';
-            localStorage.setItem("htmledit", htmledit);
-        });
-        $('#editModal').modal();
-    });
-
-    $('.closeModal').on('click', function (event) {
-        // localStorage.removeItem("html");
-        location.reload();
-    });
-
-    $('#editcontent').val(localStorage.getItem('htmledit'));
-    $('#editcontent').richText();
+    // var htmledit = '';
+    // $('table .editButton').on('click', function (event) {
+    //     event.preventDefault();
+    //
+    //     var href = $(this).attr('href')
+    //     $.get(href, function (data, status) {
+    //         $('#editblogId').val(data.blogId);
+    //         $('#edittitle').val(data.title);
+    //         $('#editaccount').val(data.account.name);
+    //         $("#editimgSrc").attr("src", "/asset/images/" + data.image);
+    //         htmledit = '' + data.content + '';
+    //         localStorage.setItem("htmledit", htmledit);
+    //     });
+    //     $('#editModal').modal();
+    // });
+    //
+    // $('.closeModal').on('click', function (event) {
+    //     // localStorage.removeItem("html");
+    //     location.reload();
+    // });
+    //
+    // $('#editcontent').val(localStorage.getItem('htmledit'));
+    // $('#editcontent').richText();
 </script>
 <%@ include file="/WEB-INF/views/admin/layout/footer.jsp" %>
 </body>

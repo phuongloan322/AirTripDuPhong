@@ -13,7 +13,28 @@
 <%----%>
 </head>
 <body style="background: #fff !important">
-<%@ include file="/WEB-INF/views/layouts/header2.jsp" %>
+<header id="header"><!--header-->
+
+    <div class="header-middle"><!--header-middle-->
+        <div class="container" style="width: 1300px !important;">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="logo pull-left">
+                        <div style="margin-top: 30px">
+                            <a href="<c:url value="/index" />"><b class="head3" style="color: #ef4365; ">
+                                <i class="fas fa-cannabis" style="margin-right: 10px;margin-top: -5px"></i>AirTrip</b>
+                            </a>
+                        </div>
+                    </div>
+                </div >
+                <div class="col-sm-6 pull-left">
+
+                </div>
+                <%@ include file="/WEB-INF/views/layouts/menu.jsp" %>
+            </div>
+        </div>
+    </div><!--/header-middle-->
+</header>
 
 <div class="w-detail">
     <div class="container" style="max-width: 1400px !important">

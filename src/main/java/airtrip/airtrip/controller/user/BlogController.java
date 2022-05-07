@@ -110,10 +110,18 @@ public class BlogController {
     }
 
     @RequestMapping("/blog")
-    public String menuBlog(Model model) {
+    public String menuBlog(Model model, HttpServletRequest request) {
 
-        List<Blog> blogs = this.blogService.findAll();
-        model.addAttribute("blogs", blogs);
+        String search = request.getParameter("search");
+        if(search != null) {
+            List<Blog> blogList = blogService.searchBlog(search);
+            model.addAttribute("blogs", blogList);
+        }
+        else {
+            List<Blog> blogs = this.blogService.findAll();
+            model.addAttribute("blogs", blogs);
+        }
+
         return "blog";
     }
 
@@ -134,4 +142,5 @@ public class BlogController {
 
         return "showBlog";
     }
+
 }

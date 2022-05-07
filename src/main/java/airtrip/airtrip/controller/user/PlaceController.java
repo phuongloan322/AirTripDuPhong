@@ -15,6 +15,7 @@
  import javax.servlet.ServletContext;
  import javax.servlet.http.HttpServletRequest;
  import javax.servlet.http.HttpSession;
+ import java.util.ArrayList;
  import java.util.List;
 
 @Controller
@@ -65,6 +66,27 @@ public class PlaceController {
 		List<Category> categories = this.categoryService.getAll();
 		List<LitleCategory> litlecategoryList = this.litleCategoryService.getAll();
 
+		List<String> ratings = new ArrayList<String>();
+
+		for (Place place : listPost) {
+			float rating = 0;
+			float sumReview = 0;
+			List<Review> reviews = this.reviewService.getReviewByPlace(place.getPlaceId());
+			for (Review review : reviews) {
+				sumReview += review.getRate();
+			}
+			int n = reviews.size();
+			if(n != 0) {
+				rating = sumReview / (float)reviews.size();
+			}
+			if(n == 0) {
+				ratings.add(0 + " ("+reviews.size()+")");
+			}
+			else
+				ratings.add((double) Math.ceil (rating * 100) / 100 + " ("+reviews.size()+")");
+		}
+		model.addAttribute("ratings", ratings);
+
 		model.addAttribute("currentPage", pageNo);
 		model.addAttribute("totalPages", page.getTotalPages());
 		model.addAttribute("totalItems", page.getTotalElements());
@@ -96,16 +118,17 @@ public class PlaceController {
 		HttpSession session = request.getSession();
 		List<Place> listPost = placeBo.searchAdvanced(category, litlecategory,address, people,phongngu, giuong, phongtam, startdate, enddate, price1, price2);
 
-		System.out.println(litlecategory);
-		System.out.println(address);
-		System.out.println(people);
-		System.out.println(phongngu);
-		System.out.println(giuong);
-		System.out.println(phongtam);
-		System.out.println(startdate);
-		System.out.println(enddate);
-		System.out.println(price1);
-		System.out.println(price2);
+		model.addAttribute("litlecategory",litlecategory);
+		model.addAttribute("address",address);
+		model.addAttribute("people",people);
+		model.addAttribute("phongngu",phongngu);
+		model.addAttribute("giuong",giuong);
+		model.addAttribute("phongtam",phongtam);
+		model.addAttribute("startdate",startdate);
+		model.addAttribute("enddate",enddate);
+		model.addAttribute("price1",price1);
+		model.addAttribute("price2",price2);
+		System.out.println(listPost.size());
 
 		List<Category> categories = this.categoryService.getAll();
 		List<LitleCategory> litlecategoryList = this.litleCategoryService.getAll();
@@ -115,6 +138,27 @@ public class PlaceController {
 		model.addAttribute("listPost", listPost);
 		model.addAttribute("categoryList", categories);
 		model.addAttribute("litlecategoryList", litlecategoryList);
+
+		List<String> ratings = new ArrayList<String>();
+		for (Place place : listPost) {
+			float rating = 0;
+			float sumReview = 0;
+			List<Review> reviews = this.reviewService.getReviewByPlace(place.getPlaceId());
+			for (Review review : reviews) {
+				sumReview += review.getRate();
+			}
+			int n = reviews.size();
+			if(n != 0) {
+				rating = sumReview / (float)reviews.size();
+			}
+			if(n == 0) {
+				ratings.add(0 + " ("+reviews.size()+")");
+			}
+			else
+				ratings.add((double) Math.ceil (rating * 100) / 100 + " ("+reviews.size()+")");
+		}
+		model.addAttribute("ratings", ratings);
+
 		return "place";
 	}
 	

@@ -130,7 +130,9 @@
 </script>
 
 
-
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 <%@ include file="/WEB-INF/views/host/libfooter.jsp" %>
 <%@ include file="/WEB-INF/views/layouts/footer.jsp" %>
 </body>

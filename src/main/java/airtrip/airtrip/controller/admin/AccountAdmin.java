@@ -1,7 +1,13 @@
 package airtrip.airtrip.controller.admin;
 
 import airtrip.airtrip.entity.Account;
+import airtrip.airtrip.entity.BookRoom;
+import airtrip.airtrip.entity.Payment;
+import airtrip.airtrip.entity.Place;
 import airtrip.airtrip.service.AccountService;
+import airtrip.airtrip.service.BookRoomService;
+import airtrip.airtrip.service.PaymentService;
+import airtrip.airtrip.service.PlaceService;
 import airtrip.airtrip.utils.WebUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -16,12 +22,22 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.security.Principal;
+import java.util.List;
 
 @Controller
 public class AccountAdmin {
 
     @Autowired
     private AccountService accountService;
+
+    @Autowired
+    private PlaceService placeService;
+
+    @Autowired
+    private BookRoomService bookRoomService;
+
+    @Autowired
+    private PaymentService paymentService;
 
     @RequestMapping(value="/admin/login")
     public ModelAndView Login(Model model, HttpServletRequest request, HttpSession session) {
@@ -37,6 +53,19 @@ public class AccountAdmin {
     @RequestMapping(value="/admin/index")
     public ModelAndView Home(Model model, HttpServletRequest request, HttpSession session) {
         try {
+            List<Account> accountList = accountService.getAccount();
+            List<Place> placeList = placeService.getAllPlace();
+            List<BookRoom> bookRooms = bookRoomService.getAllBookRoom();
+            List<Payment> payments = paymentService.findAll();
+            double doanhthu = 0;
+            for (Payment payment : payments) {
+                doanhthu += payment.getTotalPrice();
+            }
+
+            model.addAttribute("khachhang", accountList.size());
+            model.addAttribute("nhaphong", placeList.size());
+            model.addAttribute("datphong", bookRooms.size());
+            model.addAttribute("giaodich", doanhthu);
         } catch (Exception e) {
             e.printStackTrace();
         }

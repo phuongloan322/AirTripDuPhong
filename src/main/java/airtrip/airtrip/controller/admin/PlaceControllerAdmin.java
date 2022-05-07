@@ -1,9 +1,7 @@
 package airtrip.airtrip.controller.admin;
 
-import airtrip.airtrip.entity.Account;
-import airtrip.airtrip.entity.Place;
-import airtrip.airtrip.entity.Review;
-import airtrip.airtrip.entity.ReviewReaction;
+import airtrip.airtrip.entity.*;
+import airtrip.airtrip.service.CategoryService;
 import airtrip.airtrip.service.PlaceService;
 import airtrip.airtrip.service.ReviewReactionService;
 import airtrip.airtrip.service.ReviewService;
@@ -34,26 +32,31 @@ public class PlaceControllerAdmin {
     @Autowired
     private ReviewReactionService reviewReactionService;
 
+    @Autowired
+    private CategoryService categoryService;
+
     @RequestMapping("/admin/manager-place")
     public String getAllPlace(Model model, HttpServletRequest request) throws Exception{
-        return this.findPaginated(1, null, null, model, request);
+        return this.findPaginated(1, null, null, null, model, request);
     }
 
     @RequestMapping("/admin/manager-place/page/{pageNo}")
     public String findPaginated(@PathVariable(value = "pageNo") int pageNo,
                                 @RequestParam(value = "search", required = false) String search,
                                 @RequestParam(value = "filter", required = false) String filter,
+                                @RequestParam(value = "category", required = false) String category,
                                 Model model,
                                 HttpServletRequest request) throws Exception {
         HttpSession session = request.getSession();
         if(search == null) search = "";
         if(filter == null) filter = "";
+        if(category == null) category = "";
         Account accLogin = (Account) session.getAttribute("accAdmin");
         if(accLogin == null)
             return "redirect:/admin/login";
 
         int pageSize = 10;
-        Page<Place> page = placeService.findPlaceByPaginatedAdmin(pageNo, search, filter, pageSize);
+        Page<Place> page = placeService.findPlaceByPaginatedAdmin(pageNo, search, filter,category, pageSize);
         List<Place> listPost = page.getContent();
 
         List<String> ratings = new ArrayList<String>();
@@ -76,6 +79,8 @@ public class PlaceControllerAdmin {
         }
         model.addAttribute("ratings", ratings);
 
+        List<Category> categories = categoryService.getAll();
+
         model.addAttribute("currentPage", pageNo);
         model.addAttribute("totalPages", page.getTotalPages());
         model.addAttribute("totalItems", page.getTotalElements());
@@ -83,6 +88,9 @@ public class PlaceControllerAdmin {
         model.addAttribute("pageSize", pageSize);
         model.addAttribute("search", search);
         model.addAttribute("filter", filter);
+        model.addAttribute("category", category);
+        model.addAttribute("categories", categories);
+
         return "admin/managerPlace";
     }
 

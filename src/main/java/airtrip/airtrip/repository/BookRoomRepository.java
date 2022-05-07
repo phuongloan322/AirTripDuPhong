@@ -49,4 +49,22 @@ public interface BookRoomRepository extends JpaRepository<BookRoom, Long> {
 
     @Query(value = "select t from BookRoom t order by t.bookId desc ")
     Page<BookRoom> getBookRoomAllAdmin(Pageable pageable);
+
+    @Query(value = "select t from BookRoom t where t.account.name like %?1% or t.place.account.name like %?1% or t.account.phone like %?1% or t.place.account.phone like %?1% or t.place.name like %?1% or t.place.address like %?1% or t.place.litleCategory.category.categoryId like %?1% or t.place.litleCategory.category.name like %?1% order by t.bookId desc")
+    Page<BookRoom> searchAll(String search, Pageable pageable);
+
+    @Query(value = "select t from BookRoom t where t.isAccept = ?1 and t.isPayment = ?2 order by t.bookId desc")
+    Page<BookRoom> searchStatus(int s, boolean s1, Pageable pageable);
+
+    @Query(value = "select t from BookRoom t where t.startDay <= ?1 and t.endDay >= ?1 order by t.bookId desc")
+    Page<BookRoom> searchDate(String search, Pageable pageable);
+
+    @Query(value = "select t from BookRoom t where t.totalPrice >= ?1 and t.totalPrice <= ?2 order by t.bookId desc")
+    Page<BookRoom> serachPrice(long l, long l1, Pageable pageable);
+
+    @Query(value = "select t from BookRoom t where t.account.name like %?1% or t.place.account.name like %?1% or t.account.phone like %?1% or t.place.account.phone like %?1% or t.place.name like %?1% or t.place.address like %?1% or t.place.litleCategory.category.categoryId like %?1% or t.place.litleCategory.category.name like %?1% order by t.totalPrice asc")
+    Page<BookRoom> searchASC(String search, Pageable pageable);
+
+    @Query(value = "select t from BookRoom t where t.account.name like %?1% or t.place.account.name like %?1% or t.account.phone like %?1% or t.place.account.phone like %?1% or t.place.name like %?1% or t.place.address like %?1% or t.place.litleCategory.category.categoryId like %?1% or t.place.litleCategory.category.name like %?1% order by t.totalPrice desc ")
+    Page<BookRoom> searchDESC(String search, Pageable pageable);
 }

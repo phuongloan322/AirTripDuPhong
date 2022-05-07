@@ -9,6 +9,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @Service
 public class PaymentService {
@@ -84,8 +86,19 @@ public class PaymentService {
 
     public Page<Payment> findPaymentByPaginatedAdmin(int pageNo, String search, String filter, int pageSize) {
         Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
-        if(filter != "" ) {
 
+        if(search != "") {
+            Pattern pattern = Pattern.compile("\\d*");
+            Matcher matcher = pattern.matcher(search);
+            if (matcher.matches()) {
+                System.out.println("1");
+                int price = Integer.parseInt(search);
+                return this.paymentRepository.searchPrice(search, pageable);
+            } else
+            {
+                System.out.println("2");
+                return this.paymentRepository.searchPayment(search, pageable);
+            }
         }
         return this.paymentRepository.getPaymentAllAdmin(pageable);
     }

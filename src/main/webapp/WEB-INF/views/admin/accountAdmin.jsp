@@ -72,7 +72,7 @@
                                                 <th>  Email </th>
                                                 <th>  Địa chỉ </th>
                                                 <th> Tên đăng nhập </th>
-                                                <th>  Chức năng  </th>
+<%--                                                <th>  Chức năng  </th>--%>
                                                 </thead>
                                                 <tbody id="noidung" >
                                                 <c:forEach var="item" items="${accountAdmins }" varStatus="loop">
@@ -81,7 +81,9 @@
                                                                 ${loop.index + 1 }
                                                         </td>
                                                         <td>
-                                                                ${item.name }
+                                                            <a href="/admin/detail-account/${item.accountId }">
+                                                                    ${item.name }
+                                                            </a>
                                                         </td>
                                                         <td>
                                                                 ${item.phone }
@@ -96,7 +98,7 @@
                                                                 ${item.username }
                                                         </td>
                                                         <td class="chucnang">
-                                                            <a href="<c:url value="/admin/detail-account/${item.accountId }" />"><i class="material-icons detail">event_note</i></a>
+<%--                                                            <a href="<c:url value="/admin/detail-account/${item.accountId }" />"><i class="material-icons detail">event_note</i></a>--%>
 <%--                                                            <a data-f="${item.accountId }" id="editButton"><i class="material-icons edit">mode_edit</i></a>--%>
 <%--                                                            <a href="<c:url value="/admin/manager-account/delete/${item.accountId }" />" id="deleteButton"><i class="material-icons delete">delete</i></a>--%>
                                                         </td>

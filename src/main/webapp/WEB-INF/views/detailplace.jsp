@@ -71,13 +71,15 @@
 		<div>
 			<div>
 				<div>
+					<div style="float: left; width: 100%">
+						<p class="d1" style="line-height: 1.5;">${detailPlace.name }</p>
+					</div>
 					<div style="float: left; width: 70%">
-						<p class="d1">${detailPlace.name }</p>
 						<p class="dtieude" style="padding-bottom: 30px">${Category.name}. ${lilteCategory.litleName }
 							<span>${detailPlace.address}</span></p>
 					</div>
-					<div class="lovedetail">
-						<div style="margin-top: 80px; text-align: right">
+					<div class="lovedetail" style="float: left">
+						<div style="padding-top: 20px; text-align: right">
 							<c:choose>
 								<c:when test="${!Cart.containsKey(item.placeId) }">
 									<a data-id="${detailPlace.placeId }">
@@ -98,22 +100,23 @@
 			</div>
 			<div>
 				<table class="dtable" style="width:100%">
-
 					  <tr>
 						  <th rowspan="2" width="50%" height="100%">
 							  <a href="/show-image/${detailPlace.placeId}" >
-							  <img src="<c:url value="/asset/images/${detailPlace.images[0].name }" />" height="361px" width="540px" class="setimgdetail1">
+							  <img src="<c:url value="/asset/images/${detailPlace.images[0].name }" />" height="361px" width="540px" class="setimgdetail1" style="border-top-left-radius: 20px;border-bottom-left-radius: 20px;">
 							  </a>
 						  </th>
 						  <td width="25%" height="50%"><a href="/show-image/${detailPlace.placeId}" ><img src="<c:url value="/asset/images/${detailPlace.images[1].name }" />" height="100%" class="setimgdetail" ></a></td>
-						  <td width="25%" height="50%"><a href="/show-image/${detailPlace.placeId}" ><img src="<c:url value="/asset/images/${detailPlace.images[2].name }" />" height="100%" class="setimgdetail" ></a></td>
+						  <td width="25%" height="50%"><a href="/show-image/${detailPlace.placeId}" ><img src="<c:url value="/asset/images/${detailPlace.images[2].name }" />" height="100%" class="setimgdetail" style="    border-top-right-radius: 20px;"></a></td>
 					  </tr>
 					  <tr>
 						  <td width="25%" height="50%"><a href="/show-image/${detailPlace.placeId}" ><img src="<c:url value="/asset/images/${detailPlace.images[3].name }" />" height="100%" class="setimgdetail" ></a></td>
-						  <td width="25%" height="50%"><a href="/show-image/${detailPlace.placeId}" ><img src="<c:url value="/asset/images/${detailPlace.images[4].name }" />" height="100%" class="setimgdetail" ></a></td>
+						  <td width="25%" height="50%"><a href="/show-image/${detailPlace.placeId}" ><img src="<c:url value="/asset/images/${detailPlace.images[4].name }" />" height="100%" class="setimgdetail" style="border-bottom-right-radius: 20px;"></a></td>
 					  </tr>
-
 				</table>
+				<div style="float: right; padding-top: 15px">
+					<a href="/show-image/${detailPlace.placeId}" class="btn btn-light" style="padding: 10px"><i class="fas fa-th" style="margin: 5px 5px 0 0"></i>Xem tất cả ảnh</a>
+				</div>
 				<br>
 				<div style="width: 100%">
 					<div class="dleft">
@@ -183,7 +186,7 @@
 					<div class="dright d-table">
 						<div class="login-form">
 							<form action="" method="post" class="has-error">
-								<h4>$ ${detailPlace.price } / đêm</h4>
+								<h4 style="padding-top: 0">$ ${detailPlace.price } / đêm</h4>
 								<br>
 								<p>Nhận phòng</p>
 								<input type="date" placeholder="dd-mm-yyyy" id="startDay" name="startDay" value="${detailPlace.startDay }"  min="${detailPlace.startDay }" max="${detailPlace.endDay }" />
@@ -224,7 +227,7 @@
 		</div>
 		<div id="map"></div>
 
-		<div class="info">
+		<div class="info" style="margin-bottom: 100px">
 			<hr>
 			<p class="u1">Thông tin về chủ nhà</p>
 			<p>Họ và tên: ${detailPlace.account.name }</p>

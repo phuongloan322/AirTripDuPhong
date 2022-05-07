@@ -26,9 +26,9 @@
           
           <div class="collapse navbar-collapse justify-content-end">
           
-            <form action="<c:url value="/manager-review" />" method="post" class="navbar-form">
+            <form action="<c:url value="/admin/manager-review/page/1" />" method="post" class="navbar-form">
               <div class="input-group no-border">
-                <input type="text" value="" class="form-control" name="search" placeholder="Search...">
+                <input type="text" value="${search}" class="form-control" name="search" placeholder="Search..." style="color: #fff">
                 <button type="submit" class="btn btn-default btn-round btn-just-icon">
                   <i class="material-icons">search</i>
                   <div class="ripple-container"></div>

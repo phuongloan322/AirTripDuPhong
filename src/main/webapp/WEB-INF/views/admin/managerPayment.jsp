@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -163,8 +164,8 @@
                                                             <i class="iaddress">Khách hàng: <a
                                                                     href="/admin/detail-account/${item.bookRoom.account.accountId }">${item.bookRoom.account.name }</a>
                                                             </i><br> </td>
-                                                        <td class="chitiet"> $ ${item.totalPrice } </td>
-                                                        <td>  $ ${item.transactionFee} </td>
+                                                        <td class="chitiet"> $ <fmt:formatNumber type="number" groupingUsed="true" value="${item.totalPrice }" /> </td>
+                                                        <td>  $ <fmt:formatNumber type="number" groupingUsed="true" value="${item.transactionFee }" /> </td>
                                                         <td> ${item.createTime.split(" ")[1]}
                                                                 ${item.createTime.split(" ")[0].split("-")[2]} -
                                                                 ${item.createTime.split(" ")[0].split("-")[1]} -
@@ -348,14 +349,33 @@
                         + item.createTime.split(" ")[0].split("-")[1]+'-'
                         + item.createTime.split(" ")[0].split("-")[0]+'</td>'
                         + '<td>'+item.status+'</td><td class="ikajasa" style="text-align: center">'
-                        + '<a href="/admin/manager-payment/detail/'+item.paymentId+'" class="detail-payment">'
-                        + '<i class="far fa-calendar-alt" style="font-size: 25px; color: green;"></i>'
+                        + '<a href="/admin/manager-payment/detail/'+item.paymentId+'" class="editButton">'
+                        + '<i class="material-icons detail">event_note</i>'
                         + '</a>'
                         + '</td>'
                         + '</tr>';
 
                 });
                 document.getElementById("noidung").innerHTML = html;
+                $('table .editButton').click(function (e) {
+                    e.preventDefault();
+                    console.log("OK")
+                    var href = $(this).attr('href')
+                    $.get(href, function (data, status) {
+                        $('#paymentId').val(data.paymentId);
+                        $('#email').val(data.email);
+                        $('#totalPrice').val(data.totalPrice);
+                        $('#transactionFee').val(data.transactionFee);
+                        $('#description').val(data.description);
+                        $('#createTime').val(data.createTime);
+                        $('#status').val(data.status);
+                        $('#countryCode').val(data.countryCode);
+                        $('#postalCode').val(data.postalCode);
+                        $('#bookId').val(data.bookRoom.bookId);
+                        $('#name').val(data.bookRoom.account.name);
+                    });
+                    $('#paymentModal').modal();
+                });
             },
             error: function (e) {
                 console.log("ERROR: ", e);

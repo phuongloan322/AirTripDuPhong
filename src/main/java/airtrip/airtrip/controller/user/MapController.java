@@ -102,6 +102,16 @@ public class MapController {
         List<Category> categories = this.categoryService.getAll();
         List<LitleCategory> litlecategoryList = this.litleCategoryService.getAll();
 
+        model.addAttribute("litlecategory",litlecategory);
+        model.addAttribute("address",address);
+        model.addAttribute("people",people);
+        model.addAttribute("phongngu",phongngu);
+        model.addAttribute("giuong",giuong);
+        model.addAttribute("phongtam",phongtam);
+        model.addAttribute("startdate",startdate);
+        model.addAttribute("enddate",enddate);
+        model.addAttribute("price1",price1);
+        model.addAttribute("price2",price2);
         model.addAttribute("currentPage", 1);
         model.addAttribute("totalPages", 1);
         model.addAttribute("listPost", listPost);

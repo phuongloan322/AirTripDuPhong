@@ -20,4 +20,10 @@ public interface ReviewRepository extends JpaRepository<Review, Long> {
 
     @Query(value = "select t from Review t order by t.reviewId desc")
     Page<Review> getPlaceAllAdmin(Pageable pageable);
+
+    @Query(value = "select t from Review t where t.rate = ?1 order by t.reviewId desc")
+    Page<Review> searchRate(int rate, Pageable pageable);
+
+    @Query(value = "select t from Review t where t.account.name like %?1% or t.place.name like %?1% or t.content like %?1% order by t.reviewId desc")
+    Page<Review> searchReview(String search, Pageable pageable);
 }

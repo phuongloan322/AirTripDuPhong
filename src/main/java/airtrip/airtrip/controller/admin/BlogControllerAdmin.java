@@ -101,6 +101,14 @@ public class BlogControllerAdmin {
         return blog1;
     }
 
+    @GetMapping("/admin/manager-blog/edit/{blogId}")
+    public String formEdit(Model model,@PathVariable long blogId){
+        Blog blog = blogService.findById(blogId);
+        model.addAttribute("blog", blog);
+
+        return "admin/detailBlog";
+    }
+
     @PostMapping("/admin/manager-blog/edit")
     public String edit(Model model,
                        @RequestParam("blogId") long blogId,
@@ -114,7 +122,6 @@ public class BlogControllerAdmin {
         Account account = (Account) session.getAttribute("accAdmin");
 
         Blog blog = this.blogService.findById(blogId);
-        blog.setBlogId(blogId);
         blog.setTitle(title);
         blog.setContent(content);
 
@@ -122,7 +129,6 @@ public class BlogControllerAdmin {
         Date date = new Date();
         String dateSubmit = formatter.format(date);
         blog.setCreateDate(dateSubmit);
-        blog.setAccount(account);
 
         this.blogService.updateBlog(blog,file, request, blog.getImage());
         redirectAttributes.addFlashAttribute("msg", "editOK");

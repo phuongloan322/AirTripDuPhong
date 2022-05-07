@@ -105,7 +105,6 @@
                                         </tr>
                                     </c:if>
                                 </c:if>
-
                             </c:forEach>
                         </c:forEach>
                     </c:when>
