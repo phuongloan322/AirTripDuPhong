@@ -84,7 +84,7 @@ function initMap() {
             +'<a style="margin-left: 30px" href="/AddLovePlace/'+placeId+'" ><u style="font-size: 14px">Yêu thích</u></a>'
             +'<script>console.log("LoanLoan")</script>');
             map.setCenter(new google.maps.LatLng(lat, lng));
-            map.setZoom(25);
+            map.setZoom(17);
             infowindow.open(map,marker);
 
             google.maps.event.addListener(infowindow, 'closeclick', function() {

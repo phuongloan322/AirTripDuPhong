@@ -124,8 +124,8 @@
                                         <i class="iaddress">Khách hàng: <a
                                                 href="/detail-account/${item.bookRoom.account.accountId }">${item.bookRoom.account.name }</a>
                                         </i><br> </td>
-                                    <td class="chitiet"> $ ${item.totalPrice } </td>
-                                    <td>  $ ${item.transactionFee} </td>
+                                    <td class="chitiet t1"> $ ${item.totalPrice } </td>
+                                    <td class="t2">  $ ${item.transactionFee} </td>
                                     <td> ${item.createTime.split(" ")[1]}
                                             ${item.createTime.split(" ")[0].split("-")[2]} -
                                             ${item.createTime.split(" ")[0].split("-")[1]} -
@@ -145,7 +145,20 @@
                         Không tìm thấy kết quả nào
                     </c:otherwise>
                 </c:choose>
-
+            </div>
+            <div>
+                <div class="row border card-body" style="margin: 20px auto">
+                    <div class="col-2">
+                        <p><b>Tổng thanh toán:</b></p>
+                        <p><b>Tổng thuế:</b><br></p>
+                        <p><b>Doanh thu:</b><br></p>
+                    </div>
+                    <div>
+                        <p id="tongthanhtoan"></p>
+                        <p id="tongthue"></p>
+                        <p id="doanhthu"></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -214,12 +227,34 @@
             </div>
         </div>
     </div>
+
 </div>
+
+
 
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 <script>
+
+    var t1 = document.getElementsByClassName("t1");
+    var tongtt = 0;
+    for (let i = 0; i < t1.length; i++) {
+        tongtt += parseFloat(t1[i].innerHTML.split("$")[1]);
+    }
+    console.log(tongtt);
+    document.getElementById("tongthanhtoan").innerHTML = "$ "+tongtt;
+
+    var t2 = document.getElementsByClassName("t2");
+    var tongthue = 0;
+    for (let i = 0; i < t2.length; i++) {
+        tongthue += parseFloat(t2[i].innerHTML.split("$")[1]);
+    }
+    console.log(tongthue)
+    document.getElementById("tongthue").innerHTML = "$ "+tongthue;
+
+    const tongdoanhthu = parseFloat(tongtt) - parseFloat(tongthue);
+    document.getElementById("doanhthu").innerHTML = "$ "+tongdoanhthu;
 
     function genderChanged(obj)
     {
@@ -262,8 +297,8 @@
                     + item.bookRoom.endDay.split("-")[0]
                     + '<i class="iaddress">Khách hàng: <a href="/detail-account/'+item.bookRoom.account.accountId +'">'+item.bookRoom.account.name +'</a>'
                     + '</i><br> </td>'
-                    + '<td class="chitiet"> $ '+item.totalPrice +'</td>'
-                    + '<td>  $ '+item.transactionFee +'</td>'
+                    + '<td class="chitiet t1"> $ '+item.totalPrice +'</td>'
+                    + '<td class="t2">  $ '+item.transactionFee +'</td>'
                     + '<td> '+item.createTime.split(" ")[1]+ ' '
                     + item.createTime.split(" ")[0].split("-")[2]+'-'
                     + item.createTime.split(" ")[0].split("-")[1]+'-'
@@ -277,6 +312,41 @@
 
                 });
                 document.getElementById("noidung").innerHTML = html;
+                var t1 = document.getElementsByClassName("t1");
+                var tongtt = 0;
+                for (let i = 0; i < t1.length; i++) {
+                    tongtt += parseFloat(t1[i].innerHTML.split("$")[1]);
+                }
+                document.getElementById("tongthanhtoan").innerHTML = "$ "+tongtt;
+
+                var t2 = document.getElementsByClassName("t2");
+                var tongthue = 0;
+                for (let i = 0; i < t2.length; i++) {
+                    tongthue += parseFloat(t2[i].innerHTML.split("$")[1]);
+                }
+                document.getElementById("tongthue").innerHTML = "$ "+tongthue;
+
+                const tongdoanhthu = parseFloat(tongtt) - parseFloat(tongthue);
+                document.getElementById("doanhthu").innerHTML = "$ "+tongdoanhthu;
+
+                jQuery('.detail-payment').click(function (evt) {
+                    evt.preventDefault();
+                    var href = $(this).attr('href')
+                    $.get(href, function (data, status) {
+                        $('#paymentId').val(data.paymentId);
+                        $('#email').val(data.email);
+                        $('#totalPrice').val(data.totalPrice);
+                        $('#transactionFee').val(data.transactionFee);
+                        $('#description').val(data.description);
+                        $('#createTime').val(data.createTime);
+                        $('#status').val(data.status);
+                        $('#countryCode').val(data.countryCode);
+                        $('#postalCode').val(data.postalCode);
+                        $('#bookId').val(data.bookRoom.bookId);
+                        $('#name').val(data.bookRoom.account.name);
+                    });
+                    $('#paymentModal').modal();
+                });
             },
             error: function (e) {
                 console.log("ERROR: ", e);

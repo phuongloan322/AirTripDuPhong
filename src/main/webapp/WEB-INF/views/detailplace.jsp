@@ -63,6 +63,77 @@
 				background-color: #d2e3fc;
 			}
 
+			/* Optional: Makes the sample page fill the window. */
+			html,
+			body {
+				height: 100%;
+				margin: 0;
+				padding: 0;
+			}
+
+			#container {
+				height: 100%;
+				display: flex;
+			}
+
+			#sidebar {
+				flex-basis: 15rem;
+				flex-grow: 1;
+				padding: 1rem;
+				max-width: 30rem;
+				height: 100%;
+				box-sizing: border-box;
+				overflow: auto;
+			}
+
+			#map {
+				flex-basis: 0;
+				flex-grow: 4;
+				height: 100%;
+			}
+
+			#floating-panel {
+				position: absolute;
+				top: 10px;
+				left: 25%;
+				z-index: 5;
+				background-color: #fff;
+				padding: 5px;
+				border: 1px solid #999;
+				text-align: center;
+				font-family: "Roboto", "sans-serif";
+				line-height: 30px;
+				padding-left: 10px;
+			}
+
+			#floating-panel {
+				background-color: #fff;
+				border: 0;
+				border-radius: 2px;
+				box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+				margin: 10px;
+				padding: 0 0.5em;
+				font: 400 18px Roboto, Arial, sans-serif;
+				overflow: hidden;
+				padding: 5px;
+				font-size: 14px;
+				text-align: center;
+				line-height: 30px;
+				height: auto;
+			}
+
+			#map {
+				flex: auto;
+			}
+
+			#sidebar {
+				flex: 0 1 auto;
+				padding: 0;
+			}
+			#sidebar > div {
+				padding: 0.5rem;
+			}
+
 		</style>
 	</head>
 	<body style="background: #fff !important">
@@ -147,10 +218,14 @@
 									<div class="item-review">
 										<div class="d-avt">
 											<div class="avt">
-												<img alt="" width="50px" height="50px" src="<c:url value="/asset/images/${item.account.image }" />">
+												<a href="/detail-account/${item.account.accountId}">
+													<img alt="" width="50px" height="50px" src="<c:url value="/asset/images/${item.account.image }" />">
+												</a>
 											</div>
 											<div class="right">
-												<b>${item.account.name }</b>
+												<a href="/detail-account/${item.account.accountId}">
+													<b>${item.account.name }</b>
+												</a>
 												<p>${item.dateSubmit }</p>
 												<c:forEach begin="1" end="${item.rate }" varStatus="loop">
 													<i class="fas fa-star item-star"></i>
@@ -165,10 +240,14 @@
 													<c:if test="${itemReaction.review.reviewId == item.reviewId }">
 														<div class="reac">
 															<div class="avt left">
-																<img alt="" width="50px" height="50px" src="<c:url value="/asset/images/${itemReaction.account.image }" />">
+																<a href="/detail-account/${itemReaction.account.accountId}">
+																	<img alt="" width="50px" height="50px" src="<c:url value="/asset/images/${itemReaction.account.image }" />">
+																</a>
 															</div>
 															<div >
-																<b>${itemReaction.account.name }</b>
+																<a href="/detail-account/${itemReaction.account.accountId}">
+																	<b>${itemReaction.account.name }</b>
+																</a>
 																<p>${itemReaction.dateSubmit }</p>
 															</div>
 															<br>
@@ -224,8 +303,14 @@
 			<hr><br>
 			<p class="u1">Nơi này ở đâu?</p>
 			<a href="" class="setw"><p id="inputaddress"><i class="fas fa-home"></i> ${detailPlace.address }</p></a><br>
+			<input value="Huế" id="start" hidden>
+			<br>
 		</div>
+
+	<div id="container">
 		<div id="map"></div>
+		<div id="sidebar" style="border: 1px solid #909090"></div>
+	</div>
 
 		<div class="info" style="margin-bottom: 100px">
 			<hr>

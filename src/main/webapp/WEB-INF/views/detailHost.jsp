@@ -14,7 +14,27 @@
     <%----%>
 </head>
 <body style="background: #fff !important">
-<%@ include file="/WEB-INF/views/layouts/header2.jsp" %>
+<header id="header"><!--header-->
+    <div class="header-middle"><!--header-middle-->
+        <div class="container" style="width: 1300px !important;">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="logo pull-left">
+                        <div style="margin-top: 10px">
+                            <a href="<c:url value="/index" />"><b class="head3" style="color: #ef4365; ">
+                                <i class="fas fa-cannabis" style="margin-right: 10px;margin-top: -5px"></i>AirTrip</b>
+                            </a>
+                        </div>
+                    </div>
+                </div >
+                <div class="col-sm-6 pull-left">
+
+                </div>
+                <%@ include file="/WEB-INF/views/layouts/menu.jsp" %>
+            </div>
+        </div>
+    </div><!--/header-middle-->
+</header>
 
 <div class="w-detail" style="width: 100%">
     <div class="container" style="width: 1400px !important">
@@ -52,11 +72,18 @@
             <h3>Giới thiệu</h3>
             <br>
             <div class="introduce">
-                <p><i class="fas fa-user"></i>Tôi tên là ${account.name}</p>
-                <p><i class="fas fa-home"></i> Sống tại ${account.address}</p>
-                <p><i class="fas fa-phone"></i> Số điện thoại liên hệ ${account.phone}</p>
-                <p><i class="fas fa-envelope"></i> Email liên hệ ${account.email}</p>
-                <p><i class="fas fa-clipboard"></i> ${account.introduce}</p>
+                <p><i class="fas fa-user"></i>Tôi tên là: ${account.name}</p>
+                <p><i class="fas fa-home"></i> Sống tại: ${account.address}</p>
+                <p><i class="fas fa-phone"></i> Số điện thoại liên hệ: <u>${account.phone}</u></p>
+                <p><i class="fas fa-envelope"></i> Email liên hệ: <u>${account.email}</u></p>
+                <p><i class="fas fa-clipboard"></i> Giới thiệu bản thân:
+                    <c:if test="${account.introduce != null}">
+                        ${account.introduce}
+                    </c:if>
+                    <c:if test="${account.introduce == null}">
+                        Không có mục giới thiệu
+                    </c:if>
+                </p>
             </div>
 
             <hr>
@@ -221,6 +248,33 @@
             document.getElementById("xemthem").innerText = "Xem tất cả nhà/phòng";
         }
     }
+
+    jQuery('.con1 a').click(function (evt) {
+        evt.preventDefault();
+
+        var placeId = jQuery(this).attr("data-id");
+        var item = 'item-' + placeId;
+
+        $.ajax({
+            type: "GET",
+            contentType: "application/json",
+            url: "/AddLovePlace",
+            data: {
+                placeId: placeId,
+            },
+            timeout: 2000,
+            success: function (data) {
+                console.log("SUCCESS: ");
+                if (document.getElementById(item).style.color == "red")
+                    document.getElementById(item).style.color = "white";
+                else document.getElementById(item).style.color = "red";
+            },
+            error: function (e) {
+                console.log("ERROR: ", e);
+            }
+        });
+
+    });
 </script>
 <br><br>
 

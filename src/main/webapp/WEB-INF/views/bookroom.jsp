@@ -352,10 +352,12 @@
                 timeout: 2000,
                 success: function (data) {
                     console.log("SUCCESS: ");
+                    location.reload();
                     document.getElementById(item).style.display = "none";
                 },
                 error: function (e) {
                     console.log("ERROR: ", e);
+                    location.reload();
                 }
             });
         });

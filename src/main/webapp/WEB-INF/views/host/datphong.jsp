@@ -155,7 +155,7 @@
                                                                 </div>
                                                             </div>
                                                         </c:when>
-                                                        <c:when test="${item.isAccept == 1 && item.isPayment == true && item.isReview == false}">
+                                                        <c:when test="${item.isAccept == 1 && item.isPayment == true}">
                                                             <div class="row">
                                                                 <div class="col" style="margin-top: 10px">
                                                                     <a class="b-accept"><i class="fas fa-check"></i>Đã
@@ -173,14 +173,14 @@
                                                                 </div>
                                                             </div>
                                                         </c:when>
-                                                        <c:when test="${item.isAccept == 1 && item.isPayment == true && item.isReview == true}">
-                                                            <div class="row">
-                                                                <div class="col" style="margin-top: 10px">
-                                                                    <a class="b-accept"><i class="fas fa-check"></i>Đã
-                                                                        đánh giá</a>
-                                                                </div>
-                                                            </div>
-                                                        </c:when>
+<%--                                                        <c:when test="${item.isAccept == 1 && item.isPayment == true && item.isReview == true}">--%>
+<%--                                                            <div class="row">--%>
+<%--                                                                <div class="col" style="margin-top: 10px">--%>
+<%--                                                                    <a class="b-accept"><i class="fas fa-check"></i>Đã--%>
+<%--                                                                        đánh giá</a>--%>
+<%--                                                                </div>--%>
+<%--                                                            </div>--%>
+<%--                                                        </c:when>--%>
                                                         <c:when test="${item.isAccept == -1}">
                                                             <div class="row">
                                                                 <div class="col" style="margin-top: 10px">
