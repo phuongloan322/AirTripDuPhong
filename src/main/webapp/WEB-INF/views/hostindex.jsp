@@ -759,10 +759,11 @@
     });
 </script>
 
-<script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
-        defer
-></script>
+<%--<script--%>
+<%--        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"--%>
+<%--        defer--%>
+<%--></script>--%>
+<%@ include file="/WEB-INF/views/layouts/keyMapAPI.jsp" %>
 
 <script
         src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>

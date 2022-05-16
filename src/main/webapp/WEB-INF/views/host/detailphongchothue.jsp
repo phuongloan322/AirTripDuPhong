@@ -200,7 +200,9 @@
                             </div>
                             <div>
                                 <b>${item.account.name }</b>
-                                <p>${item.dateSubmit }</p>
+                                <p>${item.dateSubmit.split(" ")[1].substring(0,5) } &nbsp;${item.dateSubmit.split(" ")[0].split("-")[2] }-${item.dateSubmit.split(" ")[0].split("-")[1] }-${item.dateSubmit.split(" ")[0].split("-")[0] }
+
+                                </p>
                                 <c:forEach begin="1" end="${item.rate }" varStatus="loop">
                                     <i class="fas fa-star item-star"></i>
                                 </c:forEach>
@@ -219,7 +221,9 @@
                                         <div class="row">
                                             <div class="col">
                                                 <b>${itemReaction.account.name }</b>
-                                                <p>${itemReaction.dateSubmit }</p>
+                                                <p>
+                                                        ${itemReaction.dateSubmit.split(" ")[1].substring(0,5) } &nbsp;${itemReaction.dateSubmit.split(" ")[0].split("-")[2] }-${itemReaction.dateSubmit.split(" ")[0].split("-")[1] }-${itemReaction.dateSubmit.split(" ")[0].split("-")[0] }
+                                                </p>
                                             </div>
                                             <div>
                                                 <a href="#" class="nav-link test" data-toggle="dropdown"></a>
@@ -401,7 +405,7 @@
                     + ' 	<div class="row">'
                     + '<div class="col">'
                     + ' 		<b>' + userName + '</b>'
-                    + ' 		<p>' + data.dateSubmit + '</p>'
+                    + ' 		<p>' + data.dateSubmit.split(" ")[1].substring(0,5)+'&nbsp;'+data.dateSubmit.split(" ")[0].split("/")[2]+'-'+data.dateSubmit.split(" ")[0].split("/")[1]+'-'+data.dateSubmit.split(" ")[0].split("/")[0] + '</p>'
                     + '</div>'
                     + '<div>'
                     + '     <a href="#" class="nav-link test" data-toggle="dropdown"></a>'
@@ -844,7 +848,7 @@
 
 
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script><script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<%--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script><script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>--%>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 
 <%@ include file="/WEB-INF/views/host/libfooter.jsp" %>

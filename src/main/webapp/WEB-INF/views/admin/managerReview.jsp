@@ -51,7 +51,7 @@
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title ">Manager Customer</h4>
+                  <h4 class="card-title ">Manager Review</h4>
                   <p class="card-account"> Danh sách Bài đánh giá</p>
                 </div>
                 <div class="card-body">

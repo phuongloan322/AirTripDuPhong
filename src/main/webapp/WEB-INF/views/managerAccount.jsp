@@ -200,7 +200,7 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                    <button type="submit" class="btn" id="confirm">Xác nhận</button>
+                    <button type="submit" class="btn" id="confirm" style="background-color: #ef4365; color: #fff">Xác nhận</button>
                 </div>
             </div>
         </div>

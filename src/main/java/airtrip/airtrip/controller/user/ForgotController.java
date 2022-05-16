@@ -5,6 +5,8 @@ import airtrip.airtrip.service.AccountService;
 import airtrip.airtrip.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -120,18 +122,21 @@ public class ForgotController {
     }
 
     @RequestMapping("/confirm-identity")
-    public @ResponseBody int confirmIdentity(@RequestParam("otp") String otp,
+    public @ResponseBody ResponseEntity<Object>  confirmIdentity(@RequestParam("otp") String otp,
                                       HttpSession session){
 
         int otp_correct = (int) session.getAttribute("otpIdentity");
+        System.out.println(otp);
+        System.out.println(otp_correct);
+        System.out.println(Integer.parseInt(otp) == otp_correct);
         if(Integer.parseInt(otp) == otp_correct) {
             Account account = (Account)session.getAttribute("accLogin");
             this.accountService.EditAccount(true, account);
             session.setAttribute("accLogin", accountService.getAccountById(account.getAccountId()));
-            return 1;
+            return new ResponseEntity<Object>(HttpStatus.OK);
         }
         else {
-            return 0;
+            return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
         }
     }
 

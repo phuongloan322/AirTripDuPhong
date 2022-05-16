@@ -93,7 +93,7 @@
 															Đến: ${item.endDay.split("-")[2]}-${item.endDay.split("-")[1]}-${item.endDay.split("-")[0]}
 														</p>
 													</td>
-													<td class="cart_total chucnang">
+													<td class="cart_total chucnang" style="text-align: center">
 														<a href="<c:url value="/become-a-host/detailplace/${item.placeId }" />">
 															<i class="fas fa-calendar-week" style="color: #1A73E8"></i>
 														</a>

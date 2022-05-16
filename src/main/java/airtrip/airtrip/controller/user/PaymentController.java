@@ -1,5 +1,6 @@
 package airtrip.airtrip.controller.user;
 
+import airtrip.airtrip.config.PaymentExcelExporter;
 import airtrip.airtrip.entity.Account;
 import airtrip.airtrip.entity.BookRoom;
 import airtrip.airtrip.entity.Payment;
@@ -17,8 +18,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -133,5 +139,29 @@ public class PaymentController {
                 payments1.add(payment);
             }
         return payments1;
+    }
+
+    @RequestMapping("/become-a-host/history/export/excel")
+    public void exportToExcel(HttpServletResponse response,
+                              @RequestParam("month1") int month1,
+                              @RequestParam("year1") int year1,
+                              @RequestParam("month2") int month2,
+                              @RequestParam("year2") int year2,
+                              HttpSession session
+    ) throws IOException {
+        response.setContentType("application/octet-stream");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
+
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=payment_" + currentDateTime + ".xlsx";
+        response.setHeader(headerKey, headerValue);
+
+        Account acc = (Account) session.getAttribute("accLogin");
+        List<Payment> payments = this.paymentService.getPaymentBySearchtHost(acc.getAccountId(), month1, year1, month2, year2);
+
+        PaymentExcelExporter excelExporter = new PaymentExcelExporter(payments);
+
+        excelExporter.export(response);
     }
 }

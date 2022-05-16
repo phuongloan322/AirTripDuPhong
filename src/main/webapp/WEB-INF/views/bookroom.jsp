@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +37,7 @@
             <div class="col-sm-3">
                 <div class="logo pull-left">
                     <div style="margin-top: 30px">
-                        <a href="<c:url value="/index" />"><b class="head3" style="color: #ef4365; ">
+                        <a href="<c:url value="/places" />"><b class="head3" style="color: #ef4365; ">
                             <i class="fas fa-cannabis" style="margin-right: 10px;margin-top: -5px"></i>AirTrip</b>
                         </a>
                     </div>
@@ -124,28 +125,30 @@
                                         class="i1">${item.place.name }</b></a>
                                 <br>
                                     ${item.place.address }
-                                <c:if test="${item.place.startDay != null && item.place.endDay != null}">
+                                <c:if test="${item.startDay != null && item.endDay != null}">
                                     <c:if
-                                            test="${item.place.startDay.split(\"-\")[1] == item.place.endDay.split(\"-\")[1]}">
+                                            test="${item.startDay.split(\"-\")[1] == item.endDay.split(\"-\")[1]}">
                                         <div class="day-place">Ngày
-                                                ${item.place.startDay.split("-")[2]} - Ngày
-                                                ${item.place.endDay.split("-")[2]} tháng
-                                                ${item.place.startDay.split("-")[1]}</div>
+                                                ${item.startDay.split("-")[2]} - Ngày
+                                                ${item.endDay.split("-")[2]} tháng
+                                                ${item.startDay.split("-")[1]}</div>
                                     </c:if>
                                     <c:if
-                                            test="${item.place.startDay.split(\"-\")[1] != item.place.endDay.split(\"-\")[1]}">
+                                            test="${item.startDay.split(\"-\")[1] != item.endDay.split(\"-\")[1]}">
                                         <div class="day-place">Ngày
-                                                ${item.place.startDay.split("-")[2]} /
-                                                ${item.place.startDay.split("-")[1]} - Ngày
-                                                ${item.place.endDay.split("-")[2]}
-                                            / ${item.place.endDay.split("-")[1]}</div>
+                                                ${item.startDay.split("-")[2]} /
+                                                ${item.startDay.split("-")[1]} - Ngày
+                                                ${item.endDay.split("-")[2]}
+                                            / ${item.endDay.split("-")[1]}</div>
                                     </c:if>
                                 </c:if>
                                 <br>
-                                <b class="i1">$ ${item.place.price }</b> / đêm
+                                <b class="i1">$ <fmt:formatNumber type="number" groupingUsed="true" value="${item.place.price }" /></b>  / đêm
                                 <br>
                                 <br>
-                                <b class="i1">Tổng giá thuê: $ ${item.totalPrice }</b>
+                                <b class="i1">Tổng giá thuê:
+                                    $ <fmt:formatNumber type="number" groupingUsed="true" value="${item.totalPrice }" />
+                                </b>
                                 <br>
                                 <br>
                                 <b class="i1">Số người: ${item.people }</b>
@@ -275,7 +278,7 @@
                 <p>Bạn có chắc chắn muốn hủy phòng?</p>
             </div>
             <div class="modal-footer">
-                <a class="btn" id="confirmDeleteButton" href="">Hủy phòng</a>
+                <a class="btn" id="confirmDeleteButton">Hủy phòng</a>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
             </div>
         </div>
@@ -350,7 +353,7 @@
                     bookId: bookId,
                 },
                 timeout: 2000,
-                success: function (data) {
+                success: function () {
                     console.log("SUCCESS: ");
                     location.reload();
                     document.getElementById(item).style.display = "none";

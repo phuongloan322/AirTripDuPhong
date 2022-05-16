@@ -32,7 +32,7 @@
                 <div class="logo pull-left">
                     <div style="margin-top: 10px">
                         <a href="<c:url value="/index" />"><b class="head3" style="color: #ef4365; ">
-                            <i class="fas fa-cannabis" style="margin-right: 10px;margin-top: -5px"></i>AirTrip</b>
+                            <i class="fas fa-cannabis" style="margin-right: 10px;margin-top: 5px"></i>AirTrip</b>
                         </a>
                     </div>
                 </div>

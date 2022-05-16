@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,8 +38,8 @@
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg blur border-radius-lg top-0 z-index-3 shadow position-absolute mt-4 py-2 start-0 end-0 mx-4">
                 <div class="container-fluid ps-2 pe-0">
-                    <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="../pages/dashboard.html">
-                        <h4>AirTrip</h4>
+                    <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="/bookroom">
+                        <h4 style="color: #ef4365">AirTrip</h4>
                     </a>
                     <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon mt-2">
@@ -121,10 +122,14 @@
                                     <p><b>Tổng thanh toán:</b></p>
                                 </div>
                                 <div class="col-5 ml-2 text-left">
-                                    <p>$${bookPayment.totalPrice}</p>
-                                    <p>$5</p>
-                                    <p>$5</p>
-                                    <p><b>$${bookPayment.totalPrice + 10 }</b></p>
+                                    <p>
+                                        $ <fmt:formatNumber type="number" groupingUsed="true" value="${bookPayment.totalPrice }" />
+                                    </p>
+                                    <p>$ 5</p>
+                                    <p>$ 5</p>
+                                    <p><b>
+                                        $ <fmt:formatNumber type="number" groupingUsed="true" value="${bookPayment.totalPrice + 10 }" />
+                                    </b></p>
                                 </div>
                             </div>
                         </div>
@@ -150,7 +155,7 @@
                                             <label>Currency</label><br>
                                             <input type="text" id="currency" name="currency"  class="form-control" value="USD">
                                         </div>
-                                        <div class="input-group input-group-outline mb-3">
+                                        <div class="input-group input-group-outline mb-3" >
                                             <label>Intent</label><br>
                                             <input type="text" id="intent" name="intent" value="sale" class="form-control">
                                         </div>
@@ -161,7 +166,7 @@
 
                                         <input type="text" id="method" name="method" placeholder="Payment Method" value="paypal" hidden>
                                     </div>
-                                    <div class="text-center">
+                                    <div class="text-center" style="margin-top: 50px">
                                         <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Thanh toán</button>
                                     </div>
                                 </form>

@@ -61,6 +61,7 @@ public class MapController {
         if(category == null) category = "";
         Account accLogin = (Account) session.getAttribute("accLogin");
         int pageSize = placeBo.getAllPlace().size();
+//        int pageSize = 10;
         Page<Place> page = placeBo.findPlaceByPaginated(pageNo, search, category, filter, pageSize);
         List<Place> listPost = page.getContent();
 

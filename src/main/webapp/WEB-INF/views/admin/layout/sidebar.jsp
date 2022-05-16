@@ -9,7 +9,7 @@
         Tip 2: you can also add an image using data-image tag
     -->
       <div class="logo"><a href="/admin/index" class="simple-text logo-normal">
-          <h2>AirPay</h2>
+          <h2>AirTrip</h2>
         </a></div>
       <div class="sidebar-wrapper">
         <ul class="nav">
@@ -54,7 +54,7 @@
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="/admin/manager-review">
-              <i class="material-icons">library_books</i>
+              <i class="material-icons">check</i>
               <p>Quản lý Đánh giá</p>
             </a>
           </li>
@@ -66,12 +66,12 @@
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="/admin/manager-payment">
-              <i class="material-icons">library_books</i>
+              <i class="material-icons">payment</i>
               <p>Quản lý giao dịch</p>
             </a>
           </li><li class="nav-item ">
           <a class="nav-link" href="/admin/account-admin">
-            <i class="material-icons">library_books</i>
+            <i class="material-icons">account_box</i>
             <p>Tài khoản Admin</p>
           </a>
         </li>

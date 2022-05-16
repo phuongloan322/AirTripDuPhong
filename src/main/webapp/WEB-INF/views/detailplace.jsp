@@ -215,7 +215,7 @@
 							</div>
 							<div>
 								<c:forEach var="item" items="${reviewList }">
-									<div class="item-review">
+									<div class="item-review" style="margin-bottom: 30px">
 										<div class="d-avt">
 											<div class="avt">
 												<a href="/detail-account/${item.account.accountId}">
@@ -226,7 +226,9 @@
 												<a href="/detail-account/${item.account.accountId}">
 													<b>${item.account.name }</b>
 												</a>
-												<p>${item.dateSubmit }</p>
+												<p>
+														${item.dateSubmit.split(" ")[1].substring(0,5) } &nbsp;${item.dateSubmit.split(" ")[0].split("-")[2] }-${item.dateSubmit.split(" ")[0].split("-")[1] }-${item.dateSubmit.split(" ")[0].split("-")[0] }
+												</p>
 												<c:forEach begin="1" end="${item.rate }" varStatus="loop">
 													<i class="fas fa-star item-star"></i>
 												</c:forEach>
@@ -248,7 +250,9 @@
 																<a href="/detail-account/${itemReaction.account.accountId}">
 																	<b>${itemReaction.account.name }</b>
 																</a>
-																<p>${itemReaction.dateSubmit }</p>
+																<p>
+																		${itemReaction.dateSubmit.split(" ")[1].substring(0,5) } &nbsp;${itemReaction.dateSubmit.split(" ")[0].split("-")[2] }-${itemReaction.dateSubmit.split(" ")[0].split("-")[1] }-${itemReaction.dateSubmit.split(" ")[0].split("-")[0] }
+																</p>
 															</div>
 															<br>
 															<p class="">${itemReaction.details }</p>
@@ -346,9 +350,7 @@
 	  </div>
 	</div>
 
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
-			defer
-	></script>
+	<%@ include file="/WEB-INF/views/layouts/keyMapAPI.jsp" %>
 	<script src="/asset/map/detailPlace.js" ></script>
 	
 	<script>
