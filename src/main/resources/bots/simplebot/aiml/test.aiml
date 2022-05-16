@@ -40,6 +40,697 @@
       </template>
    </category>
 
+   <category>
+      <pattern>PHÒNG TỐI ĐA BAO NHIÊU NGƯỜI?</pattern>
+      <template>Có nhiều thiết kế phòng dành cho nhiều số lượng người khác nhau. Có phòng cho 2 - 6 người</template>
+   </category>
 
+    <category>
+      <pattern>* TỐI ĐA *</pattern>
+      <template>
+        <srai>PHÒNG TỐI ĐA BAO NHIÊU NGƯỜI?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* BAO NHIÊU NGƯỜI</pattern>
+      <template>
+        <srai>PHÒNG TỐI ĐA BAO NHIÊU NGƯỜI?</srai>
+      </template>
+    </category>
+
+   <category>
+      <pattern>THANH TOÁN CÓ AN TOÀN KHÔNG?</pattern>
+      <template>Bạn có thể hoàn toàn yên tâm về các hình thức thanh toán của chúng tôi. Tuy nhiên, giao dịch đã thực hiện sẽ không thể hoàn lại, do đó bạn cần kiểm tra kỹ thông tin trước khi xác nhận giao dịch.</template>
+   </category>
+
+    <category>
+      <pattern>THANH TOÁN</pattern>
+      <template>
+        <srai>THANH TOÁN CÓ AN TOÀN KHÔNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* AN TOÀN *</pattern>
+      <template>
+        <srai>THANH TOÁN CÓ AN TOÀN KHÔNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* THANH TOÁN</pattern>
+      <template>
+        <srai>THANH TOÁN CÓ AN TOÀN KHÔNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>THANH TOÁN *</pattern>
+      <template>
+        <srai>THANH TOÁN CÓ AN TOÀN KHÔNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* THANH TOÁN *</pattern>
+      <template>
+        <srai>THANH TOÁN CÓ AN TOÀN KHÔNG?</srai>
+      </template>
+    </category>
+
+   <category>
+      <pattern>TRANG WEB CÓ BẢO MẬT KHÔNG?</pattern>
+      <template>Trang web bảo mật tuyệt đối. Chúng tôi có các chứng chỉ bảo mật an toàn dành cho trang web</template>
+   </category>
+
+    <category>
+      <pattern>* BẢO MẬT *</pattern>
+      <template>
+        <srai>TRANG WEB CÓ BẢO MẬT KHÔNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>BẢO MẬT</pattern>
+      <template>
+        <srai>TRANG WEB CÓ BẢO MẬT KHÔNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* BẢO MẬT</pattern>
+      <template>
+        <srai>TRANG WEB CÓ BẢO MẬT KHÔNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>BẢO MẬT *</pattern>
+      <template>
+        <srai>TRANG WEB CÓ BẢO MẬT KHÔNG?</srai>
+      </template>
+    </category>
+
+   <category>
+      <pattern>CHỦ NHÀ CÓ HỖ TRỢ DỌN VỆ SINH KHÔNG?</pattern>
+      <template>Có hỗ trợ nhưng bạn nên sắp xếp gọn gàng để phù hợp với nếp sống lành mạnh</template>
+   </category>
+
+    <category>
+      <pattern>VỆ SINH *</pattern>
+      <template>
+        <srai>CHỦ NHÀ CÓ HỖ TRỢ DỌN VỆ SINH KHÔNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern> * VỆ SINH</pattern>
+      <template>
+        <srai>CHỦ NHÀ CÓ HỖ TRỢ DỌN VỆ SINH KHÔNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* VỆ SINH *</pattern>
+      <template>
+        <srai>CHỦ NHÀ CÓ HỖ TRỢ DỌN VỆ SINH KHÔNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>VỆ SINH</pattern>
+      <template>
+        <srai>CHỦ NHÀ CÓ HỖ TRỢ DỌN VỆ SINH KHÔNG?</srai>
+      </template>
+    </category>
+
+   <category>
+      <pattern>TẠI SAO CREDIT CỦA TÔI KHÔNG ĐƯỢC TRỪ VÀO THANH TOÁN?</pattern>
+      <template>Với lần đầu đặt phòng bạn phải đặt trên 75$ mới được trừ credit. Các lần sau mà có đặt phòng với số tiền bao nhiêu thì credit thì vẫn được trừ bình thường.</template>
+   </category>
+
+    <category>
+      <pattern>* CREDIT *</pattern>
+      <template>
+        <srai>TẠI SAO CREDIT CỦA TÔI KHÔNG ĐƯỢC TRỪ VÀO THANH TOÁN?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>CREDIT</pattern>
+      <template>
+        <srai>TẠI SAO CREDIT CỦA TÔI KHÔNG ĐƯỢC TRỪ VÀO THANH TOÁN?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>CREDIT *</pattern>
+      <template>
+        <srai>TẠI SAO CREDIT CỦA TÔI KHÔNG ĐƯỢC TRỪ VÀO THANH TOÁN?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* CREDIT * THANH TOÁN</pattern>
+      <template>
+        <srai>TẠI SAO CREDIT CỦA TÔI KHÔNG ĐƯỢC TRỪ VÀO THANH TOÁN?</srai>
+      </template>
+    </category>
+
+   <category>
+      <pattern>TÔI CÓ ĐƯỢC ĐẶT PHÒNG CHO NGƯỜI KHÁC?</pattern>
+      <template>Trong quy định của chúng tôi là không, nhưng bạn cũng vẫn có thể đặt được và lúc đặt xong bạn bỏ email của người đi kèm vào bước cuối để được nhận thông tin booking.</template>
+   </category>
+
+    <category>
+      <pattern>ĐẶT PHÒNG *</pattern>
+      <template>
+        <srai>TÔI CÓ ĐƯỢC ĐẶT PHÒNG CHO NGƯỜI KHÁC?</srai>
+      </template>
+    </category>
+
+
+    <category>
+      <pattern>* ĐẶT PHÒNG * NGƯỜI KHÁC</pattern>
+      <template>
+        <srai>TÔI CÓ ĐƯỢC ĐẶT PHÒNG CHO NGƯỜI KHÁC?</srai>
+      </template>
+    </category>
+
+   <category>
+         <pattern>* ĐẶT PHÒNG * NGƯỜI KHÁC *</pattern>
+         <template>
+           <srai>TÔI CÓ ĐƯỢC ĐẶT PHÒNG CHO NGƯỜI KHÁC?</srai>
+         </template>
+       </category>
+
+   <category>
+      <pattern>TẠI SAO YÊU CẦU TÔI CHỤP HỘ CHIẾU/CCCD MỚI CHO ĐẶT PHÒNG?</pattern>
+      <template>Một số host kỹ tính họ đặt chế độ phải xác minh hộ chiếu mới cho đặt phòng, nên hệ thống tự động của chúng tôi sẽ yêu cầu bạn chụp hình hộ chiếu để up lên hệ thống. Bạn cứ yên tâm thông tin của bạn sẽ được bảo mật hoàn toàn.</template>
+   </category>
+
+    <category>
+      <pattern>CCCD</pattern>
+      <template>
+        <srai>TẠI SAO YÊU CẦU TÔI CHỤP HỘ CHIẾU/CCCD MỚI CHO ĐẶT PHÒNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>HỘ CHIẾU</pattern>
+      <template>
+        <srai>TẠI SAO YÊU CẦU TÔI CHỤP HỘ CHIẾU/CCCD MỚI CHO ĐẶT PHÒNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* CCCD *</pattern>
+      <template>
+        <srai>TẠI SAO YÊU CẦU TÔI CHỤP HỘ CHIẾU/CCCD MỚI CHO ĐẶT PHÒNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* HỘ CHIẾU *</pattern>
+      <template>
+        <srai>TẠI SAO YÊU CẦU TÔI CHỤP HỘ CHIẾU/CCCD MỚI CHO ĐẶT PHÒNG?</srai>
+      </template>
+    </category>
+
+   <category>
+      <pattern>CÓ ĐƯỢC GIẢM GIÁ NẾU ĐI THEO ĐOÀN KHÔNG?</pattern>
+      <template>Chúng tôi có áp dụng giảm giá tùy theo thời gian, yêu cầu, sự thích ứng cần thiết tại thời điểm đó</template>
+   </category>
+
+    <category>
+      <pattern>GIẢM GIÁ</pattern>
+      <template>
+        <srai>CÓ ĐƯỢC GIẢM GIÁ NẾU ĐI THEO ĐOÀN KHÔNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* GIẢM GIÁ</pattern>
+      <template>
+        <srai>CÓ ĐƯỢC GIẢM GIÁ NẾU ĐI THEO ĐOÀN KHÔNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>GIẢM GIÁ *</pattern>
+      <template>
+        <srai>CÓ ĐƯỢC GIẢM GIÁ NẾU ĐI THEO ĐOÀN KHÔNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* GIẢM GIÁ *</pattern>
+      <template>
+        <srai>CÓ ĐƯỢC GIẢM GIÁ NẾU ĐI THEO ĐOÀN KHÔNG?</srai>
+      </template>
+    </category>
+
+   <category>
+      <pattern>CÓ CHO ĐEM THÚ NUÔI VÀO KHÔNG?</pattern>
+      <template>Chúng tôi có thể cho bạn đem thú nuôi vào nếu bạn đảm bảo được sự an toàn cũng như vệ sinh cho nó </template>
+   </category>
+
+    <category>
+      <pattern>VẬT NUÔI</pattern>
+      <template>
+        <srai>CÓ CHO ĐEM THÚ NUÔI VÀO KHÔNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>VẬT NUÔI *</pattern>
+      <template>
+        <srai>CÓ CHO ĐEM THÚ NUÔI VÀO KHÔNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* VẬT NUÔI</pattern>
+      <template>
+        <srai>CÓ CHO ĐEM THÚ NUÔI VÀO KHÔNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* VẬT NUÔI *</pattern>
+      <template>
+        <srai>CÓ CHO ĐEM THÚ NUÔI VÀO KHÔNG?</srai>
+      </template>
+    </category>
+
+   <category>
+      <pattern>CÁCH ĐẶT NHÀ/PHÒNG CHO THUÊ?</pattern>
+      <template>"1. Vào mục cho thuê rồi nhấp vào Kiểm tra tình trạng còn phòng
+                2. Chọn ngày, số lượng khách, sau đó nhấp vào Đặt phòng
+                3. Nếu nút Xác nhận và thanh toán được hiển thị, bạn có thể đặt ngay
+                4. Nếu nút Yêu cầu đặt phòng được hiển thị, bạn có thể thêm thông tin thanh toán, xem lại các chính sách và điều khoản, rồi nhắn tin cho Chủ nhà trước khi gửi"</template>
+   </category>
+
+
+    <category>
+      <pattern>CÁCH ĐẶT PHÒNG</pattern>
+      <template>
+        <srai>CÁCH ĐẶT NHÀ/PHÒNG CHO THUÊ?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>CÁCH ĐẶT PHÒNG *</pattern>
+      <template>
+        <srai>CÁCH ĐẶT NHÀ/PHÒNG CHO THUÊ?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* ĐẶT PHÒNG</pattern>
+      <template>
+        <srai>CÁCH ĐẶT NHÀ/PHÒNG CHO THUÊ?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* ĐẶT PHÒNG *</pattern>
+      <template>
+        <srai>CÁCH ĐẶT NHÀ/PHÒNG CHO THUÊ?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>ĐẶT PHÒNG</pattern>
+      <template>
+        <srai>CÁCH ĐẶT NHÀ/PHÒNG CHO THUÊ?</srai>
+      </template>
+    </category>
+
+   <category>
+      <pattern>LÀM THẾ NÀO ĐỂ BIẾT NHÀ/PHÒNG CHO THUÊ CÒN TRỐNG?</pattern>
+      <template>Miễn là bạn nhập điểm đến, ngày du lịch và số lượng khách khi tìm kiếm trên trang web của chúng tôi, tất cả các danh sách xuất hiện sẽ có sẵn. Bạn cũng có thể xem xét nhắn tin cho chủ nhà để xác nhận còn chỗ trống hay không.</template>
+   </category>
+
+    <category>
+      <pattern>* TRỐNG</pattern>
+      <template>
+        <srai>LÀM THẾ NÀO ĐỂ BIẾT NHÀ/PHÒNG CHO THUÊ CÒN TRỐNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* TRỐNG *</pattern>
+      <template>
+        <srai>LÀM THẾ NÀO ĐỂ BIẾT NHÀ/PHÒNG CHO THUÊ CÒN TRỐNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>TRỐNG</pattern>
+      <template>
+        <srai>LÀM THẾ NÀO ĐỂ BIẾT NHÀ/PHÒNG CHO THUÊ CÒN TRỐNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>TRỐNG *</pattern>
+      <template>
+        <srai>LÀM THẾ NÀO ĐỂ BIẾT NHÀ/PHÒNG CHO THUÊ CÒN TRỐNG?</srai>
+      </template>
+    </category>
+
+   <category>
+      <pattern>LÀM THẾ NÀO ĐỂ HỦY ĐẶT PHÒNG?</pattern>
+      <template>1.Vào mục Chuyến đi và chọn chuyến đi mà bạn muốn hủy
+                2.Nhấp vào Hiển thị thêm kế hoạch chuyến đi, sau đó nhấp vào Hiển thị thông tin chi tiết
+                3.Nhấp vào Thay đổi hoặc hủy
+                4.Nhấp vào Hủy đặt phòng/đặt chỗ</template>
+   </category>
+
+    <category>
+      <pattern>HUỶ PHÒNG</pattern>
+      <template>
+        <srai>LÀM THẾ NÀO ĐỂ HỦY ĐẶT PHÒNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>HUỶ PHÒNG *</pattern>
+      <template>
+        <srai>LÀM THẾ NÀO ĐỂ HỦY ĐẶT PHÒNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* HUỶ PHÒNG</pattern>
+      <template>
+        <srai>LÀM THẾ NÀO ĐỂ HỦY ĐẶT PHÒNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* HUỶ PHÒNG *</pattern>
+      <template>
+        <srai>LÀM THẾ NÀO ĐỂ HỦY ĐẶT PHÒNG?</srai>
+      </template>
+    </category>
+
+   <category>
+      <pattern>LÀM THẾ NÀO ĐỂ THAY ĐỔI THÔNG TIN ĐẶT PHÒNG?</pattern>
+      <template>Dù là thay đổi số ngày bạn ở lại, số khách hoặc bất kì thứ gì khác, bạn có thể gửi đơn yêu cầu cho chủ nhà để được xác nhận </template>
+   </category>
+
+    <category>
+      <pattern>* THAY ĐỔI * ĐẶT PHÒNG</pattern>
+      <template>
+        <srai>LÀM THẾ NÀO ĐỂ THAY ĐỔI THÔNG TIN ĐẶT PHÒNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>THAY ĐỔI * ĐẶT PHÒNG *</pattern>
+      <template>
+        <srai>LÀM THẾ NÀO ĐỂ THAY ĐỔI THÔNG TIN ĐẶT PHÒNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>THAY ĐỔI ĐẶT PHÒNG</pattern>
+      <template>
+        <srai>LÀM THẾ NÀO ĐỂ THAY ĐỔI THÔNG TIN ĐẶT PHÒNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>THAY ĐỔI * ĐẶT PHÒNG</pattern>
+      <template>
+        <srai>LÀM THẾ NÀO ĐỂ THAY ĐỔI THÔNG TIN ĐẶT PHÒNG?</srai>
+      </template>
+    </category>
+
+   <category>
+      <pattern>CÓ BAO NHIÊU LOẠI CHỖ Ở?</pattern>
+      <template>Chủ nhà trên trang web cung cấp nhiều không gian khác nhau, từ các phòng chung đến các loại phòng riêng. Có bốn loại: toàn bộ không gian, phòng riêng, phòng khách sạn và phòng chung.</template>
+   </category>
+
+    <category>
+      <pattern>* LOẠI CHỖ Ở *</pattern>
+      <template>
+        <srai>CÓ BAO NHIÊU LOẠI CHỖ Ở?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* LOẠI CHỖ Ở</pattern>
+      <template>
+        <srai>CÓ BAO NHIÊU LOẠI CHỖ Ở?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>LOẠI CHỖ Ở *</pattern>
+      <template>
+        <srai>CÓ BAO NHIÊU LOẠI CHỖ Ở?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>LOẠI CHỖ Ở</pattern>
+      <template>
+        <srai>CÓ BAO NHIÊU LOẠI CHỖ Ở?</srai>
+      </template>
+    </category>
+
+   <category>
+      <pattern>LÀM THẾ NÀO ĐỂ LƯU TRẢI NGHIỆM HOẶC CHỖ Ở VÀO DANH SÁCH YÊU THÍCH?</pattern>
+      <template>Chúng tôi luôn giữ lại những thứ tuyệt vời bạn đã khám phá ra được trên trang web này. Chỉ cần đơn giản chọn hình trái tim tại những trải nghiệm hoặc nơi mà bạn ở lại để lưu lại những trải nghiệm của bạn. Bạn có thể xem lại danh sách yêu thích của bạn bất cứ lúc nào</template>
+   </category>
+
+    <category>
+      <pattern>* YÊU THÍCH *</pattern>
+      <template>
+        <srai>LÀM THẾ NÀO ĐỂ LƯU TRẢI NGHIỆM HOẶC CHỖ Ở VÀO DANH SÁCH YÊU THÍCH?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>YÊU THÍCH *</pattern>
+      <template>
+        <srai>LÀM THẾ NÀO ĐỂ LƯU TRẢI NGHIỆM HOẶC CHỖ Ở VÀO DANH SÁCH YÊU THÍCH?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* YÊU THÍCH</pattern>
+      <template>
+        <srai>LÀM THẾ NÀO ĐỂ LƯU TRẢI NGHIỆM HOẶC CHỖ Ở VÀO DANH SÁCH YÊU THÍCH?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>YÊU THÍCH</pattern>
+      <template>
+        <srai>LÀM THẾ NÀO ĐỂ LƯU TRẢI NGHIỆM HOẶC CHỖ Ở VÀO DANH SÁCH YÊU THÍCH?</srai>
+      </template>
+    </category>
+
+   <category>
+      <pattern>KHI ĐẶT PHÒNG TÔI CÓ CẦN KÝ QUỸ / ĐẶT CỌC KHÔNG?</pattern>
+      <template>Tất cả các xác nhận đặt phòng đảm bảo đều cần được đảm bảo (ký quỹ) bằng thẻ tín dụng hoặc (đặt cọc) bằng tiền mặt.</template>
+   </category>
+
+    <category>
+      <pattern>* ĐẶT CỌC *</pattern>
+      <template>
+        <srai>KHI ĐẶT PHÒNG TÔI CÓ CẦN KÝ QUỸ / ĐẶT CỌC KHÔNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>ĐẶT CỌC *</pattern>
+      <template>
+        <srai>KHI ĐẶT PHÒNG TÔI CÓ CẦN KÝ QUỸ / ĐẶT CỌC KHÔNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* ĐẶT CỌC</pattern>
+      <template>
+        <srai>KHI ĐẶT PHÒNG TÔI CÓ CẦN KÝ QUỸ / ĐẶT CỌC KHÔNG?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>ĐẶT CỌC</pattern>
+      <template>
+        <srai>KHI ĐẶT PHÒNG TÔI CÓ CẦN KÝ QUỸ / ĐẶT CỌC KHÔNG?</srai>
+      </template>
+    </category>
+   <category>
+      <pattern>NẾU CÓ THẮC MẮC VỀ PHÒNG Ở THÌ NHẮN TIN VỚI AI?</pattern>
+      <template>Bạn có thể trao đổi tin nhắn với chủ nhà</template>
+   </category>
+
+    <category>
+      <pattern>* THẮC MẮC *</pattern>
+      <template>
+        <srai>NẾU CÓ THẮC MẮC VỀ PHÒNG Ở THÌ NHẮN TIN VỚI AI?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>THẮC MẮC *</pattern>
+      <template>
+        <srai>NẾU CÓ THẮC MẮC VỀ PHÒNG Ở THÌ NHẮN TIN VỚI AI?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* THẮC MẮC</pattern>
+      <template>
+        <srai>NẾU CÓ THẮC MẮC VỀ PHÒNG Ở THÌ NHẮN TIN VỚI AI?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>THẮC MẮC</pattern>
+      <template>
+        <srai>NẾU CÓ THẮC MẮC VỀ PHÒNG Ở THÌ NHẮN TIN VỚI AI?</srai>
+      </template>
+    </category>
+
+   <category>
+      <pattern>CẦN LÀM GÌ NẾU BẠN MỚI THAM GIA?</pattern>
+      <template>Bạn có thể thể đi thẳng đến mục tìm kiếm. Tuy nhiên điều đầu tiên bạn nên làm là hoàn thành thông tin lý lịch của bạn. Điều này sẽ đưa đến những chủ nhà có tiềm năng có cơ hội để hiểu thêm về bạn trong khi đang xem xét lời yêu cầu. Chắc chắn rằng hãy xác nhận ID của bạn bao gồm cả ảnh cá nhân của bạn. Một số chủ nhà yêu cầu ảnh thật của bạn.</template>
+   </category>
+
+    <category>
+      <pattern>* MỚI THAM GIA *</pattern>
+      <template>
+        <srai>CẦN LÀM GÌ NẾU BẠN MỚI THAM GIA?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>MỚI THAM GIA *</pattern>
+      <template>
+        <srai>CẦN LÀM GÌ NẾU BẠN MỚI THAM GIA?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* MỚI THAM GIA</pattern>
+      <template>
+        <srai>CẦN LÀM GÌ NẾU BẠN MỚI THAM GIA?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>MỚI THAM GIA</pattern>
+      <template>
+        <srai>CẦN LÀM GÌ NẾU BẠN MỚI THAM GIA?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* NGƯỜI MỚI *</pattern>
+      <template>
+        <srai>CẦN LÀM GÌ NẾU BẠN MỚI THAM GIA?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>NGƯỜI MỚI *</pattern>
+      <template>
+        <srai>CẦN LÀM GÌ NẾU BẠN MỚI THAM GIA?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* NGƯỜI MỚI</pattern>
+      <template>
+        <srai>CẦN LÀM GÌ NẾU BẠN MỚI THAM GIA?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>NGƯỜI MỚI</pattern>
+      <template>
+        <srai>CẦN LÀM GÌ NẾU BẠN MỚI THAM GIA?</srai>
+      </template>
+    </category>
+
+
+   <category>
+      <pattern>LÀM THẾ NÀO ĐỂ TÌM MỘT NƠI Ở?</pattern>
+      <template>Bạn có thể nhanh chóng thu hẹp tìm kiếm của mình bằng cách sử dụng ngày du lịch và bộ lọc để tìm một danh sách có sẵn với các tiện nghi bạn muốn. Bạn có thể đọc danh sách để biết thêm chi tiết và xác định chính xác chúng trên bản đồ để kiểm tra xem chúng có phù hợp với chuyến đi của bạn không. Để tìm kiếm một nơi để ở: 1.Nhập điểm đến của bạn, ngày du lịch và số lượng khách, sau đó nhấp vào Tìm kiếm. 2.Nếu bạn muốn, hãy sử dụng các bộ lọc (ví dụ: phạm vi giá) để thu hẹp các tùy chọn của bạn. Nhấp vào thêm bộ lọc để xem tất cả các bộ lọc có sẵn. 3.Cuộn qua danh sách hoặc sử dụng bản đồ để tìm danh sách ở vị trí bạn muốn. 4.Nhấp vào danh sách để mở nó. Để tìm hiểu thêm về nó, hãy đọc mô tả, kiểm tra các tiện nghi có sẵn, xem xét các quy tắc nhà và đọc các đánh giá mà các khách khác đã để lại cho chủ nhà. 5.Nếu bạn có bất kỳ câu hỏi, hãy gửi tin nhắn của chủ nhà. Hoặc, nếu bạn đã sẵn sàng để đặt phòng, hãy nhấp vào Thuê phòng và yêu cầu đặt </template>
+   </category>
+
+    <category>
+      <pattern>* TÌM *</pattern>
+      <template>
+        <srai>LÀM THẾ NÀO ĐỂ TÌM MỘT NƠI Ở?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* TÌM</pattern>
+      <template>
+        <srai>LÀM THẾ NÀO ĐỂ TÌM MỘT NƠI Ở?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>TÌM *</pattern>
+      <template>
+        <srai>LÀM THẾ NÀO ĐỂ TÌM MỘT NƠI Ở?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>TÌM</pattern>
+      <template>
+        <srai>LÀM THẾ NÀO ĐỂ TÌM MỘT NƠI Ở?</srai>
+      </template>
+    </category>
+
+   <category>
+      <pattern>LÀM THẾ NÀO ĐỂ ĐỔI LỊCH SANG NGÀY HOẶC THỜI GIAN KHÁC?</pattern>
+      <template>"1.Vào mục Chuyến đi rồi nhấp vào Trải nghiệm mà bạn muốn thay đổi
+                2.Nhấp vào Thay đổi hoặc hủy
+                3.Trong phần Thay đổi ngày hoặc thời gian, nhấp vào Tiếp theo
+                4.Tìm ngày hoặc thời gian mới rồi nhấp vào Chọn
+                5.Nhấp vào Xác nhận thay đổi"</template>
+   </category>
+
+    <category>
+      <pattern>* ĐỔI *</pattern>
+      <template>
+        <srai>LÀM THẾ NÀO ĐỂ ĐỔI LỊCH SANG NGÀY HOẶC THỜI GIAN KHÁC?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>ĐỔI LỊCH *</pattern>
+      <template>
+        <srai>LÀM THẾ NÀO ĐỂ ĐỔI LỊCH SANG NGÀY HOẶC THỜI GIAN KHÁC?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>* ĐỔI LỊCH</pattern>
+      <template>
+        <srai>LÀM THẾ NÀO ĐỂ ĐỔI LỊCH SANG NGÀY HOẶC THỜI GIAN KHÁC?</srai>
+      </template>
+    </category>
+
+    <category>
+      <pattern>ĐỔI LỊCH</pattern>
+      <template>
+        <srai>LÀM THẾ NÀO ĐỂ ĐỔI LỊCH SANG NGÀY HOẶC THỜI GIAN KHÁC?</srai>
+      </template>
+    </category>
 
 </aiml>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <%@ include file="/WEB-INF/views/host/head3.jsp" %>
@@ -118,7 +119,7 @@
                                         </c:if>
                                     </td>
                                     <td>
-                                        Tổng thuê: $${item.totalPrice }<br>
+                                        Tổng thuê: $ <fmt:formatNumber type="number" groupingUsed="true" value="${item.totalPrice }" /><br>
                                         Phí vệ sinh: $10<br>
                                         Phí dịch vụ: $10
                                     </td>

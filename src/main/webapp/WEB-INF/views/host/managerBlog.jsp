@@ -48,7 +48,7 @@
 <!-- About Start -->
 <div class="about wow fadeInUp" data-wow-delay="0.1s">
     <div class="container">
-        <h4><b><a href="/become-a-host/index"><i class="fas fa-angle-left"></i></a> Quản lý Blog</b></h4>
+        <h4><b style="font-size: 24px"><a href="/become-a-host/index"><i class="fas fa-angle-left"></i></a> Quản lý Blog</b></h4>
         <br>
 
         <div class="row">

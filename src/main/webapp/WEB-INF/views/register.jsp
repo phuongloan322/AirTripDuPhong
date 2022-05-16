@@ -81,8 +81,8 @@
 			<!-- Navbar -->
 			<nav class="navbar navbar-expand-lg blur border-radius-lg top-0 z-index-3 shadow position-absolute mt-4 py-2 start-0 end-0 mx-4">
 				<div class="container-fluid ps-2 pe-0">
-					<a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="../pages/dashboard.html">
-						<h4>AirTrip</h4>
+					<a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="/index">
+						<h4 style="color: #ef4365">AirTrip</h4>
 					</a>
 					<button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon mt-2">
@@ -166,20 +166,20 @@
 									<div class="form-check form-check-info text-start ps-0">
 										<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
 										<label class="form-check-label" for="flexCheckDefault">
-											I agree the <a href="javascript:;" class="text-dark font-weight-bolder">Terms and Conditions</a>
+											Tôi đồng ý với các <a href="javascript:;" class="text-dark font-weight-bolder">Điều khoản và Điều kiện</a>
 										</label>
 									</div>
 									<p class="text-danger">${error}</p>
 									<div class="g-recaptcha" data-sitekey="6LeWa5kdAAAAALGbpJ11WCEUv2LhWmDaSID9QmaX"></div>
 									<div class="text-center">
-										<button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Sign Up</button>
+										<button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">ĐĂNG KÝ</button>
 									</div>
 								</form>
 							</div>
 							<div class="card-footer text-center pt-0 px-lg-2 px-1">
 								<p class="mb-2 text-sm mx-auto">
-									Already have an account?
-									<a href="/login" class="text-primary text-gradient font-weight-bold">Sign in</a>
+									Đã có tài khoản?
+									<a href="/login" class="text-primary text-gradient font-weight-bold">Đăng nhập</a>
 								</p>
 							</div>
 						</div>

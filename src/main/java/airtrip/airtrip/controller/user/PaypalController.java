@@ -54,7 +54,7 @@ public class PaypalController {
 		
 			e.printStackTrace();
 		}
-		return "redirect:/payment";
+		return "redirect:/bookroom/isAccept";
 	}
 	
 	 @GetMapping(value = CANCEL_URL)
@@ -93,7 +93,7 @@ public class PaypalController {
 	        } catch (PayPalRESTException e) {
 	         System.out.println(e.getMessage());
 	        }
-	        return "redirect:/payment";
+	        return "redirect:/bookroom/isAccept";
 	    }
 
 }

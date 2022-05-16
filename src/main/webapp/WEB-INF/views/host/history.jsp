@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <%@ include file="/WEB-INF/views/host/head3.jsp" %>
@@ -62,7 +63,7 @@
                     <option value="2">tháng 2</option>
                     <option value="3">tháng 3</option>
                     <option value="4">tháng 4</option>
-                    <option value="5">tháng 5</option>
+                    <option value="5" selected>tháng 5</option>
                     <option value="6">tháng 6</option>
                     <option value="7">tháng 7</option>
                     <option value="8">tháng 8</option>
@@ -88,6 +89,9 @@
                     <option value="2011">2011</option>
                     <option value="2010">2010</option>
                 </select>
+            </div>
+            <div class="col float-lg-right">
+                <a href="" class="btn" id="exportCSV" style="float: right; margin-right: 50px;background-color: #1a2035; color:#fff">Xuất ra CSV</a>
             </div>
         </div>
         <br>
@@ -167,8 +171,8 @@
 
 <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
-<div class="modal" id="paymentModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document" style="width: 500px">
+<div class="modal" id="paymentModal" tabindex="-1" role="dialog" >
+    <div class="modal-dialog" role="document"  style="min-width: 600px !important;">
         <div class="modal-content">
             <div class="modal-header">
                 <p class="modal-title"><b style="font-size: 17px">Lịch sử thanh toán</b></p>
@@ -385,6 +389,26 @@
 		});
 		$('#paymentModal').modal();
 	});
+
+    $(document).ready(function() {
+
+        jQuery('#exportCSV').click(function(evt) {
+            evt.preventDefault();
+            var month1 = document.getElementById('month1').value;
+            var year1 = document.getElementById('year1').value;
+            var month2 = document.getElementById('month2').value;
+            var year2 = document.getElementById('year2').value;
+
+            console.log(month1)
+            console.log(year1)
+            console.log(month2)
+            console.log(year2)
+
+            window.location.href = "/become-a-host/history/export/excel?month1="+month1+"&year1="+year1+"&month2="+month2+"&year2="+year2;
+            //
+
+        });
+    });
 </script>
 <%@ include file="/WEB-INF/views/layouts/footer.jsp" %>
 <%@ include file="/WEB-INF/views/host/libfooter.jsp" %>

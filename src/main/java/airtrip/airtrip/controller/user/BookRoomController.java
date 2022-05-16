@@ -34,6 +34,8 @@ public class BookRoomController {
             Account accLogin = (Account) session.getAttribute("accLogin");
             if (accLogin == null)
                 return "redirect:/login";
+            System.out.println(request.getParameter("startDay"));
+            System.out.println(request.getParameter("endDay"));
             String startDay[] = request.getParameter("startDay").split("[-]");
             String startday = startDay[0] + "-" + startDay[1] + "-" + startDay[2];
 
@@ -77,6 +79,8 @@ public class BookRoomController {
         try {
             Place placebean = placeService.findById(placeId);
 
+            System.out.println(startDay);
+            System.out.println(endDay);
             String startDayitem[] = startDay.split("[-]");
             String startday = startDayitem[0] + "-" + startDayitem[1] + "-" + startDayitem[2];
 
@@ -212,7 +216,7 @@ public class BookRoomController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return new ResponseEntity<Object>(HttpStatus.OK);
+        return new ResponseEntity<Object>(HttpStatus.BAD_REQUEST);
     }
 
 }

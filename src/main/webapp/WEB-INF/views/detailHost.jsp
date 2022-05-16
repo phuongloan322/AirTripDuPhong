@@ -45,7 +45,7 @@
                     <c:choose>
                         <c:when test="${accLogin.image != null }">
                             <img width="200px" height="200px" class="anhdaidien" alt=""
-                                 src="<c:url value="/asset/images/${accLogin.image }" />">
+                                 src="<c:url value="/asset/images/${account.image }" />">
                         </c:when>
                         <c:otherwise>
                             <img width="200px" height="200px" class="anhdaidien" alt=""

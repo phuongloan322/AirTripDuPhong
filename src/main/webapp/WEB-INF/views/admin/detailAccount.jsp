@@ -94,7 +94,7 @@
                                     ${account.name}
                             </p>
                             <c:if test="${account.isIdentity == true}">
-                                <p style="font-weight: 300; font-size: 18px">Chưa xác nhận danh tính
+                                <p style="font-weight: 300; font-size: 18px">Đã xác nhận danh tính
                                     <i class="fas fa-check"></i></p>
                             </c:if>
                             <c:if test="${account.isIdentity == false}">
@@ -113,7 +113,7 @@
                     </div>
                 </div>
                 <div class="col-4">
-                    <img src="/asset/images/${account.image}" width="200px" height="200px" style="border-radius: 50%">
+                    <img src="/asset/images/${account.image}" width="200px" height="200px" style="border-radius: 50%; border: 1px solid #909090">
                 </div>
             </div>
             <hr>
@@ -188,7 +188,7 @@
             </c:if>
             <br><br><br>
             <hr>
-            <h3><b><i class="fas fa-check" style="margin-right: 10px"></i>Thông tin đặt phòng</b></h3><br>
+            <h3><b><i class="fas fa-check" style="margin-right: 10px"></i>Thông tin đặt phòng (${bookroomList.size()})</b></h3><br>
             <div class="card-body">
                 <div class="table-responsive">
                     <c:choose>

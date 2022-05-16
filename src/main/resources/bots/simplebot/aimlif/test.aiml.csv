@@ -1,0 +1,108 @@
+0,HI,*,*,Welcome to ACLEDA ToanChet#Comma How can I help you?,test.aiml
+0,THIS IS *,*,*,Hello <star/> !!#Newline		 How can I help you ?,test.aiml
+0,MY NAME IS *,*,*,Hello <star/> !!#Newline		 How can I help you ?,test.aiml
+0,I AM *,*,*,Hello <star/> !!#Newline		 How can I help you ?,test.aiml
+0,*,HI, MAY I KNOW YOUR GOOD NAME?,*,Hello <star/> !!#Newline		 How can I help you ?,test.aiml
+0,PHÒNG TỐI ĐA BAO NHIÊU NGƯỜI?,*,*,Có nhiều thiết kế phòng dành cho nhiều số lượng người khác nhau. Có phòng cho 2 - 6 người,test.aiml
+0,* TỐI ĐA *,*,*,<srai>PHÒNG TỐI ĐA BAO NHIÊU NGƯỜI?</srai>,test.aiml
+0,* BAO NHIÊU NGƯỜI,*,*,<srai>PHÒNG TỐI ĐA BAO NHIÊU NGƯỜI?</srai>,test.aiml
+0,THANH TOÁN CÓ AN TOÀN KHÔNG?,*,*,Bạn có thể hoàn toàn yên tâm về các hình thức thanh toán của chúng tôi. Tuy nhiên#Comma giao dịch đã thực hiện sẽ không thể hoàn lại#Comma do đó bạn cần kiểm tra kỹ thông tin trước khi xác nhận giao dịch.,test.aiml
+0,THANH TOÁN,*,*,<srai>THANH TOÁN CÓ AN TOÀN KHÔNG?</srai>,test.aiml
+0,* AN TOÀN *,*,*,<srai>THANH TOÁN CÓ AN TOÀN KHÔNG?</srai>,test.aiml
+0,* THANH TOÁN,*,*,<srai>THANH TOÁN CÓ AN TOÀN KHÔNG?</srai>,test.aiml
+0,THANH TOÁN *,*,*,<srai>THANH TOÁN CÓ AN TOÀN KHÔNG?</srai>,test.aiml
+0,* THANH TOÁN *,*,*,<srai>THANH TOÁN CÓ AN TOÀN KHÔNG?</srai>,test.aiml
+0,TRANG WEB CÓ BẢO MẬT KHÔNG?,*,*,Trang web bảo mật tuyệt đối. Chúng tôi có các chứng chỉ bảo mật an toàn dành cho trang web,test.aiml
+0,* BẢO MẬT *,*,*,<srai>TRANG WEB CÓ BẢO MẬT KHÔNG?</srai>,test.aiml
+0,BẢO MẬT,*,*,<srai>TRANG WEB CÓ BẢO MẬT KHÔNG?</srai>,test.aiml
+0,* BẢO MẬT,*,*,<srai>TRANG WEB CÓ BẢO MẬT KHÔNG?</srai>,test.aiml
+0,BẢO MẬT *,*,*,<srai>TRANG WEB CÓ BẢO MẬT KHÔNG?</srai>,test.aiml
+0,CHỦ NHÀ CÓ HỖ TRỢ DỌN VỆ SINH KHÔNG?,*,*,Có hỗ trợ nhưng bạn nên sắp xếp gọn gàng để phù hợp với nếp sống lành mạnh,test.aiml
+0,VỆ SINH *,*,*,<srai>CHỦ NHÀ CÓ HỖ TRỢ DỌN VỆ SINH KHÔNG?</srai>,test.aiml
+0,* VỆ SINH,*,*,<srai>CHỦ NHÀ CÓ HỖ TRỢ DỌN VỆ SINH KHÔNG?</srai>,test.aiml
+0,* VỆ SINH *,*,*,<srai>CHỦ NHÀ CÓ HỖ TRỢ DỌN VỆ SINH KHÔNG?</srai>,test.aiml
+0,VỆ SINH,*,*,<srai>CHỦ NHÀ CÓ HỖ TRỢ DỌN VỆ SINH KHÔNG?</srai>,test.aiml
+0,TẠI SAO CREDIT CỦA TÔI KHÔNG ĐƯỢC TRỪ VÀO THANH TOÁN?,*,*,Với lần đầu đặt phòng bạn phải đặt trên 75$ mới được trừ credit. Các lần sau mà có đặt phòng với số tiền bao nhiêu thì credit thì vẫn được trừ bình thường.,test.aiml
+0,* CREDIT *,*,*,<srai>TẠI SAO CREDIT CỦA TÔI KHÔNG ĐƯỢC TRỪ VÀO THANH TOÁN?</srai>,test.aiml
+0,CREDIT,*,*,<srai>TẠI SAO CREDIT CỦA TÔI KHÔNG ĐƯỢC TRỪ VÀO THANH TOÁN?</srai>,test.aiml
+0,CREDIT *,*,*,<srai>TẠI SAO CREDIT CỦA TÔI KHÔNG ĐƯỢC TRỪ VÀO THANH TOÁN?</srai>,test.aiml
+0,* CREDIT * THANH TOÁN,*,*,<srai>TẠI SAO CREDIT CỦA TÔI KHÔNG ĐƯỢC TRỪ VÀO THANH TOÁN?</srai>,test.aiml
+0,TÔI CÓ ĐƯỢC ĐẶT PHÒNG CHO NGƯỜI KHÁC?,*,*,Trong quy định của chúng tôi là không#Comma nhưng bạn cũng vẫn có thể đặt được và lúc đặt xong bạn bỏ email của người đi kèm vào bước cuối để được nhận thông tin booking.,test.aiml
+0,ĐẶT PHÒNG *,*,*,<srai>TÔI CÓ ĐƯỢC ĐẶT PHÒNG CHO NGƯỜI KHÁC?</srai>,test.aiml
+0,* ĐẶT PHÒNG * NGƯỜI KHÁC,*,*,<srai>TÔI CÓ ĐƯỢC ĐẶT PHÒNG CHO NGƯỜI KHÁC?</srai>,test.aiml
+0,* ĐẶT PHÒNG * NGƯỜI KHÁC *,*,*,<srai>TÔI CÓ ĐƯỢC ĐẶT PHÒNG CHO NGƯỜI KHÁC?</srai>,test.aiml
+0,TẠI SAO YÊU CẦU TÔI CHỤP HỘ CHIẾU/CCCD MỚI CHO ĐẶT PHÒNG?,*,*,Một số host kỹ tính họ đặt chế độ phải xác minh hộ chiếu mới cho đặt phòng#Comma nên hệ thống tự động của chúng tôi sẽ yêu cầu bạn chụp hình hộ chiếu để up lên hệ thống. Bạn cứ yên tâm thông tin của bạn sẽ được bảo mật hoàn toàn.,test.aiml
+0,CCCD,*,*,<srai>TẠI SAO YÊU CẦU TÔI CHỤP HỘ CHIẾU/CCCD MỚI CHO ĐẶT PHÒNG?</srai>,test.aiml
+0,HỘ CHIẾU,*,*,<srai>TẠI SAO YÊU CẦU TÔI CHỤP HỘ CHIẾU/CCCD MỚI CHO ĐẶT PHÒNG?</srai>,test.aiml
+0,* CCCD *,*,*,<srai>TẠI SAO YÊU CẦU TÔI CHỤP HỘ CHIẾU/CCCD MỚI CHO ĐẶT PHÒNG?</srai>,test.aiml
+0,* HỘ CHIẾU *,*,*,<srai>TẠI SAO YÊU CẦU TÔI CHỤP HỘ CHIẾU/CCCD MỚI CHO ĐẶT PHÒNG?</srai>,test.aiml
+0,CÓ ĐƯỢC GIẢM GIÁ NẾU ĐI THEO ĐOÀN KHÔNG?,*,*,Chúng tôi có áp dụng giảm giá tùy theo thời gian#Comma yêu cầu#Comma sự thích ứng cần thiết tại thời điểm đó,test.aiml
+0,GIẢM GIÁ,*,*,<srai>CÓ ĐƯỢC GIẢM GIÁ NẾU ĐI THEO ĐOÀN KHÔNG?</srai>,test.aiml
+0,* GIẢM GIÁ,*,*,<srai>CÓ ĐƯỢC GIẢM GIÁ NẾU ĐI THEO ĐOÀN KHÔNG?</srai>,test.aiml
+0,GIẢM GIÁ *,*,*,<srai>CÓ ĐƯỢC GIẢM GIÁ NẾU ĐI THEO ĐOÀN KHÔNG?</srai>,test.aiml
+0,* GIẢM GIÁ *,*,*,<srai>CÓ ĐƯỢC GIẢM GIÁ NẾU ĐI THEO ĐOÀN KHÔNG?</srai>,test.aiml
+0,CÓ CHO ĐEM THÚ NUÔI VÀO KHÔNG?,*,*,Chúng tôi có thể cho bạn đem thú nuôi vào nếu bạn đảm bảo được sự an toàn cũng như vệ sinh cho nó,test.aiml
+0,VẬT NUÔI,*,*,<srai>CÓ CHO ĐEM THÚ NUÔI VÀO KHÔNG?</srai>,test.aiml
+0,VẬT NUÔI *,*,*,<srai>CÓ CHO ĐEM THÚ NUÔI VÀO KHÔNG?</srai>,test.aiml
+0,* VẬT NUÔI,*,*,<srai>CÓ CHO ĐEM THÚ NUÔI VÀO KHÔNG?</srai>,test.aiml
+0,* VẬT NUÔI *,*,*,<srai>CÓ CHO ĐEM THÚ NUÔI VÀO KHÔNG?</srai>,test.aiml
+0,CÁCH ĐẶT NHÀ/PHÒNG CHO THUÊ?,*,*,1. Vào mục cho thuê rồi nhấp vào Kiểm tra tình trạng còn phòng#Newline                2. Chọn ngày#Comma số lượng khách#Comma sau đó nhấp vào Đặt phòng#Newline                3. Nếu nút Xác nhận và thanh toán được hiển thị#Comma bạn có thể đặt ngay#Newline                4. Nếu nút Yêu cầu đặt phòng được hiển thị#Comma bạn có thể thêm thông tin thanh toán#Comma xem lại các chính sách và điều khoản#Comma rồi nhắn tin cho Chủ nhà trước khi gửi,test.aiml
+0,CÁCH ĐẶT PHÒNG,*,*,<srai>CÁCH ĐẶT NHÀ/PHÒNG CHO THUÊ?</srai>,test.aiml
+0,CÁCH ĐẶT PHÒNG *,*,*,<srai>CÁCH ĐẶT NHÀ/PHÒNG CHO THUÊ?</srai>,test.aiml
+0,* ĐẶT PHÒNG,*,*,<srai>CÁCH ĐẶT NHÀ/PHÒNG CHO THUÊ?</srai>,test.aiml
+0,* ĐẶT PHÒNG *,*,*,<srai>CÁCH ĐẶT NHÀ/PHÒNG CHO THUÊ?</srai>,test.aiml
+0,ĐẶT PHÒNG,*,*,<srai>CÁCH ĐẶT NHÀ/PHÒNG CHO THUÊ?</srai>,test.aiml
+0,LÀM THẾ NÀO ĐỂ BIẾT NHÀ/PHÒNG CHO THUÊ CÒN TRỐNG?,*,*,Miễn là bạn nhập điểm đến#Comma ngày du lịch và số lượng khách khi tìm kiếm trên trang web của chúng tôi#Comma tất cả các danh sách xuất hiện sẽ có sẵn. Bạn cũng có thể xem xét nhắn tin cho chủ nhà để xác nhận còn chỗ trống hay không.,test.aiml
+0,* TRỐNG,*,*,<srai>LÀM THẾ NÀO ĐỂ BIẾT NHÀ/PHÒNG CHO THUÊ CÒN TRỐNG?</srai>,test.aiml
+0,* TRỐNG *,*,*,<srai>LÀM THẾ NÀO ĐỂ BIẾT NHÀ/PHÒNG CHO THUÊ CÒN TRỐNG?</srai>,test.aiml
+0,TRỐNG,*,*,<srai>LÀM THẾ NÀO ĐỂ BIẾT NHÀ/PHÒNG CHO THUÊ CÒN TRỐNG?</srai>,test.aiml
+0,TRỐNG *,*,*,<srai>LÀM THẾ NÀO ĐỂ BIẾT NHÀ/PHÒNG CHO THUÊ CÒN TRỐNG?</srai>,test.aiml
+0,LÀM THẾ NÀO ĐỂ HỦY ĐẶT PHÒNG?,*,*,1.Vào mục Chuyến đi và chọn chuyến đi mà bạn muốn hủy#Newline                2.Nhấp vào Hiển thị thêm kế hoạch chuyến đi#Comma sau đó nhấp vào Hiển thị thông tin chi tiết#Newline                3.Nhấp vào Thay đổi hoặc hủy#Newline                4.Nhấp vào Hủy đặt phòng/đặt chỗ,test.aiml
+0,HUỶ PHÒNG,*,*,<srai>LÀM THẾ NÀO ĐỂ HỦY ĐẶT PHÒNG?</srai>,test.aiml
+0,HUỶ PHÒNG *,*,*,<srai>LÀM THẾ NÀO ĐỂ HỦY ĐẶT PHÒNG?</srai>,test.aiml
+0,* HUỶ PHÒNG,*,*,<srai>LÀM THẾ NÀO ĐỂ HỦY ĐẶT PHÒNG?</srai>,test.aiml
+0,* HUỶ PHÒNG *,*,*,<srai>LÀM THẾ NÀO ĐỂ HỦY ĐẶT PHÒNG?</srai>,test.aiml
+0,LÀM THẾ NÀO ĐỂ THAY ĐỔI THÔNG TIN ĐẶT PHÒNG?,*,*,Dù là thay đổi số ngày bạn ở lại#Comma số khách hoặc bất kì thứ gì khác#Comma bạn có thể gửi đơn yêu cầu cho chủ nhà để được xác nhận,test.aiml
+0,* THAY ĐỔI * ĐẶT PHÒNG,*,*,<srai>LÀM THẾ NÀO ĐỂ THAY ĐỔI THÔNG TIN ĐẶT PHÒNG?</srai>,test.aiml
+0,THAY ĐỔI * ĐẶT PHÒNG *,*,*,<srai>LÀM THẾ NÀO ĐỂ THAY ĐỔI THÔNG TIN ĐẶT PHÒNG?</srai>,test.aiml
+0,THAY ĐỔI ĐẶT PHÒNG,*,*,<srai>LÀM THẾ NÀO ĐỂ THAY ĐỔI THÔNG TIN ĐẶT PHÒNG?</srai>,test.aiml
+0,THAY ĐỔI * ĐẶT PHÒNG,*,*,<srai>LÀM THẾ NÀO ĐỂ THAY ĐỔI THÔNG TIN ĐẶT PHÒNG?</srai>,test.aiml
+0,CÓ BAO NHIÊU LOẠI CHỖ Ở?,*,*,Chủ nhà trên trang web cung cấp nhiều không gian khác nhau#Comma từ các phòng chung đến các loại phòng riêng. Có bốn loại: toàn bộ không gian#Comma phòng riêng#Comma phòng khách sạn và phòng chung.,test.aiml
+0,* LOẠI CHỖ Ở *,*,*,<srai>CÓ BAO NHIÊU LOẠI CHỖ Ở?</srai>,test.aiml
+0,* LOẠI CHỖ Ở,*,*,<srai>CÓ BAO NHIÊU LOẠI CHỖ Ở?</srai>,test.aiml
+0,LOẠI CHỖ Ở *,*,*,<srai>CÓ BAO NHIÊU LOẠI CHỖ Ở?</srai>,test.aiml
+0,LOẠI CHỖ Ở,*,*,<srai>CÓ BAO NHIÊU LOẠI CHỖ Ở?</srai>,test.aiml
+0,LÀM THẾ NÀO ĐỂ LƯU TRẢI NGHIỆM HOẶC CHỖ Ở VÀO DANH SÁCH YÊU THÍCH?,*,*,Chúng tôi luôn giữ lại những thứ tuyệt vời bạn đã khám phá ra được trên trang web này. Chỉ cần đơn giản chọn hình trái tim tại những trải nghiệm hoặc nơi mà bạn ở lại để lưu lại những trải nghiệm của bạn. Bạn có thể xem lại danh sách yêu thích của bạn bất cứ lúc nào,test.aiml
+0,* YÊU THÍCH *,*,*,<srai>LÀM THẾ NÀO ĐỂ LƯU TRẢI NGHIỆM HOẶC CHỖ Ở VÀO DANH SÁCH YÊU THÍCH?</srai>,test.aiml
+0,YÊU THÍCH *,*,*,<srai>LÀM THẾ NÀO ĐỂ LƯU TRẢI NGHIỆM HOẶC CHỖ Ở VÀO DANH SÁCH YÊU THÍCH?</srai>,test.aiml
+0,* YÊU THÍCH,*,*,<srai>LÀM THẾ NÀO ĐỂ LƯU TRẢI NGHIỆM HOẶC CHỖ Ở VÀO DANH SÁCH YÊU THÍCH?</srai>,test.aiml
+0,YÊU THÍCH,*,*,<srai>LÀM THẾ NÀO ĐỂ LƯU TRẢI NGHIỆM HOẶC CHỖ Ở VÀO DANH SÁCH YÊU THÍCH?</srai>,test.aiml
+0,KHI ĐẶT PHÒNG TÔI CÓ CẦN KÝ QUỸ / ĐẶT CỌC KHÔNG?,*,*,Tất cả các xác nhận đặt phòng đảm bảo đều cần được đảm bảo (ký quỹ) bằng thẻ tín dụng hoặc (đặt cọc) bằng tiền mặt.,test.aiml
+0,* ĐẶT CỌC *,*,*,<srai>KHI ĐẶT PHÒNG TÔI CÓ CẦN KÝ QUỸ / ĐẶT CỌC KHÔNG?</srai>,test.aiml
+0,ĐẶT CỌC *,*,*,<srai>KHI ĐẶT PHÒNG TÔI CÓ CẦN KÝ QUỸ / ĐẶT CỌC KHÔNG?</srai>,test.aiml
+0,* ĐẶT CỌC,*,*,<srai>KHI ĐẶT PHÒNG TÔI CÓ CẦN KÝ QUỸ / ĐẶT CỌC KHÔNG?</srai>,test.aiml
+0,ĐẶT CỌC,*,*,<srai>KHI ĐẶT PHÒNG TÔI CÓ CẦN KÝ QUỸ / ĐẶT CỌC KHÔNG?</srai>,test.aiml
+0,NẾU CÓ THẮC MẮC VỀ PHÒNG Ở THÌ NHẮN TIN VỚI AI?,*,*,Bạn có thể trao đổi tin nhắn với chủ nhà,test.aiml
+0,* THẮC MẮC *,*,*,<srai>NẾU CÓ THẮC MẮC VỀ PHÒNG Ở THÌ NHẮN TIN VỚI AI?</srai>,test.aiml
+0,THẮC MẮC *,*,*,<srai>NẾU CÓ THẮC MẮC VỀ PHÒNG Ở THÌ NHẮN TIN VỚI AI?</srai>,test.aiml
+0,* THẮC MẮC,*,*,<srai>NẾU CÓ THẮC MẮC VỀ PHÒNG Ở THÌ NHẮN TIN VỚI AI?</srai>,test.aiml
+0,THẮC MẮC,*,*,<srai>NẾU CÓ THẮC MẮC VỀ PHÒNG Ở THÌ NHẮN TIN VỚI AI?</srai>,test.aiml
+0,CẦN LÀM GÌ NẾU BẠN MỚI THAM GIA?,*,*,Bạn có thể thể đi thẳng đến mục tìm kiếm. Tuy nhiên điều đầu tiên bạn nên làm là hoàn thành thông tin lý lịch của bạn. Điều này sẽ đưa đến những chủ nhà có tiềm năng có cơ hội để hiểu thêm về bạn trong khi đang xem xét lời yêu cầu. Chắc chắn rằng hãy xác nhận ID của bạn bao gồm cả ảnh cá nhân của bạn. Một số chủ nhà yêu cầu ảnh thật của bạn.,test.aiml
+0,* MỚI THAM GIA *,*,*,<srai>CẦN LÀM GÌ NẾU BẠN MỚI THAM GIA?</srai>,test.aiml
+0,MỚI THAM GIA *,*,*,<srai>CẦN LÀM GÌ NẾU BẠN MỚI THAM GIA?</srai>,test.aiml
+0,* MỚI THAM GIA,*,*,<srai>CẦN LÀM GÌ NẾU BẠN MỚI THAM GIA?</srai>,test.aiml
+0,MỚI THAM GIA,*,*,<srai>CẦN LÀM GÌ NẾU BẠN MỚI THAM GIA?</srai>,test.aiml
+0,* NGƯỜI MỚI *,*,*,<srai>CẦN LÀM GÌ NẾU BẠN MỚI THAM GIA?</srai>,test.aiml
+0,NGƯỜI MỚI *,*,*,<srai>CẦN LÀM GÌ NẾU BẠN MỚI THAM GIA?</srai>,test.aiml
+0,* NGƯỜI MỚI,*,*,<srai>CẦN LÀM GÌ NẾU BẠN MỚI THAM GIA?</srai>,test.aiml
+0,NGƯỜI MỚI,*,*,<srai>CẦN LÀM GÌ NẾU BẠN MỚI THAM GIA?</srai>,test.aiml
+0,LÀM THẾ NÀO ĐỂ TÌM MỘT NƠI Ở?,*,*,Bạn có thể nhanh chóng thu hẹp tìm kiếm của mình bằng cách sử dụng ngày du lịch và bộ lọc để tìm một danh sách có sẵn với các tiện nghi bạn muốn. Bạn có thể đọc danh sách để biết thêm chi tiết và xác định chính xác chúng trên bản đồ để kiểm tra xem chúng có phù hợp với chuyến đi của bạn không. Để tìm kiếm một nơi để ở: 1.Nhập điểm đến của bạn#Comma ngày du lịch và số lượng khách#Comma sau đó nhấp vào Tìm kiếm. 2.Nếu bạn muốn#Comma hãy sử dụng các bộ lọc (ví dụ: phạm vi giá) để thu hẹp các tùy chọn của bạn. Nhấp vào thêm bộ lọc để xem tất cả các bộ lọc có sẵn. 3.Cuộn qua danh sách hoặc sử dụng bản đồ để tìm danh sách ở vị trí bạn muốn. 4.Nhấp vào danh sách để mở nó. Để tìm hiểu thêm về nó#Comma hãy đọc mô tả#Comma kiểm tra các tiện nghi có sẵn#Comma xem xét các quy tắc nhà và đọc các đánh giá mà các khách khác đã để lại cho chủ nhà. 5.Nếu bạn có bất kỳ câu hỏi#Comma hãy gửi tin nhắn của chủ nhà. Hoặc#Comma nếu bạn đã sẵn sàng để đặt phòng#Comma hãy nhấp vào Thuê phòng và yêu cầu đặt,test.aiml
+0,* TÌM *,*,*,<srai>LÀM THẾ NÀO ĐỂ TÌM MỘT NƠI Ở?</srai>,test.aiml
+0,* TÌM,*,*,<srai>LÀM THẾ NÀO ĐỂ TÌM MỘT NƠI Ở?</srai>,test.aiml
+0,TÌM *,*,*,<srai>LÀM THẾ NÀO ĐỂ TÌM MỘT NƠI Ở?</srai>,test.aiml
+0,TÌM,*,*,<srai>LÀM THẾ NÀO ĐỂ TÌM MỘT NƠI Ở?</srai>,test.aiml
+0,LÀM THẾ NÀO ĐỂ ĐỔI LỊCH SANG NGÀY HOẶC THỜI GIAN KHÁC?,*,*,1.Vào mục Chuyến đi rồi nhấp vào Trải nghiệm mà bạn muốn thay đổi#Newline                2.Nhấp vào Thay đổi hoặc hủy#Newline                3.Trong phần Thay đổi ngày hoặc thời gian#Comma nhấp vào Tiếp theo#Newline                4.Tìm ngày hoặc thời gian mới rồi nhấp vào Chọn#Newline                5.Nhấp vào Xác nhận thay đổi,test.aiml
+0,* ĐỔI *,*,*,<srai>LÀM THẾ NÀO ĐỂ ĐỔI LỊCH SANG NGÀY HOẶC THỜI GIAN KHÁC?</srai>,test.aiml
+0,ĐỔI LỊCH *,*,*,<srai>LÀM THẾ NÀO ĐỂ ĐỔI LỊCH SANG NGÀY HOẶC THỜI GIAN KHÁC?</srai>,test.aiml
+0,* ĐỔI LỊCH,*,*,<srai>LÀM THẾ NÀO ĐỂ ĐỔI LỊCH SANG NGÀY HOẶC THỜI GIAN KHÁC?</srai>,test.aiml
+0,ĐỔI LỊCH,*,*,<srai>LÀM THẾ NÀO ĐỂ ĐỔI LỊCH SANG NGÀY HOẶC THỜI GIAN KHÁC?</srai>,test.aiml
